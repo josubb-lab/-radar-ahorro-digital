@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "seo",
+    "name": "SEO",
+    "intent": "mejorar trafico organico sin pagar suites caras",
+    "audience": "autonomos, nichos y pequenos negocios",
+    "keywords": ["herramientas seo baratas", "seo gratis", "alternativas semrush"]
+  },
+  {
+    "slug": "automatizacion",
+    "name": "Automatizacion",
+    "intent": "ahorrar horas conectando formularios, emails y hojas",
+    "audience": "equipos pequenos y negocios locales",
+    "keywords": ["automatizar leads", "zapier barato", "automatizacion no-code"]
+  },
+  {
+    "slug": "email-marketing",
+    "name": "Email marketing",
+    "intent": "captar y monetizar audiencia propia",
+    "audience": "creadores, afiliados y consultores",
+    "keywords": ["email marketing barato", "newsletter gratis", "brevo vs mailerlite"]
+  },
+  {
+    "slug": "ia-contenido",
+    "name": "IA y contenido",
+    "intent": "producir borradores y briefs mas rapido con revision humana",
+    "audience": "marketers, redactores y afiliados",
+    "keywords": ["ia para contenido", "herramientas ia baratas", "crear contenido seo"]
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Fuente RSS publica de ejemplo",
+    "enabled": false,
+    "type": "rss",
+    "url": "https://example.com/feed.xml",
+    "category": "automatizacion",
+    "tool": "make",
+    "note": "Sustituye por una fuente publica permitida. No uses fuentes con login, paywall o antibot."
+  }
+]

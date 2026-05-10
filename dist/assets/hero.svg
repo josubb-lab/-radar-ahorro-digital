@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Panel de herramientas digitales y métricas">
+  <rect width="1600" height="900" fill="#eef5f4"/>
+  <path d="M0 680h1600v220H0z" fill="#17212b"/>
+  <path d="M1120 120h260c54 0 98 44 98 98v390c0 54-44 98-98 98h-260c-54 0-98-44-98-98V218c0-54 44-98 98-98z" fill="#ffffff" opacity=".92"/>
+  <path d="M1110 205h290M1110 282h240M1110 359h270M1110 436h210" stroke="#d8e1e8" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="1372" cy="606" r="54" fill="#0d6b62"/>
+  <path d="M1350 607l18 18 36-46" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="720" y="250" width="250" height="330" rx="28" fill="#bf4a30" opacity=".94"/>
+  <path d="M760 510l52-118 64 78 50-145" fill="none" stroke="#fff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="980" y="620" width="390" height="44" rx="22" fill="#d7a326"/>
+  <rect x="1220" y="720" width="270" height="34" rx="17" fill="#fbfcf8" opacity=".7"/>
+  <circle cx="1530" cy="112" r="92" fill="#d7a326" opacity=".7"/>
+</svg>
