@@ -3,10 +3,23 @@
 ## Configuracion
 
 ```text
+Project name: ahorrosaas
 Framework preset: None
 Build command: npm run build
 Build output directory: dist
 Node version: 24
+```
+
+El primer deploy manual ya esta hecho con Wrangler:
+
+```text
+https://ahorrosaas.pages.dev
+```
+
+Para redeploy local:
+
+```bash
+npm run deploy:cloudflare
 ```
 
 ## Dominio

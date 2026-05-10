@@ -16,9 +16,19 @@ git push -u origin master
 
 ## Opcion B: Cloudflare Pages
 
-1. Sube el repo a GitHub.
-2. En Cloudflare Pages, conecta el repo.
-3. Configura:
+1. Proyecto creado:
+
+```text
+ahorrosaas
+```
+
+2. Deploy manual:
+
+```text
+https://ahorrosaas.pages.dev
+```
+
+3. Configura Git integration si quieres deploy automatico desde GitHub:
 
 ```text
 Build command: npm run build
