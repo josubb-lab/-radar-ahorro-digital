@@ -33,7 +33,7 @@ const pagePath = (slug) => `recursos/${slug}.html`;
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 const formatDate = (value) => new Intl.DateTimeFormat("es-ES", { day: "2-digit", month: "long", year: "numeric" }).format(new Date(value));
 
-function layout({ title, description, body, canonical = "", relative = "." }) {
+function layout({ title, description, body, canonical = "", relative = ".", robots = "index,follow,max-image-preview:large" }) {
   const assetPrefix = relative === "." ? "" : `${relative}/`;
   const canonicalTag = canonical ? `\n    <link rel="canonical" href="${esc(canonical)}">` : "";
   return `<!doctype html>
@@ -43,7 +43,7 @@ function layout({ title, description, body, canonical = "", relative = "." }) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow,max-image-preview:large">${canonicalTag}
+    <meta name="robots" content="${esc(robots)}">${canonicalTag}
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:type" content="website">
@@ -196,6 +196,84 @@ function homePage(tools, categories, offers) {
   </main>
   <script src="script.js"></script>`;
   return layout({ title: `${site.name} | Herramientas baratas para monetizar`, description: site.description, body });
+}
+
+function panelPage(tools, categories) {
+  const realLinks = tools.filter((tool) => !tool.affiliateUrl.includes("example.com")).length;
+  const placeholderLinks = tools.length - realLinks;
+  const rows = [...tools]
+    .sort((a, b) => {
+      const aPending = a.affiliateUrl.includes("example.com") ? 1 : 0;
+      const bPending = b.affiliateUrl.includes("example.com") ? 1 : 0;
+      return aPending - bPending || a.category.localeCompare(b.category) || b.score - a.score;
+    })
+    .map((tool) => {
+      const category = categories.find((item) => item.slug === tool.category);
+      const ready = !tool.affiliateUrl.includes("example.com");
+      return `<tr data-status="${ready ? "ready" : "pending"}" data-category="${esc(tool.category)}">
+        <td><strong>${esc(tool.name)}</strong><small>${esc(category?.name ?? tool.category)}</small></td>
+        <td><span class="status ${ready ? "ready" : "pending"}">${ready ? "Activo" : "Pendiente"}</span></td>
+        <td><code>/${esc(moneyPath(tool.slug))}</code></td>
+        <td><a href="${esc(moneyPath(tool.slug))}" target="_blank" rel="noopener">Probar /go</a></td>
+        <td><a href="${esc(tool.affiliateUrl)}" target="_blank" rel="noopener sponsored">Destino</a></td>
+        <td>${esc(tool.score)}/10</td>
+      </tr>`;
+    })
+    .join("");
+
+  const body = `<main>
+    <section class="page-hero panel-hero">
+      <p class="eyebrow">Panel operativo</p>
+      <h1>Seguimiento de enlaces afiliados</h1>
+      <p>Inventario rapido de rutas internas, destinos afiliados y enlaces pendientes. Las visitas reales a <code>/go/*</code> se revisan en Cloudflare Web Analytics.</p>
+    </section>
+    <section class="section panel-stats">
+      <article><span>${tools.length}</span><strong>Herramientas</strong></article>
+      <article><span>${realLinks}</span><strong>Enlaces activos</strong></article>
+      <article><span>${placeholderLinks}</span><strong>Pendientes</strong></article>
+      <article><span>${categories.length}</span><strong>Categorias</strong></article>
+    </section>
+    <section class="section panel-controls">
+      <button class="filter active" data-panel-filter="all" type="button">Todo</button>
+      <button class="filter" data-panel-filter="ready" type="button">Activos</button>
+      <button class="filter" data-panel-filter="pending" type="button">Pendientes</button>
+    </section>
+    <section class="section panel-table-wrap">
+      <div class="comparison-table">
+        <table class="panel-table">
+          <thead><tr><th>Herramienta</th><th>Estado</th><th>Ruta interna</th><th>Test</th><th>Destino</th><th>Score</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </section>
+    <section class="section editorial-note">
+      <div>
+        <p class="eyebrow">Medicion</p>
+        <h2>Como leer clicks</h2>
+        <p>En Cloudflare Web Analytics filtra rutas que empiecen por <code>/go/</code>. Cada visita a una ruta interna representa un click saliente antes de redirigir al afiliado.</p>
+      </div>
+      <a class="button secondary" href="https://dash.cloudflare.com/" target="_blank" rel="noopener">Abrir Cloudflare</a>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll("[data-panel-filter]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.panelFilter;
+        document.querySelectorAll("[data-panel-filter]").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        document.querySelectorAll(".panel-table tbody tr").forEach((row) => {
+          row.classList.toggle("hidden", filter !== "all" && row.dataset.status !== filter);
+        });
+      });
+    });
+  </script>`;
+
+  return layout({
+    title: `Panel de afiliados | ${site.name}`,
+    description: "Panel operativo no indexable para revisar enlaces afiliados.",
+    body,
+    robots: "noindex,nofollow"
+  });
 }
 
 function useCasePage(useCase, category, tools, categories) {
@@ -515,6 +593,7 @@ async function main() {
   await copyFile(path.join(root, "script.js"), path.join(dist, "script.js"));
 
   await writeHtml("index.html", homePage(tools, categories, offers), paths);
+  await writeHtml("panel.html", panelPage(tools, categories), paths, { indexable: false });
   await writeHtml("privacidad.html", legalPage("privacidad"), paths);
   await writeHtml("aviso-afiliados.html", legalPage("afiliados"), paths);
 
