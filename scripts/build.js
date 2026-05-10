@@ -27,6 +27,8 @@ const moneyPath = (slug) => `go/${slug}.html`;
 const categoryPath = (slug) => `categorias/${slug}.html`;
 const alternativePath = (slug) => `alternativas/alternativas-a-${slug}.html`;
 const comparisonPath = (a, b) => `comparativas/${a}-vs-${b}.html`;
+const useCasePath = (category, useCase) => `casos/${category}-${useCase}.html`;
+const keywordPath = (keyword) => `keywords/${slugify(keyword)}.html`;
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 
 function layout({ title, description, body, canonical = "", relative = "." }) {
@@ -165,6 +167,74 @@ function homePage(tools, categories, offers) {
   </main>
   <script src="script.js"></script>`;
   return layout({ title: `${site.name} | Herramientas baratas para monetizar`, description: site.description, body });
+}
+
+function useCasePage(useCase, category, tools, categories) {
+  const matching = tools.filter((tool) => tool.category === category.slug).sort((a, b) => b.score - a.score);
+  const top = matching[0];
+  const body = `<main>
+    <section class="page-hero">
+      <p class="eyebrow">Caso de uso</p>
+      <h1>Herramientas de ${esc(category.name.toLowerCase())} para ${esc(useCase.name)}</h1>
+      <p>Seleccion rapida para ${esc(useCase.problem)} con bajo coste inicial y enlaces trazables.</p>
+    </section>
+    <section class="section">
+      <div class="tool-grid">${matching.map((tool) => toolCard(tool, categories, "..")).join("")}</div>
+    </section>
+    <section class="section cta">
+      <div>
+        <p class="eyebrow">Recomendacion inicial</p>
+        <h2>Empieza probando ${esc(top.name)}</h2>
+        <p>${esc(top.summary)}</p>
+      </div>
+      <a class="button primary" href="../${moneyPath(top.slug)}" rel="sponsored">Ver ${esc(top.name)}</a>
+    </section>
+  </main>`;
+  return layout({
+    title: `Herramientas de ${category.name.toLowerCase()} para ${useCase.name}`,
+    description: `Opciones baratas de ${category.name.toLowerCase()} para ${useCase.name}: ${useCase.problem}.`,
+    body,
+    relative: ".."
+  });
+}
+
+function keywordPage(keyword, category, tools, categories) {
+  const matching = tools.filter((tool) => tool.category === category.slug).sort((a, b) => b.score - a.score);
+  const body = `<main>
+    <section class="page-hero">
+      <p class="eyebrow">Keyword long-tail</p>
+      <h1>${esc(keyword)}: opciones baratas y faciles de probar</h1>
+      <p>Pagina generada desde datos propios para comparar herramientas de ${esc(category.name.toLowerCase())} con coste bajo y salida rapida.</p>
+    </section>
+    <section class="section">
+      <div class="comparison-table">
+        <table>
+          <thead><tr><th>Herramienta</th><th>Uso recomendado</th><th>Precio</th><th>Score</th><th></th></tr></thead>
+          <tbody>
+            ${matching.map((tool) => `<tr>
+              <td><strong>${esc(tool.name)}</strong></td>
+              <td>${esc(tool.bestFor)}</td>
+              <td>${esc(tool.price)}</td>
+              <td>${esc(tool.score)}/10</td>
+              <td><a href="../${moneyPath(tool.slug)}" rel="sponsored">Ver</a></td>
+            </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="section">
+      <p class="eyebrow">Siguiente paso</p>
+      <h2>Comparar dentro de ${esc(category.name)}</h2>
+      <p>${esc(category.intent)}.</p>
+      <a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoria</a>
+    </section>
+  </main>`;
+  return layout({
+    title: `${keyword}: comparativa barata`,
+    description: `Ranking rapido para ${keyword}, con herramientas de bajo coste y enlaces de prueba.`,
+    body,
+    relative: ".."
+  });
 }
 
 function categoryPage(category, tools, categories) {
@@ -323,12 +393,15 @@ async function writeHtml(relativePath, html, paths) {
 }
 
 async function main() {
-  const [tools, categories, manualOffers, scrapedOffers] = await Promise.all([
+  const [siteConfig, tools, categories, useCases, manualOffers, scrapedOffers] = await Promise.all([
+    readOptionalJson("site.json", {}),
     readJson("tools.json"),
     readJson("categories.json"),
+    readJson("use-cases.json"),
     readJson("offers.json"),
     readOptionalJson("offers.scraped.json", [])
   ]);
+  Object.assign(site, siteConfig);
   const offers = [...manualOffers, ...scrapedOffers].slice(0, 24);
   const paths = [];
 
@@ -344,6 +417,10 @@ async function main() {
 
   for (const category of categories) {
     await writeHtml(categoryPath(category.slug), categoryPage(category, tools, categories), paths);
+
+    for (const keyword of category.keywords) {
+      await writeHtml(keywordPath(keyword), keywordPage(keyword, category, tools, categories), paths);
+    }
   }
 
   for (const tool of tools) {
@@ -355,11 +432,19 @@ async function main() {
 
   for (const category of categories) {
     const categoryTools = tools.filter((tool) => tool.category === category.slug).sort((a, b) => b.score - a.score);
-    for (let index = 0; index < categoryTools.length - 1; index += 1) {
-      const a = categoryTools[index];
-      const b = categoryTools[index + 1];
-      await writeHtml(comparisonPath(a.slug, b.slug), comparisonPage(a, b, category), paths);
+    for (let left = 0; left < categoryTools.length - 1; left += 1) {
+      for (let right = left + 1; right < categoryTools.length; right += 1) {
+        const a = categoryTools[left];
+        const b = categoryTools[right];
+        await writeHtml(comparisonPath(a.slug, b.slug), comparisonPage(a, b, category), paths);
+      }
     }
+  }
+
+  for (const useCase of useCases) {
+    const category = categories.find((item) => item.slug === useCase.category);
+    if (!category) continue;
+    await writeHtml(useCasePath(category.slug, useCase.slug), useCasePage(useCase, category, tools, categories), paths);
   }
 
   await writeFile(path.join(dist, "sitemap.xml"), sitemap(paths), "utf8");

@@ -46,6 +46,10 @@ El scraper incluido soporta RSS publico, consulta `robots.txt`, usa `User-Agent`
 - Sin backend obligatorio.
 - Sin base de datos.
 
+## Publicacion
+
+Ver `PUBLICAR.md`. El repo incluye un workflow de GitHub Pages que construye `dist/` con `npm run build` y lo despliega gratis.
+
 ## Lineas rojas
 
 - No copiar contenido de terceros.
