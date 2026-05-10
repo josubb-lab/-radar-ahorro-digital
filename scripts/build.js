@@ -35,6 +35,7 @@ const formatDate = (value) => new Intl.DateTimeFormat("es-ES", { day: "2-digit",
 
 function layout({ title, description, body, canonical = "", relative = "." }) {
   const assetPrefix = relative === "." ? "" : `${relative}/`;
+  const canonicalTag = canonical ? `\n    <link rel="canonical" href="${esc(canonical)}">` : "";
   return `<!doctype html>
 <html lang="es">
   <head>
@@ -42,8 +43,7 @@ function layout({ title, description, body, canonical = "", relative = "." }) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="index,follow,max-image-preview:large">
-    <link rel="canonical" href="${esc(canonical)}">
+    <meta name="robots" content="index,follow,max-image-preview:large">${canonicalTag}
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:type" content="website">
@@ -474,11 +474,24 @@ ${paths.map((item) => `  <url><loc>${esc(site.baseUrl)}${esc(item)}</loc></url>`
 </urlset>`;
 }
 
-async function writeHtml(relativePath, html, paths) {
+function headersFile() {
+  return `/go/*
+  X-Robots-Tag: noindex, nofollow
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+`;
+}
+
+async function writeHtml(relativePath, html, paths, options = {}) {
   const target = path.join(dist, relativePath);
   await mkdir(path.dirname(target), { recursive: true });
   await writeFile(target, html, "utf8");
-  paths.push(`/${relativePath.replaceAll("\\", "/")}`);
+  if (options.indexable !== false) {
+    paths.push(`/${relativePath.replaceAll("\\", "/")}`);
+  }
 }
 
 async function main() {
@@ -521,7 +534,7 @@ async function main() {
     const category = categories.find((item) => item.slug === tool.category);
     const competitors = tools.filter((item) => item.category === tool.category && item.slug !== tool.slug).sort((a, b) => b.score - a.score).slice(0, 3);
     await writeHtml(alternativePath(tool.slug), alternativePage(tool, category, competitors), paths);
-    await writeHtml(moneyPath(tool.slug), goPage(tool), paths);
+    await writeHtml(moneyPath(tool.slug), goPage(tool), paths, { indexable: false });
   }
 
   for (const category of categories) {
@@ -543,6 +556,7 @@ async function main() {
 
   await writeFile(path.join(dist, "sitemap.xml"), sitemap(paths), "utf8");
   await writeFile(path.join(dist, "robots.txt"), "User-agent: *\nAllow: /\nSitemap: /sitemap.xml\n", "utf8");
+  await writeFile(path.join(dist, "_headers"), headersFile(), "utf8");
 
   if (!existsSync(path.join(root, "dist", "index.html"))) {
     throw new Error("Build failed: dist/index.html was not created");
