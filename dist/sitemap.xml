@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ahorrosaas.es/index.html</loc></url>
+  <url><loc>https://ahorrosaas.es/</loc></url>
   <url><loc>https://ahorrosaas.es/privacidad.html</loc></url>
   <url><loc>https://ahorrosaas.es/aviso-afiliados.html</loc></url>
   <url><loc>https://ahorrosaas.es/recursos/metodologia.html</loc></url>
@@ -22,6 +22,22 @@
   <url><loc>https://ahorrosaas.es/keywords/ia-para-contenido.html</loc></url>
   <url><loc>https://ahorrosaas.es/keywords/herramientas-ia-baratas.html</loc></url>
   <url><loc>https://ahorrosaas.es/keywords/crear-contenido-seo.html</loc></url>
+  <url><loc>https://ahorrosaas.es/categorias/funnels-ventas.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/funnels-baratos.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/crear-embudo-de-ventas.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/clickfunnels-alternativas.html</loc></url>
+  <url><loc>https://ahorrosaas.es/categorias/crm-ventas.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/crm-barato.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/hubspot-alternativas.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/pipedrive-vs-hubspot.html</loc></url>
+  <url><loc>https://ahorrosaas.es/categorias/hosting-servidores.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/hosting-barato.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/servidor-para-wordpress.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/hostinger-vs-cloudways.html</loc></url>
+  <url><loc>https://ahorrosaas.es/categorias/vpn-seguridad.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/vpn-barata.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/nordvpn-vs-surfshark.html</loc></url>
+  <url><loc>https://ahorrosaas.es/keywords/vpn-para-teletrabajo.html</loc></url>
   <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-brevo.html</loc></url>
   <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-mailerlite.html</loc></url>
   <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-convertkit.html</loc></url>
@@ -44,18 +60,35 @@
   <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-chatgpt.html</loc></url>
   <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-copy-ai.html</loc></url>
   <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-canva.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/screaming-frog-vs-lowfruits.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/screaming-frog-vs-mangools.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/screaming-frog-vs-se-ranking.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/screaming-frog-vs-ubersuggest.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/screaming-frog-vs-alsoasked.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-getresponse.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-activecampaign.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-semrush.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-hubspot.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-pipedrive.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-clickfunnels.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-webflow.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-hostinger.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-cloudways.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-nordvpn.html</loc></url>
+  <url><loc>https://ahorrosaas.es/alternativas/alternativas-a-surfshark.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/lowfruits-vs-mangools.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/lowfruits-vs-semrush.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/lowfruits-vs-screaming-frog.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/lowfruits-vs-se-ranking.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/lowfruits-vs-ubersuggest.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/lowfruits-vs-alsoasked.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/mangools-vs-semrush.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/mangools-vs-screaming-frog.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/mangools-vs-se-ranking.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/mangools-vs-ubersuggest.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/mangools-vs-alsoasked.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/semrush-vs-screaming-frog.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/semrush-vs-se-ranking.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/semrush-vs-ubersuggest.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/semrush-vs-alsoasked.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/screaming-frog-vs-se-ranking.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/screaming-frog-vs-ubersuggest.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/screaming-frog-vs-alsoasked.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/se-ranking-vs-ubersuggest.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/se-ranking-vs-alsoasked.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/ubersuggest-vs-alsoasked.html</loc></url>
@@ -69,18 +102,31 @@
   <url><loc>https://ahorrosaas.es/comparativas/zapier-vs-tally.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/zapier-vs-pabbly-connect.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/tally-vs-pabbly-connect.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-mailerlite.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-systeme-io.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-convertkit.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-beehiiv.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-buttondown.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/mailerlite-vs-systeme-io.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/mailerlite-vs-convertkit.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/mailerlite-vs-beehiiv.html</loc></url>
-  <url><loc>https://ahorrosaas.es/comparativas/mailerlite-vs-buttondown.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/systeme-io-vs-brevo.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/systeme-io-vs-activecampaign.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/systeme-io-vs-getresponse.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/systeme-io-vs-mailerlite.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/systeme-io-vs-convertkit.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/systeme-io-vs-beehiiv.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/systeme-io-vs-buttondown.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-activecampaign.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-getresponse.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-mailerlite.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-convertkit.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-beehiiv.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/brevo-vs-buttondown.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/activecampaign-vs-getresponse.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/activecampaign-vs-mailerlite.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/activecampaign-vs-convertkit.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/activecampaign-vs-beehiiv.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/activecampaign-vs-buttondown.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/getresponse-vs-mailerlite.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/getresponse-vs-convertkit.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/getresponse-vs-beehiiv.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/getresponse-vs-buttondown.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/mailerlite-vs-convertkit.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/mailerlite-vs-beehiiv.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/mailerlite-vs-buttondown.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/convertkit-vs-beehiiv.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/convertkit-vs-buttondown.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/beehiiv-vs-buttondown.html</loc></url>
@@ -94,6 +140,11 @@
   <url><loc>https://ahorrosaas.es/comparativas/canva-vs-neuronwriter.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/canva-vs-copy-ai.html</loc></url>
   <url><loc>https://ahorrosaas.es/comparativas/neuronwriter-vs-copy-ai.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/hubspot-vs-pipedrive.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/cloudways-vs-webflow.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/cloudways-vs-hostinger.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/webflow-vs-hostinger.html</loc></url>
+  <url><loc>https://ahorrosaas.es/comparativas/nordvpn-vs-surfshark.html</loc></url>
   <url><loc>https://ahorrosaas.es/casos/seo-autonomos.html</loc></url>
   <url><loc>https://ahorrosaas.es/casos/seo-negocios-locales.html</loc></url>
   <url><loc>https://ahorrosaas.es/casos/seo-afiliados.html</loc></url>
@@ -110,7 +161,7 @@
   <url><loc>https://ahorrosaas.es/casos/automatizacion-crm-ligero.html</loc></url>
   <url><loc>https://ahorrosaas.es/casos/automatizacion-formularios.html</loc></url>
   <url><loc>https://ahorrosaas.es/casos/automatizacion-reporting.html</loc></url>
-  <url><loc>https://ahorrosaas.es/casos/email-marketing-newsletter-afiliados.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/email-marketing-newsletter-clientes.html</loc></url>
   <url><loc>https://ahorrosaas.es/casos/email-marketing-lead-magnets.html</loc></url>
   <url><loc>https://ahorrosaas.es/casos/email-marketing-consultoria.html</loc></url>
   <url><loc>https://ahorrosaas.es/casos/email-marketing-cursos.html</loc></url>
@@ -126,4 +177,15 @@
   <url><loc>https://ahorrosaas.es/casos/ia-contenido-investigacion.html</loc></url>
   <url><loc>https://ahorrosaas.es/casos/ia-contenido-copywriting.html</loc></url>
   <url><loc>https://ahorrosaas.es/casos/ia-contenido-documentacion.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/funnels-ventas-productos-digitales.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/funnels-ventas-consultores.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/funnels-ventas-webinars.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/crm-ventas-servicios-b2b.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/crm-ventas-equipos-pequenos.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/hosting-servidores-afiliados.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/hosting-servidores-wordpress.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/hosting-servidores-no-code.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/vpn-seguridad-teletrabajo.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/vpn-seguridad-viajes.html</loc></url>
+  <url><loc>https://ahorrosaas.es/casos/vpn-seguridad-equipos-pequenos.html</loc></url>
 </urlset>

@@ -1,8 +1,9 @@
 {
   "name": "AhorroSaaS",
-  "description": "Comparativas de software barato, alternativas SaaS y herramientas para automatizar, captar leads y vender con bajo coste.",
+  "description": "Comparativas prácticas de software para elegir herramientas con buen coste, implantación sencilla y menos riesgo operativo.",
   "baseUrl": "https://ahorrosaas.es",
   "email": "tucorreo@example.com",
+  "contactEmailNote": "TODO producción: sustituye email por uno real; hasta entonces la página de privacidad indica contacto pendiente.",
   "reviewedAt": "2026-05-10",
   "editorialMethod": [
     "Coste inicial y existencia de plan gratuito o prueba",

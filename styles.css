@@ -157,6 +157,26 @@ h3 {
   font-size: 1.18rem;
 }
 
+.hero-sub {
+  max-width: 640px;
+  margin: -8px 0 26px;
+  color: #526069;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.hero-sub code {
+  font-size: 0.88em;
+}
+
+.page-lead {
+  margin-top: 14px;
+  max-width: 720px;
+  color: #3d4a52;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
 .hero-actions,
 .input-row {
   display: flex;
@@ -263,6 +283,10 @@ h3 {
 .tool-card.featured {
   border-color: rgba(13, 107, 98, 0.42);
   box-shadow: var(--shadow);
+}
+
+.tool-card.pending {
+  border-style: dashed;
 }
 
 .tool-card.hidden {
@@ -633,6 +657,12 @@ h3 {
 .status.pending {
   background: #f8edcf;
   color: #6f4d00;
+}
+
+.card-link.pending,
+.muted {
+  color: var(--muted);
+  font-weight: 800;
 }
 
 .cta {
