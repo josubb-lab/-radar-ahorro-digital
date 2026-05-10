@@ -8,8 +8,8 @@ const dist = path.join(root, "dist");
 const dataDir = path.join(root, "data");
 
 const site = {
-  name: "Radar Ahorro Digital",
-  description: "Comparativas programaticas de herramientas baratas para automatizar, captar leads y monetizar con bajo coste.",
+  name: "AhorroSaaS",
+  description: "Comparativas de software barato, alternativas SaaS y herramientas para automatizar, captar leads y vender con bajo coste.",
   baseUrl: "",
   email: "tucorreo@example.com"
 };
@@ -119,9 +119,9 @@ function homePage(tools, categories, offers) {
     <section class="hero">
       <img class="hero-bg" src="assets/hero.svg" alt="" aria-hidden="true">
       <div class="hero-content">
-        <p class="eyebrow">Sistema programatico de monetizacion</p>
+        <p class="eyebrow">Software barato y alternativas SaaS</p>
         <h1>${esc(site.name)}</h1>
-        <p class="hero-copy">Paginas long-tail generadas desde datos propios para captar busquedas comerciales, enviar clicks afiliados y medir que categorias convierten.</p>
+        <p class="hero-copy">Comparamos herramientas asequibles para ahorrar software, automatizar tareas y captar clientes sin pagar suites sobredimensionadas.</p>
         <div class="hero-actions">
           <a class="button primary" href="#comparador">Ver herramientas</a>
           <a class="button secondary" href="#categorias">Explorar nichos</a>
@@ -129,7 +129,7 @@ function homePage(tools, categories, offers) {
       </div>
     </section>
     <section class="trust-strip" aria-label="Avisos importantes">
-      <span>Contenido programatico revisable</span>
+      <span>Comparativas revisables</span>
       <span>Enlaces afiliados marcados</span>
       <span>Coste de hosting casi cero</span>
     </section>

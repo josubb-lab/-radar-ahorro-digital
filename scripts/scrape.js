@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dataDir = path.join(root, "data");
 const outFile = path.join(dataDir, "offers.scraped.json");
-const userAgent = "RadarAhorroDigitalBot/0.1 (+static affiliate research; contact: tucorreo@example.com)";
+const userAgent = "AhorroSaaSBot/0.1 (+static affiliate research; contact: tucorreo@example.com)";
 
 const readJson = async (file) => JSON.parse(await readFile(path.join(dataDir, file), "utf8"));
 const textBetween = (value, tag) => {

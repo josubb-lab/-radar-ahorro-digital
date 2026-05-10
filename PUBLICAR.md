@@ -24,6 +24,14 @@ git push -u origin master
 Build command: npm run build
 Build output directory: dist
 ```
+4. En `Custom domains`, anade:
+
+```text
+ahorrosaas.es
+www.ahorrosaas.es
+```
+
+5. En DNS, si Cloudflare gestiona el dominio, deja que Pages cree los registros. Si el dominio esta en otro registrador, apunta los nameservers a Cloudflare.
 
 ## Antes de publicar
 
@@ -31,7 +39,7 @@ Edita `data/site.json`:
 
 ```json
 {
-  "baseUrl": "https://tudominio.com",
+  "baseUrl": "https://ahorrosaas.es",
   "email": "tu@email.com"
 }
 ```
