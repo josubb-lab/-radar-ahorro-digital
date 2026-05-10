@@ -148,6 +148,11 @@ const offerAction = (tool, relative = ".") => {
     : "";
 };
 
+const fontHeadTags = `
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">`;
+
 function layout({ title, description, body, canonical = "", relative = ".", robots = "index,follow,max-image-preview:large", schemaGraph = null }) {
   const assetPrefix = relative === "." ? "" : `${relative}/`;
   const canonicalTag = canonical ? `\n    <link rel="canonical" href="${esc(canonical)}">` : "";
@@ -164,6 +169,7 @@ function layout({ title, description, body, canonical = "", relative = ".", robo
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:type" content="website">${jsonLd}
+    ${fontHeadTags}
     <link rel="icon" href="${assetPrefix}assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="${assetPrefix}styles.css">
   </head>
@@ -819,6 +825,7 @@ function goPage(tool) {
     <meta name="robots" content="noindex,nofollow">
     <link rel="canonical" href="${esc(goCanonical)}">
     <title>Enlace pendiente de ${esc(tool.name)}</title>
+    ${fontHeadTags}
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
@@ -840,6 +847,7 @@ function goPage(tool) {
     <link rel="canonical" href="${esc(goCanonical)}">
     <meta http-equiv="refresh" content="0; url=${esc(tool.affiliateUrl)}">
     <title>Redirigiendo a ${esc(tool.name)}</title>
+    ${fontHeadTags}
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
