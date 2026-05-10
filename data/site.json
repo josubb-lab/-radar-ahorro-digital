@@ -2,5 +2,12 @@
   "name": "Radar Ahorro Digital",
   "description": "Comparativas programaticas de herramientas baratas para automatizar, captar leads y monetizar con bajo coste.",
   "baseUrl": "https://josubb-lab.github.io/-radar-ahorro-digital",
-  "email": "tucorreo@example.com"
+  "email": "tucorreo@example.com",
+  "reviewedAt": "2026-05-10",
+  "editorialMethod": [
+    "Coste inicial y existencia de plan gratuito o prueba",
+    "Facilidad para lanzar sin equipo tecnico",
+    "Potencial de retorno para captacion, ahorro de tiempo o venta",
+    "Riesgos practicos: limites, curva de aprendizaje y dependencia"
+  ]
 }

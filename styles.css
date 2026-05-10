@@ -492,6 +492,75 @@ h3 {
   text-align: center;
 }
 
+.editorial-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.editorial-note h2 {
+  font-size: 1.35rem;
+}
+
+.editorial-note p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.faq {
+  padding-top: 16px;
+}
+
+.faq h2 {
+  margin-bottom: 18px;
+}
+
+.faq details {
+  border-top: 1px solid var(--line);
+  background: var(--white);
+}
+
+.faq details:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  cursor: pointer;
+  padding: 18px;
+  font-weight: 900;
+}
+
+.faq details p {
+  margin: 0;
+  padding: 0 18px 18px;
+  color: var(--muted);
+}
+
+.resource {
+  display: grid;
+  gap: 18px;
+}
+
+.resource article {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.resource h2 {
+  font-size: 1.45rem;
+}
+
+.resource p {
+  color: var(--muted);
+}
+
 .cta {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
@@ -573,6 +642,7 @@ h3 {
   .trust-strip,
   .tool-grid,
   .programmatic-grid,
+  .editorial-note,
   .split,
   .cta {
     grid-template-columns: 1fr;

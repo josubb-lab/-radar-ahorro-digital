@@ -29,7 +29,9 @@ const alternativePath = (slug) => `alternativas/alternativas-a-${slug}.html`;
 const comparisonPath = (a, b) => `comparativas/${a}-vs-${b}.html`;
 const useCasePath = (category, useCase) => `casos/${category}-${useCase}.html`;
 const keywordPath = (keyword) => `keywords/${slugify(keyword)}.html`;
+const pagePath = (slug) => `recursos/${slug}.html`;
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+const formatDate = (value) => new Intl.DateTimeFormat("es-ES", { day: "2-digit", month: "long", year: "numeric" }).format(new Date(value));
 
 function layout({ title, description, body, canonical = "", relative = "." }) {
   const assetPrefix = relative === "." ? "" : `${relative}/`;
@@ -57,6 +59,7 @@ function layout({ title, description, body, canonical = "", relative = "." }) {
       <nav class="nav" aria-label="Principal">
         <a href="${assetPrefix}index.html#comparador">Comparador</a>
         <a href="${assetPrefix}index.html#categorias">Categorias</a>
+        <a href="${assetPrefix}recursos/metodologia.html">Metodo</a>
         <a href="${assetPrefix}index.html#ofertas">Ofertas</a>
       </nav>
     </header>
@@ -69,6 +72,29 @@ function layout({ title, description, body, canonical = "", relative = "." }) {
     </footer>
   </body>
 </html>`;
+}
+
+function editorialNote(relative = ".") {
+  const assetPrefix = relative === "." ? "" : `${relative}/`;
+  return `<aside class="editorial-note">
+    <div>
+      <p class="eyebrow">Revision editorial</p>
+      <h2>Metodo y transparencia</h2>
+      <p>Ultima revision: ${esc(formatDate(site.reviewedAt))}. Ordenamos por coste inicial, facilidad de implantacion, utilidad practica y riesgo operativo. Algunos enlaces pueden ser afiliados.</p>
+    </div>
+    <a class="button secondary" href="${assetPrefix}recursos/metodologia.html">Ver metodo</a>
+  </aside>`;
+}
+
+function faqBlock(items) {
+  return `<section class="section faq">
+    <p class="eyebrow">Preguntas rapidas</p>
+    <h2>Dudas antes de elegir</h2>
+    ${items.map((item) => `<details>
+      <summary>${esc(item.question)}</summary>
+      <p>${esc(item.answer)}</p>
+    </details>`).join("")}
+  </section>`;
 }
 
 function toolCard(tool, categories, relative = ".") {
@@ -115,6 +141,9 @@ function homePage(tools, categories, offers) {
         </div>
       </div>
       <div class="tool-grid">${featured.map((tool) => toolCard(tool, categories)).join("")}</div>
+    </section>
+    <section class="section">
+      ${editorialNote()}
     </section>
     <section id="categorias" class="section band">
       <div class="section-head">
@@ -181,6 +210,9 @@ function useCasePage(useCase, category, tools, categories) {
     <section class="section">
       <div class="tool-grid">${matching.map((tool) => toolCard(tool, categories, "..")).join("")}</div>
     </section>
+    <section class="section">
+      ${editorialNote("..")}
+    </section>
     <section class="section cta">
       <div>
         <p class="eyebrow">Recomendacion inicial</p>
@@ -189,6 +221,10 @@ function useCasePage(useCase, category, tools, categories) {
       </div>
       <a class="button primary" href="../${moneyPath(top.slug)}" rel="sponsored">Ver ${esc(top.name)}</a>
     </section>
+    ${faqBlock([
+      { question: `Que herramienta de ${category.name.toLowerCase()} conviene probar primero?`, answer: `Empieza por ${top.name} si necesitas una opcion equilibrada para ${useCase.name}. Despues compara limites, precio al escalar y facilidad de exportacion.` },
+      { question: "Hace falta pagar desde el primer dia?", answer: "No necesariamente. Para validar, prioriza planes gratuitos, pruebas o pago por uso antes de comprometerte a una suscripcion anual." }
+    ])}
   </main>`;
   return layout({
     title: `Herramientas de ${category.name.toLowerCase()} para ${useCase.name}`,
@@ -223,11 +259,18 @@ function keywordPage(keyword, category, tools, categories) {
       </div>
     </section>
     <section class="section">
+      ${editorialNote("..")}
+    </section>
+    <section class="section">
       <p class="eyebrow">Siguiente paso</p>
       <h2>Comparar dentro de ${esc(category.name)}</h2>
       <p>${esc(category.intent)}.</p>
       <a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoria</a>
     </section>
+    ${faqBlock([
+      { question: `Como elegir para "${keyword}"?`, answer: "Filtra por la tarea que quieres resolver esta semana, no por la lista de funciones. La mejor herramienta inicial suele ser la que puedes probar con datos reales hoy." },
+      { question: "Puedo combinar varias herramientas?", answer: "Si, pero empieza con una herramienta principal y una automatizacion sencilla. Muchas combinaciones aumentan el coste oculto." }
+    ])}
   </main>`;
   return layout({
     title: `${keyword}: comparativa barata`,
@@ -248,6 +291,9 @@ function categoryPage(category, tools, categories) {
     <section class="section">
       <div class="tool-grid">${matching.map((tool) => toolCard(tool, categories, "..")).join("")}</div>
     </section>
+    <section class="section">
+      ${editorialNote("..")}
+    </section>
     <section class="section split">
       <div>
         <p class="eyebrow">Keywords objetivo</p>
@@ -255,6 +301,10 @@ function categoryPage(category, tools, categories) {
       </div>
       <ul class="keyword-list">${category.keywords.map((keyword) => `<li>${esc(keyword)}</li>`).join("")}</ul>
     </section>
+    ${faqBlock([
+      { question: `Que priorizar en ${category.name.toLowerCase()}?`, answer: "Coste inicial, rapidez para probar un caso real y claridad de limites. Evita pagar por funciones avanzadas antes de validar uso." },
+      { question: "Como medimos el retorno?", answer: "Mide clicks, leads, horas ahorradas o publicaciones terminadas. Si no hay metrica, no hay decision objetiva." }
+    ])}
   </main>`;
   return layout({
     title: `Mejores herramientas de ${category.name.toLowerCase()} baratas`,
@@ -288,11 +338,18 @@ function alternativePage(tool, category, competitors) {
       </div>
     </section>
     <section class="section">
+      ${editorialNote("..")}
+    </section>
+    <section class="section">
       <p class="eyebrow">Categoria relacionada</p>
       <h2>${esc(category.name)}</h2>
       <p>${esc(category.intent)}.</p>
       <a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoria</a>
     </section>
+    ${faqBlock([
+      { question: `Por que buscar alternativas a ${tool.name}?`, answer: "Normalmente por precio, limites del plan, curva de aprendizaje o falta de integraciones concretas. Compara con un caso real antes de migrar." },
+      { question: "La alternativa mas barata siempre compensa?", answer: "No. La opcion barata solo compensa si resuelve la tarea sin anadir demasiado mantenimiento o friccion operativa." }
+    ])}
   </main>`;
   return layout({
     title: `Alternativas a ${tool.name} baratas`,
@@ -325,6 +382,9 @@ function comparisonPage(a, b, category) {
         </table>
       </div>
     </section>
+    <section class="section">
+      ${editorialNote("..")}
+    </section>
     <section class="section cta">
       <div>
         <p class="eyebrow">Eleccion rapida</p>
@@ -333,10 +393,39 @@ function comparisonPage(a, b, category) {
       </div>
       <a class="button primary" href="../${moneyPath(winner.slug)}" rel="sponsored">Ver ${esc(winner.name)}</a>
     </section>
+    ${faqBlock([
+      { question: `Cuando elegir ${a.name}?`, answer: `${a.name} encaja mejor si tu prioridad es ${a.bestFor}. Revisa sus limites antes de pagar.` },
+      { question: `Cuando elegir ${b.name}?`, answer: `${b.name} encaja mejor si tu prioridad es ${b.bestFor}. Pruebalo con un flujo real antes de migrar.` }
+    ])}
   </main>`;
   return layout({
     title: `${a.name} vs ${b.name}: comparativa rapida`,
     description: `Compara ${a.name} y ${b.name}: precio, caso ideal, pros, riesgos y recomendacion.`,
+    body,
+    relative: ".."
+  });
+}
+
+function resourcePage(page) {
+  const body = `<main>
+    <section class="page-hero">
+      <p class="eyebrow">Recurso editorial</p>
+      <h1>${esc(page.title)}</h1>
+      <p>${esc(page.description)}</p>
+    </section>
+    <section class="section resource">
+      ${page.sections.map((section) => `<article>
+        <h2>${esc(section.heading)}</h2>
+        <p>${esc(section.body)}</p>
+      </article>`).join("")}
+    </section>
+    <section class="section">
+      ${editorialNote("..")}
+    </section>
+  </main>`;
+  return layout({
+    title: `${page.title} | ${site.name}`,
+    description: page.description,
     body,
     relative: ".."
   });
@@ -393,11 +482,12 @@ async function writeHtml(relativePath, html, paths) {
 }
 
 async function main() {
-  const [siteConfig, tools, categories, useCases, manualOffers, scrapedOffers] = await Promise.all([
+  const [siteConfig, tools, categories, useCases, pages, manualOffers, scrapedOffers] = await Promise.all([
     readOptionalJson("site.json", {}),
     readJson("tools.json"),
     readJson("categories.json"),
     readJson("use-cases.json"),
+    readJson("pages.json"),
     readJson("offers.json"),
     readOptionalJson("offers.scraped.json", [])
   ]);
@@ -414,6 +504,10 @@ async function main() {
   await writeHtml("index.html", homePage(tools, categories, offers), paths);
   await writeHtml("privacidad.html", legalPage("privacidad"), paths);
   await writeHtml("aviso-afiliados.html", legalPage("afiliados"), paths);
+
+  for (const page of pages) {
+    await writeHtml(pagePath(page.slug), resourcePage(page), paths);
+  }
 
   for (const category of categories) {
     await writeHtml(categoryPath(category.slug), categoryPage(category, tools, categories), paths);
