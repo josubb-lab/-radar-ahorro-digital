@@ -9,7 +9,8 @@ const dataDir = path.join(root, "data");
 
 const site = {
   name: "AhorroSaaS",
-  description: "Comparativas de software barato, alternativas SaaS y herramientas para automatizar, captar leads y vender con bajo coste.",
+  description:
+    "Guías y comparativas de software asequible para automatizar, captar leads y vender sin pagar suites de más: criterios claros y transparencia con afiliación.",
   baseUrl: "",
   email: "tucorreo@example.com"
 };
@@ -181,9 +182,9 @@ function layout({ title, description, body, canonical = "", relative = ".", robo
       </a>
       <nav class="nav" aria-label="Principal">
         <a href="${assetPrefix}index.html#comparador">Comparador</a>
-        <a href="${assetPrefix}index.html#categorias">Categorias</a>
-        <a href="${assetPrefix}recursos/metodologia.html">Metodo</a>
-        <a href="${assetPrefix}index.html#guia">Guia</a>
+        <a href="${assetPrefix}index.html#categorias">Categorías</a>
+        <a href="${assetPrefix}recursos/metodologia.html">Método</a>
+        <a href="${assetPrefix}index.html#guia">Guía</a>
       </nav>
     </header>
     ${body}
@@ -201,17 +202,17 @@ function editorialNote(relative = ".") {
   const assetPrefix = relative === "." ? "" : `${relative}/`;
   return `<aside class="editorial-note">
     <div>
-      <p class="eyebrow">Revision editorial</p>
-      <h2>Metodo y transparencia</h2>
-      <p>Ultima revision: ${esc(formatDate(site.reviewedAt))}. Ordenamos por coste inicial, facilidad de implantacion, utilidad practica y riesgo operativo. Algunos enlaces pueden ser patrocinados.</p>
+      <p class="eyebrow">Revisión editorial</p>
+      <h2>Método y transparencia</h2>
+      <p>Última revisión: ${esc(formatDate(site.reviewedAt))}. Ordenamos por coste inicial, facilidad de implantación, utilidad práctica y riesgo operativo. Los enlaces con salida activa pasan por <code>/go/</code>; algunos son de afiliado (sin coste extra para ti).</p>
     </div>
-    <a class="button secondary" href="${assetPrefix}recursos/metodologia.html">Ver metodo</a>
+    <a class="button secondary" href="${assetPrefix}recursos/metodologia.html">Ver criterios</a>
   </aside>`;
 }
 
 function faqBlock(items) {
   return `<section class="section faq">
-    <p class="eyebrow">Preguntas rapidas</p>
+    <p class="eyebrow">Preguntas rápidas</p>
     <h2>Dudas antes de elegir</h2>
     ${items.map((item) => `<details>
       <summary>${esc(item.question)}</summary>
@@ -223,7 +224,10 @@ function faqBlock(items) {
 function toolCard(tool, categories, relative = ".") {
   const category = categories.find((item) => item.slug === tool.category);
   const ready = isAffiliateReady(tool);
-  return `<article class="tool-card${tool.featured ? " featured" : ""}" data-category="${esc(tool.category)}">
+  const pendingNote = ready
+    ? ""
+    : `<p class="tool-pending-note">Salida con programa de afiliado en revisión. Mientras tanto puedes ir a la web oficial de <strong>${esc(tool.name)}</strong> por tu cuenta.</p>`;
+  return `<article class="tool-card${tool.featured ? " featured" : ""}${ready ? "" : " pending"}" data-category="${esc(tool.category)}">
     <div class="tool-top">
       <span class="tag">${esc(category?.name ?? tool.category)}</span>
       <span class="price">${esc(tool.price)}</span>
@@ -231,7 +235,8 @@ function toolCard(tool, categories, relative = ".") {
     <h3>${esc(tool.name)}</h3>
     <p>${esc(tool.summary)}</p>
     <ul>${tool.pros.slice(0, 3).map((pro) => `<li>${esc(pro)}</li>`).join("")}</ul>
-    <div class="score" aria-label="Puntuacion editorial">${esc(tool.score)}/10</div>
+    <div class="score" aria-label="Puntuación editorial">${esc(tool.score)}/10</div>
+    ${pendingNote}
     ${offerAction(tool, relative)}
   </article>`;
 }
@@ -248,8 +253,8 @@ function homePage(tools, categories, offers) {
       <div class="hero-content">
         <p class="eyebrow">Comparador independiente de software</p>
         <h1>${esc(site.name)}</h1>
-        <p class="hero-copy">Comparamos herramientas para automatizar trabajo, mejorar captación y elegir software sin pagar por funciones que todavía no necesitas.</p>
-        <p class="hero-sub">Directorio editorial: priorizamos implantación rápida y coste inicial contenido. Las fichas con programa activo enlazan a la web oficial vía rutas internas <code>/go/</code> (transparencia en Transparencia).</p>
+        <p class="hero-copy">Te ayudamos a elegir herramientas para automatizar, captar leads y vender sin pagar por funciones que todavía no vas a usar.</p>
+        <p class="hero-sub">Criterios editoriales: implantación rápida, precio inicial razonable y riesgo operativo bajo. Si hay programa de afiliado verificado, la salida pasa por <code>/go/</code>; siempre puedes leer el <a href="aviso-afiliados.html">aviso de transparencia</a>.</p>
         <div class="hero-actions">
           <a class="button primary" href="#comparador">Comparar herramientas</a>
           <a class="button secondary" href="#categorias">Ver categorías</a>
@@ -257,15 +262,16 @@ function homePage(tools, categories, offers) {
       </div>
     </section>
     <section class="trust-strip" aria-label="Avisos importantes">
-      <span>Comparativas revisables</span>
-      <span>Criterios claros</span>
-      <span>Sin promesas de resultados</span>
+      <span>Contenido revisable y actualizable</span>
+      <span>Criterios explícitos</span>
+      <span>Sin prometer ingresos ni tráfico</span>
     </section>
     <section id="comparador" class="section">
       <div class="section-head">
         <div>
           <p class="eyebrow">Ranking</p>
-          <h2>Herramientas recomendadas para empezar</h2>
+          <h2>Herramientas con las que suele tener sentido empezar</h2>
+          <p class="section-lead">Priorizamos opciones que ya tienen salida de afiliado activa y encajan en presupuestos ajustados. Si faltan programas, la ficha indica revisión editorial.</p>
         </div>
       </div>
       <div class="tool-grid">${featured.map((tool) => toolCard(tool, categories)).join("")}</div>
@@ -305,9 +311,9 @@ function homePage(tools, categories, offers) {
     </section>
     <section id="newsletter" class="section cta">
       <div>
-        <p class="eyebrow">Guia de compra</p>
+        <p class="eyebrow">Guía de compra</p>
         <h2>Elige con un caso real, no por una lista de funciones</h2>
-        <p>${isContactReady() ? "Recibe nuevas comparativas y guias prácticas cuando se publiquen." : "Antes de pagar una herramienta, define una tarea concreta y mide si te ahorra tiempo o genera oportunidades reales."}</p>
+        <p>${isContactReady() ? "Recibe nuevas comparativas y guías prácticas cuando se publiquen." : "Antes de pagar, define una tarea concreta (por ejemplo: captar 20 leads o ahorrar 3 h/semana) y comprueba si la herramienta la cumple en la prueba."}</p>
       </div>
       ${isContactReady() ? `<form class="signup" action="mailto:${esc(site.email)}" method="post" enctype="text/plain">
         <label for="email">Email</label>
@@ -316,13 +322,13 @@ function homePage(tools, categories, offers) {
           <button class="button primary" type="submit">Apuntarme</button>
         </div>
         <small>Sin spam. Puedes darte de baja cuando quieras.</small>
-      </form>` : `<a class="button secondary" href="recursos/metodologia.html">Ver metodologia</a>`}
+      </form>` : `<a class="button secondary" href="recursos/metodologia.html">Leer el método editorial</a>`}
     </section>
   </main>
   <script src="script.js"></script>`;
   const homeCanonical = canonicalUrlForFile("index.html");
   const itemListFeatured = featured.map((tool) => ({ name: tool.name, url: absoluteUrl(`/${moneyPath(tool.slug)}`) }));
-  const homeTitle = `${site.name} | Comparador de software para pequenos negocios`;
+  const homeTitle = `${site.name} | Comparador de software para pequeños negocios`;
   return layout({
     title: homeTitle,
     description: site.description,
@@ -366,13 +372,13 @@ function panelPage(tools, categories) {
     <section class="page-hero panel-hero">
       <p class="eyebrow">Panel operativo</p>
       <h1>Seguimiento de enlaces afiliados</h1>
-      <p>Inventario rapido de rutas internas, destinos afiliados y enlaces pendientes. Las visitas reales a <code>/go/*</code> se revisan en Cloudflare Web Analytics.</p>
+      <p>Inventario rápido de rutas internas, destinos afiliados y enlaces pendientes de validar. Las visitas a <code>/go/*</code> las puedes cuantificar en Cloudflare Web Analytics (u otra analítica) por ruta.</p>
     </section>
     <section class="section panel-stats">
       <article><span>${tools.length}</span><strong>Herramientas</strong></article>
       <article><span>${realLinks}</span><strong>Enlaces activos</strong></article>
       <article><span>${placeholderLinks}</span><strong>Pendientes</strong></article>
-      <article><span>${categories.length}</span><strong>Categorias</strong></article>
+      <article><span>${categories.length}</span><strong>Categorías</strong></article>
     </section>
     <section class="section panel-controls">
       <button class="filter active" data-panel-filter="all" type="button">Todo</button>
@@ -389,10 +395,10 @@ function panelPage(tools, categories) {
     </section>
     <section class="section editorial-note">
       <div>
-        <p class="eyebrow">Medicion</p>
-        <h2>Como leer clicks</h2>
-        <p>En Cloudflare Web Analytics filtra rutas que empiecen por <code>/go/</code>. Cada visita a una ruta interna representa un click saliente antes de redirigir al afiliado.</p>
-        <p>Los enlaces de salida llevan <code>data-affiliate</code>, <code>data-tool</code> y <code>data-cta</code> para segmentar en etiquetas personalizadas o scripts de analítica sin backend.</p>
+        <p class="eyebrow">Medición</p>
+        <h2>Cómo leer los clics</h2>
+        <p>En Cloudflare Web Analytics filtra rutas que empiecen por <code>/go/</code>. Cada visita a esa URL cuenta como intención de salir hacia el proveedor.</p>
+        <p>Los enlaces en el HTML llevan <code>data-affiliate</code>, <code>data-tool</code> y <code>data-cta</code> para cruzar origen del clic (tarjeta, tabla, hero de oferta, etc.) si más adelante añades etiquetas o un script propio.</p>
       </div>
       <a class="button secondary" href="https://dash.cloudflare.com/" target="_blank" rel="noopener">Abrir Cloudflare</a>
     </section>
@@ -428,8 +434,8 @@ function useCasePage(useCase, category, tools, categories) {
   const pageTitle = `Herramientas de ${category.name.toLowerCase()} para ${useCase.name}`;
   const pageDescription = `Opciones prácticas de ${category.name} para ${useCase.name}: ${useCase.problem}.`;
   const faqItems = [
-      { question: `Que herramienta de ${category.name.toLowerCase()} conviene probar primero?`, answer: `Empieza por ${top.name} si necesitas una opcion equilibrada para ${useCase.name}. Despues compara limites, precio al escalar y facilidad de exportacion.` },
-      { question: "Hace falta pagar desde el primer dia?", answer: "No necesariamente. Para validar, prioriza planes gratuitos, pruebas o pago por uso antes de comprometerte a una suscripcion anual." }
+      { question: `¿Qué herramienta de ${category.name.toLowerCase()} conviene probar primero?`, answer: `Suele tener sentido empezar por ${top.name} si buscas un equilibrio razonable para «${useCase.name}». Luego compara límites del plan, precio al escalar y si puedes exportar datos.` },
+      { question: "¿Hay que pagar desde el primer día?", answer: "No necesariamente. Para validar el caso, prioriza planes gratis, pruebas limitadas o pago mensual antes de cerrar un año." }
     ];
   const body = `<main>
     <section class="page-hero">
@@ -458,13 +464,13 @@ function useCasePage(useCase, category, tools, categories) {
     </section>
     <section class="section cta">
       <div>
-        <p class="eyebrow">Recomendacion inicial</p>
+        <p class="eyebrow">Recomendación inicial</p>
         <h2>Empieza probando ${esc(top.name)}</h2>
         <p>${esc(top.summary)}</p>
       </div>
       ${isAffiliateReady(top)
         ? `<a class="button primary" href="../${moneyPath(top.slug)}" rel="sponsored"${affiliateDataAttrs(top, "use-case-cta")}>Ver ${esc(top.name)}</a>`
-        : `<a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoria</a>`}
+        : `<a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoría completa</a>`}
     </section>
     ${faqBlock(faqItems)}
   </main>`;
@@ -492,16 +498,16 @@ function keywordPage(keyword, category, tools, categories) {
   const top = matching.find(isAffiliateReady) ?? matching[0];
   const rel = keywordPath(keyword);
   const canonical = canonicalUrlForFile(rel);
-  const pageTitle = `${keyword}: comparativa practica`;
-  const pageDescription = `Comparativa rapida para ${keyword}, con herramientas de coste controlado y criterios claros.`;
+  const pageTitle = `${keyword}: comparativa práctica`;
+  const pageDescription = `Comparativa accesible para «${keyword}»: herramientas con coste controlado y criterios de elección claros.`;
   const faqItems = [
-      { question: `Como elegir para "${keyword}"?`, answer: "Filtra por la tarea que quieres resolver esta semana, no por la lista de funciones. La mejor herramienta inicial suele ser la que puedes probar con datos reales hoy." },
-      { question: "Puedo combinar varias herramientas?", answer: "Si, pero empieza con una herramienta principal y una automatizacion sencilla. Muchas combinaciones aumentan el coste oculto." }
+      { question: `¿Cómo elegir si buscas «${keyword}»?`, answer: "Parte de la tarea de esta semana (una campaña, una auditoría, un envío), no del catálogo de funciones. La mejor primera prueba suele ser la que puedes configurar con datos reales en pocas horas." },
+      { question: "¿Puedo combinar varias herramientas?", answer: "Sí, pero con una herramienta principal y, como mucho, una automatización sencilla al principio. Cada pieza extra sume contratos, tiempo y puntos de fallo." }
     ];
   const body = `<main>
     <section class="page-hero">
       <p class="eyebrow">Guía comparativa</p>
-      <h1>${esc(keyword)}: opciones asequibles y faciles de probar</h1>
+      <h1>${esc(keyword)}: opciones asequibles y fáciles de probar</h1>
       <p>Comparativa práctica para elegir herramientas de ${esc(category.name)} con coste controlado y poca fricción de implantación.</p>
       <p class="page-lead">Contexto de búsqueda &quot;${esc(keyword)}&quot; dentro de <strong>${esc(category.name)}</strong>: útil si tu perfil es ${esc(category.audience)}.</p>
     </section>
@@ -540,7 +546,7 @@ function keywordPage(keyword, category, tools, categories) {
       <p class="eyebrow">Siguiente paso</p>
       <h2>Comparar dentro de ${esc(category.name)}</h2>
       <p>${esc(category.intent)}.</p>
-      <a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoria</a>
+      <a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoría completa</a>
     </section>
     ${faqBlock(faqItems)}
   </main>`;
@@ -570,15 +576,15 @@ function categoryPage(category, tools, categories) {
   const pageTitle = `Herramientas de ${category.name} comparadas`;
   const pageDescription = `Comparativa de herramientas de ${category.name} para ${category.audience}.`;
   const faqItems = [
-      { question: `Que priorizar en ${category.name}?`, answer: "Coste inicial, rapidez para probar un caso real y claridad de limites. Evita pagar por funciones avanzadas antes de validar uso." },
-      { question: "Como medimos el retorno?", answer: "Mide clicks, leads, horas ahorradas o publicaciones terminadas. Si no hay metrica, no hay decision objetiva." }
+      { question: `¿Qué priorizar en ${category.name}?`, answer: "Coste inicial acorde a tu caso, velocidad para probar un flujo real y límites del plan leídos con calma. Evita pagar módulos avanzados antes de tener uso medible." },
+      { question: "¿Cómo medir el retorno?", answer: "Con métricas simples: clics útiles, leads válidos, horas ahorradas o piezas publicadas. Si no puedes nombrar una métrica, la compra es opinión, no decisión." }
     ];
   const itemList = matching.map((tool) => ({ name: tool.name, url: absoluteUrl(`/${moneyPath(tool.slug)}`) }));
   const body = `<main>
     <section class="page-hero">
-      <p class="eyebrow">Categoria</p>
+      <p class="eyebrow">Categoría</p>
       <h1>Herramientas de ${esc(category.name)} para ${esc(category.audience)}</h1>
-      <p>${esc(category.intent)}. Seleccion basada en coste inicial, facilidad de implantacion y potencial de retorno.</p>
+      <p>${esc(category.intent)}. Selección basada en coste inicial, facilidad de implantación y potencial de retorno razonable para equipos pequeños.</p>
       <p class="page-lead">Aquí filtramos por casos reales de ${esc(category.audience)}, no por el catálogo completo de funciones de cada vendor.</p>
     </section>
     <section class="section">
@@ -621,8 +627,8 @@ function alternativePage(tool, category, competitors) {
   const pageTitle = `Alternativas a ${tool.name}`;
   const pageDescription = `Alternativas a ${tool.name} para ${category.audience}, con pros, precio y enlace de prueba.`;
   const faqItems = [
-      { question: `Por que buscar alternativas a ${tool.name}?`, answer: "Normalmente por precio, limites del plan, curva de aprendizaje o falta de integraciones concretas. Compara con un caso real antes de migrar." },
-      { question: "La alternativa mas barata siempre compensa?", answer: "No. La opcion barata solo compensa si resuelve la tarea sin anadir demasiado mantenimiento o friccion operativa." }
+      { question: `¿Por qué buscar alternativas a ${tool.name}?`, answer: "Suele deberse a precio, límites del plan, curva de aprendizaje, integraciones o soporte. Compara siempre contra un caso de uso concreto antes de migrar datos." },
+      { question: "¿La alternativa más barata siempre compensa?", answer: "No. Compensa si cubre el mismo trabajo con mantenimiento asumible. El ahorro en licencia se pierde rápido si sumas horas internas o riesgo de errores." }
     ];
   const body = `<main>
     <section class="page-hero">
@@ -667,16 +673,16 @@ function alternativePage(tool, category, competitors) {
       </div>
       ${isAffiliateReady(practicalPick)
         ? `<a class="button primary" href="../${moneyPath(practicalPick.slug)}" rel="sponsored"${affiliateDataAttrs(practicalPick, "alternatives-cta")}>Ver ${esc(practicalPick.name)}</a>`
-        : `<a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoria</a>`}
+        : `<a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoría completa</a>`}
     </section>
     <section class="section">
       ${editorialNote("..")}
     </section>
     <section class="section">
-      <p class="eyebrow">Categoria relacionada</p>
+      <p class="eyebrow">Categoría relacionada</p>
       <h2>${esc(category.name)}</h2>
       <p>${esc(category.intent)}.</p>
-      <a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoria</a>
+      <a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoría completa</a>
     </section>
     ${faqBlock(faqItems)}
   </main>`;
@@ -711,16 +717,16 @@ function comparisonPage(a, b, category) {
   const other = winner.slug === a.slug ? b : a;
   const rel = comparisonPath(a.slug, b.slug);
   const canonical = canonicalUrlForFile(rel);
-  const pageTitle = `${a.name} vs ${b.name}: comparativa rapida`;
-  const pageDescription = `Compara ${a.name} y ${b.name}: precio, caso ideal, pros, riesgos y recomendacion.`;
+  const pageTitle = `${a.name} vs ${b.name}: comparativa rápida`;
+  const pageDescription = `Comparación directa entre ${a.name} y ${b.name}: precio, caso de uso, pros, riesgos y qué tener en cuenta antes de pagar.`;
   const faqItems = [
-      { question: `Cuando elegir ${a.name}?`, answer: `${a.name} encaja mejor si tu prioridad es ${a.bestFor}. Revisa sus limites antes de pagar.` },
-      { question: `Cuando elegir ${b.name}?`, answer: `${b.name} encaja mejor si tu prioridad es ${b.bestFor}. Pruebalo con un flujo real antes de migrar.` }
+      { question: `¿Cuándo tiene más sentido ${a.name}?`, answer: `${a.name} encaja mejor si tu prioridad es «${a.bestFor}». Revisa límites del plan y exportación antes de asumir permanencia.` },
+      { question: `¿Cuándo tiene más sentido ${b.name}?`, answer: `${b.name} encaja mejor si tu prioridad es «${b.bestFor}». Pruébalo con un flujo real (mismos datos y mismo objetivo) antes de migrar.` }
     ];
   const body = `<main>
     <section class="page-hero">
       <p class="eyebrow">Comparativa</p>
-      <h1>${esc(a.name)} vs ${esc(b.name)}: cual conviene mas</h1>
+      <h1>${esc(a.name)} vs ${esc(b.name)}: cuál encaja mejor</h1>
       <p>Comparativa rápida para decidir entre dos herramientas de ${esc(category.name)} según uso, coste inicial, límites y facilidad de adopción.</p>
       <p class="page-lead">Dentro de <strong>${esc(category.name)}</strong>, esta página contrasta dos herramientas típicas para ${esc(category.audience)}.</p>
     </section>
@@ -733,7 +739,7 @@ function comparisonPage(a, b, category) {
       <ul class="keyword-list">
         <li>${esc(a.name)} destaca por: ${esc(a.pros[0])}.</li>
         <li>${esc(b.name)} destaca por: ${esc(b.pros[0])}.</li>
-        <li>No decidas solo por score: valida un flujo real.</li>
+        <li>No elijas solo por la nota: prueba un flujo con datos reales.</li>
       </ul>
     </section>
     <section class="section">
@@ -749,13 +755,13 @@ function comparisonPage(a, b, category) {
     </section>
     <section class="section cta">
       <div>
-        <p class="eyebrow">Eleccion rapida</p>
-        <h2>Para la mayoria de casos: ${esc(winner.name)}</h2>
+        <p class="eyebrow">Elección rápida</p>
+        <h2>En la mayoría de escenarios razonables: ${esc(winner.name)}</h2>
         <p>${esc(winner.summary)}</p>
       </div>
       ${isAffiliateReady(winner)
         ? `<a class="button primary" href="../${moneyPath(winner.slug)}" rel="sponsored"${affiliateDataAttrs(winner, "comparison-cta")}>Ver ${esc(winner.name)}</a>`
-        : `<a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoria</a>`}
+        : `<a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoría completa</a>`}
     </section>
     ${faqBlock(faqItems)}
   </main>`;
@@ -853,7 +859,7 @@ function goPage(tool) {
   <body>
     <main class="redirect-page">
       <h1>Redirigiendo a ${esc(tool.name)}</h1>
-      <p>Este enlace puede ser afiliado. Si no avanza automaticamente, usa el boton.</p>
+      <p>Este enlace puede ser de afiliado. Si no redirige solo, usa el botón.</p>
       <a class="button primary" href="${esc(tool.affiliateUrl)}" rel="sponsored noopener"${affiliateDataAttrs(tool, "go-landing")}>Continuar</a>
     </main>
     <script>window.location.replace(${JSON.stringify(tool.affiliateUrl)});</script>
@@ -869,16 +875,16 @@ function legalPage(kind) {
   const body = `<main class="legal-note">
     <h1>${isPrivacy ? "Privacidad" : "Aviso de afiliados"}</h1>
     <p>${isPrivacy
-      ? `Esta web no instala cookies de analitica ni publicidad por defecto. Si anades medicion, formularios o pixeles, actualiza proveedor, finalidad y opciones de baja. ${contactLine}`
-      : "Esta web puede incluir enlaces de afiliado. Si compras o te registras desde esos enlaces, podemos recibir una comision sin coste adicional para ti."}</p>
+      ? `Esta web no instala cookies de analítica ni publicidad por defecto. Si añades medición, formularios o píxeles, documenta proveedor, finalidad y cómo darse de baja. ${contactLine}`
+      : "Esta publicación puede incluir enlaces de afiliado. Si compras o te registras desde ellos, podemos recibir una comisión sin coste adicional para ti."}</p>
     <p>${isPrivacy
-      ? "Los datos de herramientas se guardan localmente en ficheros JSON y se publican como paginas estaticas."
-      : "Las recomendaciones deben basarse en datos propios, informacion publica y revision editorial. No se publican resenas falsas ni promesas de ingresos."}</p>
+      ? "Los contenidos sobre herramientas se generan desde datos en este repositorio y se publican como páginas estáticas."
+      : "Las recomendaciones se basan en información pública, pruebas editoriales y criterios descritos en nuestra metodología. No publicamos reseñas inventadas ni promesas de beneficios."}</p>
   </main>`;
   const rel = isPrivacy ? "privacidad.html" : "aviso-afiliados.html";
   const canonical = canonicalUrlForFile(rel);
   const title = `${isPrivacy ? "Privacidad" : "Aviso de afiliados"} | ${site.name}`;
-  const description = isPrivacy ? "Politica de privacidad basica." : "Transparencia sobre enlaces de afiliado.";
+  const description = isPrivacy ? "Política de privacidad básica de AhorroSaaS." : "Transparencia sobre enlaces de afiliado y criterios editoriales.";
   return layout({
     title,
     description,

@@ -26,22 +26,22 @@
       </a>
       <nav class="nav" aria-label="Principal">
         <a href="index.html#comparador">Comparador</a>
-        <a href="index.html#categorias">Categorias</a>
-        <a href="recursos/metodologia.html">Metodo</a>
-        <a href="index.html#guia">Guia</a>
+        <a href="index.html#categorias">Categorías</a>
+        <a href="recursos/metodologia.html">Método</a>
+        <a href="index.html#guia">Guía</a>
       </nav>
     </header>
     <main>
     <section class="page-hero panel-hero">
       <p class="eyebrow">Panel operativo</p>
       <h1>Seguimiento de enlaces afiliados</h1>
-      <p>Inventario rapido de rutas internas, destinos afiliados y enlaces pendientes. Las visitas reales a <code>/go/*</code> se revisan en Cloudflare Web Analytics.</p>
+      <p>Inventario rápido de rutas internas, destinos afiliados y enlaces pendientes de validar. Las visitas a <code>/go/*</code> las puedes cuantificar en Cloudflare Web Analytics (u otra analítica) por ruta.</p>
     </section>
     <section class="section panel-stats">
       <article><span>33</span><strong>Herramientas</strong></article>
       <article><span>4</span><strong>Enlaces activos</strong></article>
       <article><span>29</span><strong>Pendientes</strong></article>
-      <article><span>8</span><strong>Categorias</strong></article>
+      <article><span>8</span><strong>Categorías</strong></article>
     </section>
     <section class="section panel-controls">
       <button class="filter active" data-panel-filter="all" type="button">Todo</button>
@@ -53,7 +53,7 @@
         <table class="panel-table">
           <thead><tr><th>Herramienta</th><th>Estado</th><th>Ruta interna</th><th>Test</th><th>Destino</th><th>Score</th></tr></thead>
           <tbody><tr data-status="ready" data-category="automatizacion">
-        <td><strong>Make</strong><small>Automatizacion</small></td>
+        <td><strong>Make</strong><small>Automatización</small></td>
         <td><span class="status ready">Activo</span></td>
         <td><code>/go/make.html</code></td>
         <td><a href="go/make.html" target="_blank" rel="noopener">Probar /go</a></td>
@@ -81,28 +81,28 @@
         <td><a href="https://mangools.com#a6a001a496aee087d83c16810" target="_blank" rel="noopener sponsored">Destino</a></td>
         <td>8.4/10</td>
       </tr><tr data-status="pending" data-category="automatizacion">
-        <td><strong>n8n</strong><small>Automatizacion</small></td>
+        <td><strong>n8n</strong><small>Automatización</small></td>
         <td><span class="status pending">Pendiente</span></td>
         <td><code>/go/n8n.html</code></td>
         <td><a href="go/n8n.html" target="_blank" rel="noopener">Probar /go</a></td>
         <td><a href="https://example.com/go/n8n" target="_blank" rel="noopener sponsored">Destino</a></td>
         <td>8.3/10</td>
       </tr><tr data-status="pending" data-category="automatizacion">
-        <td><strong>Zapier</strong><small>Automatizacion</small></td>
+        <td><strong>Zapier</strong><small>Automatización</small></td>
         <td><span class="status pending">Pendiente</span></td>
         <td><code>/go/zapier.html</code></td>
         <td><a href="go/zapier.html" target="_blank" rel="noopener">Probar /go</a></td>
         <td><a href="https://example.com/go/zapier" target="_blank" rel="noopener sponsored">Destino</a></td>
         <td>8.1/10</td>
       </tr><tr data-status="pending" data-category="automatizacion">
-        <td><strong>Tally</strong><small>Automatizacion</small></td>
+        <td><strong>Tally</strong><small>Automatización</small></td>
         <td><span class="status pending">Pendiente</span></td>
         <td><code>/go/tally.html</code></td>
         <td><a href="go/tally.html" target="_blank" rel="noopener">Probar /go</a></td>
         <td><a href="https://example.com/go/tally" target="_blank" rel="noopener sponsored">Destino</a></td>
         <td>8/10</td>
       </tr><tr data-status="pending" data-category="automatizacion">
-        <td><strong>Pabbly Connect</strong><small>Automatizacion</small></td>
+        <td><strong>Pabbly Connect</strong><small>Automatización</small></td>
         <td><span class="status pending">Pendiente</span></td>
         <td><code>/go/pabbly-connect.html</code></td>
         <td><a href="go/pabbly-connect.html" target="_blank" rel="noopener">Probar /go</a></td>
@@ -289,10 +289,10 @@
     </section>
     <section class="section editorial-note">
       <div>
-        <p class="eyebrow">Medicion</p>
-        <h2>Como leer clicks</h2>
-        <p>En Cloudflare Web Analytics filtra rutas que empiecen por <code>/go/</code>. Cada visita a una ruta interna representa un click saliente antes de redirigir al afiliado.</p>
-        <p>Los enlaces de salida llevan <code>data-affiliate</code>, <code>data-tool</code> y <code>data-cta</code> para segmentar en etiquetas personalizadas o scripts de analítica sin backend.</p>
+        <p class="eyebrow">Medición</p>
+        <h2>Cómo leer los clics</h2>
+        <p>En Cloudflare Web Analytics filtra rutas que empiecen por <code>/go/</code>. Cada visita a esa URL cuenta como intención de salir hacia el proveedor.</p>
+        <p>Los enlaces en el HTML llevan <code>data-affiliate</code>, <code>data-tool</code> y <code>data-cta</code> para cruzar origen del clic (tarjeta, tabla, hero de oferta, etc.) si más adelante añades etiquetas o un script propio.</p>
       </div>
       <a class="button secondary" href="https://dash.cloudflare.com/" target="_blank" rel="noopener">Abrir Cloudflare</a>
     </section>

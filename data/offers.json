@@ -1,17 +1,17 @@
 [
   {
     "tool": "make",
-    "label": "Plan gratuito para validar automatizaciones",
-    "urgency": "Alta si necesitas lanzar funnels sin backend"
+    "label": "Prueba gratuita para encajar automatizaciones reales",
+    "urgency": "Alta si quieres encadenar formularios, CRM y hojas sin backend propio"
   },
   {
     "tool": "brevo",
-    "label": "Empieza newsletter sin coste inicial",
-    "urgency": "Alta para capturar emails desde el primer dia"
+    "label": "Newsletter y automatización con plan gratis usable",
+    "urgency": "Alta cuando la prioridad es captar correos desde el día uno"
   },
   {
     "tool": "lowfruits",
-    "label": "Keywords long-tail para dominios nuevos",
-    "urgency": "Media si ya tienes nicho elegido"
+    "label": "Búsqueda de long-tail cuando el dominio es joven o de nicho",
+    "urgency": "Media: potencia si ya tienes tema de sitio y público claro"
   }
 ]

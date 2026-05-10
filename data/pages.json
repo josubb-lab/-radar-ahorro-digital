@@ -1,58 +1,58 @@
 [
   {
     "slug": "metodologia",
-    "title": "Como elegimos herramientas",
-    "description": "Metodo editorial usado para ordenar herramientas, comparativas y alternativas.",
+    "title": "Cómo elegimos herramientas",
+    "description": "Criterios editoriales que usamos para ordenar herramientas, alternativas y comparativas en AhorroSaaS.",
     "sections": [
       {
-        "heading": "Criterios",
-        "body": "Priorizamos herramientas con bajo coste inicial, implantacion rapida, caso de uso claro y potencial de retorno medible. No basta con que una herramienta sea popular: tiene que resolver una tarea concreta sin obligar a pagar una suite sobredimensionada."
+        "heading": "Qué miramos primero",
+        "body": "Priorizamos herramientas con coste de entrada razonable, un caso de uso claro en pequeños negocios o proyectos en solitario y posibilidad de medir retorno (tiempo, leads, publicaciones o ventas). Que una herramienta sea conocida no es, por sí sola, un motivo para recomendarla frente a alternativas más ajustadas al presupuesto."
       },
       {
-        "heading": "Puntuacion",
-        "body": "La puntuacion combina coste, facilidad, utilidad para pequenos negocios y riesgo operativo. Es una guia editorial, no una garantia de resultados. Las condiciones de cada herramienta pueden cambiar y deben verificarse antes de comprar."
+        "heading": "Sobre la puntuación",
+        "body": "La nota resume coste, facilidad de puesta en marcha, utilidad práctica y riesgos (límites del plan, curva de aprendizaje, dependencia del proveedor). Es orientativa: las condiciones comerciales cambian y conviene contrastar precios y límites en la web oficial antes de pagar."
       },
       {
-        "heading": "Afiliacion",
-        "body": "Algunos enlaces pueden ser afiliados. La posible comision no cambia el precio para el usuario ni debe sustituir la evaluacion editorial."
+        "heading": "Afiliación y transparencia",
+        "body": "Parte de los enlaces de salida pueden ser de afiliado. Eso no aumenta el precio para ti ni sustituye el juicio editorial: si un programa no está verificado o no encaja con nuestros criterios, no forzamos la recomendación."
       }
     ]
   },
   {
     "slug": "checklist-software-barato",
     "title": "Checklist antes de pagar una herramienta",
-    "description": "Lista rapida para evitar pagar software que no aporta retorno.",
+    "description": "Lista breve para reducir compras impulsivas y suscripciones que no se usan.",
     "sections": [
       {
         "heading": "Antes de probar",
-        "body": "Define una tarea medible: captar leads, enviar emails, ahorrar horas, publicar contenido o auditar una web. Si no puedes medir el resultado, la prueba se convierte en gasto."
+        "body": "Escribe en una frase qué debe cambiar si la herramienta funciona: por ejemplo «quiero 30 leads cualificados al mes» o «publicar dos artículos a la semana con menos de cinco horas de trabajo». Sin esa frase, la prueba suele terminar en configuración eterna."
       },
       {
         "heading": "Durante la prueba",
-        "body": "Configura un caso real en menos de una hora. Si la herramienta exige demasiada friccion antes de entregar valor, probablemente no es la mejor primera opcion."
+        "body": "Monta un caso real en la primera hora. Si para llegar al primer resultado útil necesitas formación, integraciones raras o datos de demostración eternos, anótalo: puede ser señal de que el producto es potente pero no encaja con tu tamaño actual."
       },
       {
-        "heading": "Antes de pagar",
-        "body": "Comprueba limites, coste al escalar, exportacion de datos, soporte y alternativas. Evita compromisos largos hasta tener senales de uso real."
+        "heading": "Antes de pasar a pago",
+        "body": "Revisa límites del plan siguiente, exportación de datos, facturación anual frente a mensual y qué pasa si creces un 20 %. Evita permanencias largas hasta tener al menos dos semanas de uso real, aunque sea modesto."
       }
     ]
   },
   {
     "slug": "errores-automatizar-leads",
-    "title": "Errores al automatizar captacion de leads",
-    "description": "Riesgos comunes al montar automatizaciones de captacion con bajo presupuesto.",
+    "title": "Errores al automatizar la captación de leads",
+    "description": "Riesgos habituales al montar embudos y automatizaciones con presupuesto ajustado.",
     "sections": [
       {
-        "heading": "Automatizar demasiado pronto",
-        "body": "Primero valida que el formulario, oferta y fuente de trafico generan contactos utiles. Automatizar un flujo que no convierte solo hace mas eficiente un problema mal planteado."
+        "heading": "Automatizar antes de validar la oferta",
+        "body": "Si el mensaje, la página o el imán de leads no generan respuesta, automatizar solo acelera un sistema vacío. Primero comprobar que un flujo manual sencillo ya produce contactos que merecen el seguimiento."
       },
       {
-        "heading": "No revisar consentimientos",
-        "body": "La captacion debe incluir consentimiento claro y baja sencilla cuando haya email marketing. Comprar listas o enviar correos sin permiso crea riesgo legal y reputacional."
+        "heading": "Descuidar consentimiento y bajas",
+        "body": "En email marketing, el consentimiento debe ser explícito y la baja sencilla. Comprar listas o reutilizar contactos sin base legal adecuada conlleva riesgo legal y daña la reputación del dominio."
       },
       {
-        "heading": "No medir origen y calidad",
-        "body": "Cada lead deberia conservar pagina de origen, categoria y llamada a la accion. Sin eso no sabras que paginas merecen escalar."
+        "heading": "No etiquetar origen y calidad",
+        "body": "Guarda al menos campaña, página de entrada y tipo/formulario. Sin ese dato no sabrás qué contenidos o anuncios merecen más inversión y mezclarás «curiosos» con oportunidades reales."
       }
     ]
   }

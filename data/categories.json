@@ -2,29 +2,57 @@
   {
     "slug": "seo",
     "name": "SEO",
-    "intent": "mejorar trafico organico sin pagar suites caras",
-    "audience": "autonomos, nichos y pequenos negocios",
+    "intent": "mejorar tráfico orgánico sin pagar suites caras",
+    "audience": "autónomos, nichos y pequeños negocios",
     "keywords": ["herramientas seo baratas", "seo gratis", "alternativas semrush"]
   },
   {
     "slug": "automatizacion",
-    "name": "Automatizacion",
-    "intent": "ahorrar horas conectando formularios, emails y hojas",
-    "audience": "equipos pequenos y negocios locales",
+    "name": "Automatización",
+    "intent": "ahorrar horas conectando formularios, correos y hojas de cálculo",
+    "audience": "equipos pequeños y negocios locales",
     "keywords": ["automatizar leads", "zapier barato", "automatizacion no-code"]
   },
   {
     "slug": "email-marketing",
     "name": "Email marketing",
-    "intent": "captar y monetizar audiencia propia",
-    "audience": "creadores, afiliados y consultores",
+    "intent": "crear una lista propia y mantener contacto con clientes o lectores",
+    "audience": "creadores, consultores y pequeños negocios",
     "keywords": ["email marketing barato", "newsletter gratis", "brevo vs mailerlite"]
   },
   {
     "slug": "ia-contenido",
     "name": "IA y contenido",
-    "intent": "producir borradores y briefs mas rapido con revision humana",
-    "audience": "marketers, redactores y afiliados",
+    "intent": "producir borradores y briefs más rápido, siempre con revisión humana",
+    "audience": "marketers, redactores y equipos pequeños",
     "keywords": ["ia para contenido", "herramientas ia baratas", "crear contenido seo"]
+  },
+  {
+    "slug": "funnels-ventas",
+    "name": "Funnels y ventas",
+    "intent": "crear embudos, landings y procesos comerciales sin montar una suite enorme",
+    "audience": "creadores, consultores y negocios que venden servicios o productos digitales",
+    "keywords": ["funnels baratos", "crear embudo de ventas", "clickfunnels alternativas"]
+  },
+  {
+    "slug": "crm-ventas",
+    "name": "CRM y ventas",
+    "intent": "ordenar contactos, oportunidades y seguimiento comercial con coste controlado",
+    "audience": "equipos comerciales pequeños, consultores y negocios B2B",
+    "keywords": ["crm barato", "hubspot alternativas", "pipedrive vs hubspot"]
+  },
+  {
+    "slug": "hosting-servidores",
+    "name": "Hosting y servidores",
+    "intent": "publicar webs y proyectos con infraestructura asequible y fiable",
+    "audience": "pequeños negocios, creadores y perfiles no-code",
+    "keywords": ["hosting barato", "servidor para wordpress", "hostinger vs cloudways"]
+  },
+  {
+    "slug": "vpn-seguridad",
+    "name": "VPN y seguridad",
+    "intent": "proteger conexiones y trabajo remoto sin pagar suites enterprise",
+    "audience": "autónomos, viajeros, teletrabajadores y equipos pequeños",
+    "keywords": ["vpn barata", "nordvpn vs surfshark", "vpn para teletrabajo"]
   }
 ]
