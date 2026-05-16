@@ -139,6 +139,8 @@ const useCasePath = (category, useCase) => `casos/${category}-${useCase}.html`;
 const keywordPath = (keyword) => `keywords/${slugify(keyword)}.html`;
 const pagePath = (slug) => `recursos/${slug}.html`;
 const toolReviewPath = (slug) => `herramientas/${slug}.html`;
+// Root-relative URL for any internal path (safe from any page depth)
+const abs = (p) => `/${p}`;
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 const formatDate = (value) =>
   value
@@ -148,15 +150,13 @@ const hasPlaceholderAffiliateUrl = (tool) => !tool.affiliateUrl || tool.affiliat
 const isAffiliateReady = (tool) => !hasPlaceholderAffiliateUrl(tool) && (tool.affiliateStatus ? tool.affiliateStatus === "active" : true);
 const isContactReady = () => site.email && !site.email.includes("example.com");
 const byMonetization = (a, b) => Number(isAffiliateReady(b)) - Number(isAffiliateReady(a)) || b.score - a.score;
-const offerAction = (tool, relative = ".") => {
-  const assetPrefix = relative === "." ? "" : `${relative}/`;
+const offerAction = (tool) => {
   return isAffiliateReady(tool)
-    ? `<a class="card-link" href="${assetPrefix}${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "tool-card")}>Empezar prueba</a>`
+    ? `<a class="card-link" href="${abs(moneyPath(tool.slug))}" rel="sponsored"${affiliateDataAttrs(tool, "tool-card")}>Empezar prueba</a>`
     : "";
 };
 
-const activeToolLinks = (tools, relative = ".") => {
-  const assetPrefix = relative === "." ? "" : `${relative}/`;
+const activeToolLinks = (tools) => {
   const active = tools.filter(isAffiliateReady).sort(byMonetization).slice(0, 6);
   if (!active.length) return "";
   return `<section class="section money-strip">
@@ -173,8 +173,8 @@ const activeToolLinks = (tools, relative = ".") => {
         <strong>${esc(tool.bestFor)}</strong>
         <p>${esc(tool.summary)}</p>
         <div class="money-actions">
-          <a href="${assetPrefix}${toolReviewPath(tool.slug)}">Ver análisis</a>
-          <a href="${assetPrefix}${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "money-strip")}>Empezar prueba</a>
+          <a href="${abs(toolReviewPath(tool.slug))}">Ver análisis</a>
+          <a href="${abs(moneyPath(tool.slug))}" rel="sponsored"${affiliateDataAttrs(tool, "money-strip")}>Empezar prueba</a>
         </div>
       </article>`).join("")}
     </div>
@@ -208,38 +208,38 @@ function layout({ title, description, body, canonical = "", relative = ".", robo
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="${assetPrefix}index.html" aria-label="${esc(site.name)}">
+      <a class="brand" href="/" aria-label="${esc(site.name)}">
         <span class="brand-mark">A</span>
         <span>${esc(site.name)}</span>
       </a>
       <nav class="nav" aria-label="Principal">
-        <a href="${assetPrefix}index.html#comparador">Herramientas</a>
-        <a href="${assetPrefix}index.html#categorias">Categorías</a>
-        <a href="${assetPrefix}index.html#comparativas">Comparativas</a>
-        <a href="${assetPrefix}recursos/metodologia.html">Método</a>
+        <a href="/#comparador">Herramientas</a>
+        <a href="/#categorias">Categorías</a>
+        <a href="/#comparativas">Comparativas</a>
+        <a href="/recursos/metodologia.html">Método</a>
       </nav>
-      <a class="btn-nav" href="${assetPrefix}index.html#comparador">Ver ranking →</a>
+      <a class="btn-nav" href="/#comparador">Ver ranking →</a>
     </header>
     ${body}
     <footer class="footer-full">
       <div class="footer-cols">
         <div class="footer-col">
           <p class="footer-label">Categorías</p>
-          <ul>${_navCategories.map(c => `<li><a href="${assetPrefix}categorias/${c.slug}.html">${esc(c.name)}</a></li>`).join("")}</ul>
+          <ul>${_navCategories.map(c => `<li><a href="/categorias/${c.slug}.html">${esc(c.name)}</a></li>`).join("")}</ul>
         </div>
         <div class="footer-col">
           <p class="footer-label">Herramientas</p>
-          <ul>${_navTools.map(t => `<li><a href="${assetPrefix}herramientas/${t.slug}/">${esc(t.name)}</a></li>`).join("")}
-            <li><a href="${assetPrefix}index.html#comparador">Ver todas →</a></li>
+          <ul>${_navTools.map(t => `<li><a href="${abs(toolReviewPath(t.slug))}">${esc(t.name)}</a></li>`).join("")}
+            <li><a href="/#comparador">Ver todas →</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <p class="footer-label">Legal</p>
           <ul>
-            <li><a href="${assetPrefix}privacidad.html">Privacidad</a></li>
-            <li><a href="${assetPrefix}aviso-afiliados.html">Transparencia</a></li>
-            <li><a href="${assetPrefix}recursos/metodologia.html">Metodología</a></li>
-            <li><a href="${assetPrefix}sitemap.xml">Sitemap</a></li>
+            <li><a href="/privacidad.html">Privacidad</a></li>
+            <li><a href="/aviso-afiliados.html">Transparencia</a></li>
+            <li><a href="/recursos/metodologia.html">Metodología</a></li>
+            <li><a href="/sitemap.xml">Sitemap</a></li>
           </ul>
         </div>
       </div>
@@ -251,15 +251,14 @@ function layout({ title, description, body, canonical = "", relative = ".", robo
 </html>`;
 }
 
-function editorialNote(relative = ".") {
-  const assetPrefix = relative === "." ? "" : `${relative}/`;
+function editorialNote() {
   return `<aside class="editorial-note">
     <div>
       <p class="eyebrow">Revisión editorial</p>
       <h2>Método y transparencia</h2>
       <p>Última revisión: ${esc(formatDate(site.reviewedAt))}. Ordenamos por coste inicial, facilidad de implantación, utilidad práctica y riesgo operativo. Algunas salidas a proveedores pueden ser enlaces de afiliado, siempre sin coste extra para ti.</p>
     </div>
-    <a class="button secondary" href="${assetPrefix}recursos/metodologia.html">Ver criterios</a>
+    <a class="button secondary" href="/recursos/metodologia.html">Ver criterios</a>
   </aside>`;
 }
 
@@ -274,7 +273,7 @@ function faqBlock(items) {
   </section>`;
 }
 
-function toolCard(tool, categories, relative = ".") {
+function toolCard(tool, categories) {
   const category = categories.find((item) => item.slug === tool.category);
   const ready = isAffiliateReady(tool);
   const pendingNote = ready
@@ -290,7 +289,7 @@ function toolCard(tool, categories, relative = ".") {
     <ul>${tool.pros.slice(0, 3).map((pro) => `<li>${esc(pro)}</li>`).join("")}</ul>
     <div class="score" aria-label="Puntuación editorial">${esc(tool.score)}/10</div>
     ${pendingNote}
-    ${offerAction(tool, relative)}
+    ${offerAction(tool)}
   </article>`;
 }
 
@@ -533,10 +532,10 @@ function useCasePage(useCase, category, tools, categories) {
       </ul>
     </section>
     <section class="section">
-      <div class="tool-grid">${matching.map((tool) => toolCard(tool, categories, "..")).join("")}</div>
+      <div class="tool-grid">${matching.map((tool) => toolCard(tool, categories)).join("")}</div>
     </section>
     <section class="section">
-      ${editorialNote("..")}
+      ${editorialNote()}
     </section>
     <section class="section cta">
       <div>
@@ -545,8 +544,8 @@ function useCasePage(useCase, category, tools, categories) {
         <p>${esc(top.summary)}</p>
       </div>
       ${isAffiliateReady(top)
-        ? `<a class="button primary" href="../${moneyPath(top.slug)}" rel="sponsored"${affiliateDataAttrs(top, "use-case-cta")}>Ver ${esc(top.name)}</a>`
-        : `<a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoría completa</a>`}
+        ? `<a class="button primary" href="${abs(moneyPath(top.slug))}" rel="sponsored"${affiliateDataAttrs(top, "use-case-cta")}>Ver ${esc(top.name)}</a>`
+        : `<a class="button secondary" href="${abs(categoryPath(category.slug))}">Ver categoría completa</a>`}
     </section>
     ${faqBlock(faqItems)}
   </main>`;
@@ -609,20 +608,20 @@ function keywordPage(keyword, category, tools, categories) {
               <td>${esc(tool.bestFor)}</td>
               <td>${esc(tool.price)}</td>
               <td>${esc(tool.cons[0])}</td>
-              <td>${isAffiliateReady(tool) ? `<a href="../${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "keyword-table")}>Ver</a>` : `<span class="muted">Enlace en revisión editorial</span>`}</td>
+              <td>${isAffiliateReady(tool) ? `<a href="${abs(moneyPath(tool.slug))}" rel="sponsored"${affiliateDataAttrs(tool, "keyword-table")}>Ver</a>` : `<span class="muted">Enlace en revisión editorial</span>`}</td>
             </tr>`).join("")}
           </tbody>
         </table>
       </div>
     </section>
     <section class="section">
-      ${editorialNote("..")}
+      ${editorialNote()}
     </section>
     <section class="section">
       <p class="eyebrow">Siguiente paso</p>
       <h2>Comparar dentro de ${esc(category.name)}</h2>
       <p>${esc(category.intent)}.</p>
-      <a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoría completa</a>
+      <a class="button secondary" href="${abs(categoryPath(category.slug))}">Ver categoría completa</a>
     </section>
     ${faqBlock(faqItems)}
   </main>`;
@@ -668,11 +667,11 @@ function categoryPage(category, tools, categories) {
       <p class="page-lead">Aquí filtramos por casos reales de ${esc(category.audience)}, no por el catálogo completo de funciones de cada vendor.</p>
     </section>
     <section class="section">
-      <div class="tool-grid">${matching.map((tool) => toolCard(tool, categories, "..")).join("")}</div>
+      <div class="tool-grid">${matching.map((tool) => toolCard(tool, categories)).join("")}</div>
     </section>
-    ${activeToolLinks(active, "..")}
+    ${activeToolLinks(active)}
     <section class="section">
-      ${editorialNote("..")}
+      ${editorialNote()}
     </section>
     <section class="section split">
       <div>
@@ -725,8 +724,8 @@ function toolReviewPage(tool, category, competitors) {
       <p>${esc(tool.summary)}</p>
       <p class="page-lead">Ficha pensada para ${esc(category.audience)} que quieren ${esc(category.intent)} sin empezar por una suite sobredimensionada.</p>
       <div class="hero-actions">
-        <a class="button primary" href="../${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "review-hero")}>Probar ${esc(tool.name)}</a>
-        <a class="button secondary" href="../${categoryPath(category.slug)}">Comparar categoría</a>
+        <a class="button primary" href="${abs(moneyPath(tool.slug))}" rel="sponsored"${affiliateDataAttrs(tool, "review-hero")}>Probar ${esc(tool.name)}</a>
+        <a class="button secondary" href="${abs(categoryPath(category.slug))}">Comparar categoría</a>
       </div>
     </section>
     <section class="section split">
@@ -766,7 +765,7 @@ function toolReviewPage(tool, category, competitors) {
           <h2>Si ${esc(tool.name)} no encaja</h2>
         </div>
       </div>
-      <div class="tool-grid">${alternatives.map((item) => toolCard(item, [category], "..")).join("")}</div>
+      <div class="tool-grid">${alternatives.map((item) => toolCard(item, [category])).join("")}</div>
     </section>` : ""}
     <section class="section cta">
       <div>
@@ -774,7 +773,7 @@ function toolReviewPage(tool, category, competitors) {
         <h2>Probar ${esc(tool.name)} con un flujo real</h2>
         <p>Si encaja con tu caso, empieza con una prueba pequeña y mide si resuelve una tarea concreta antes de añadir más herramientas.</p>
       </div>
-      <a class="button primary" href="../${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "review-cta")}>Ir a ${esc(tool.name)}</a>
+      <a class="button primary" href="${abs(moneyPath(tool.slug))}" rel="sponsored"${affiliateDataAttrs(tool, "review-cta")}>Ir a ${esc(tool.name)}</a>
     </section>
     ${faqBlock(faqItems)}
   </main>`;
@@ -837,7 +836,7 @@ function alternativePage(tool, category, competitors) {
               <td>${esc(item.bestFor)}</td>
               <td>${esc(item.pros[0])}</td>
               <td>${esc(item.cons[0])}</td>
-              <td>${isAffiliateReady(item) ? `<a href="../${moneyPath(item.slug)}" rel="sponsored"${affiliateDataAttrs(item, "alternatives-table")}>Ver</a>` : `<span class="muted">Enlace en revisión editorial</span>`}</td>
+              <td>${isAffiliateReady(item) ? `<a href="${abs(moneyPath(item.slug))}" rel="sponsored"${affiliateDataAttrs(item, "alternatives-table")}>Ver</a>` : `<span class="muted">Enlace en revisión editorial</span>`}</td>
             </tr>`).join("")}
           </tbody>
         </table>
@@ -850,17 +849,17 @@ function alternativePage(tool, category, competitors) {
         <p>${esc(practicalPick.summary)}</p>
       </div>
       ${isAffiliateReady(practicalPick)
-        ? `<a class="button primary" href="../${moneyPath(practicalPick.slug)}" rel="sponsored"${affiliateDataAttrs(practicalPick, "alternatives-cta")}>Ver ${esc(practicalPick.name)}</a>`
-        : `<a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoría completa</a>`}
+        ? `<a class="button primary" href="${abs(moneyPath(practicalPick.slug))}" rel="sponsored"${affiliateDataAttrs(practicalPick, "alternatives-cta")}>Ver ${esc(practicalPick.name)}</a>`
+        : `<a class="button secondary" href="${abs(categoryPath(category.slug))}">Ver categoría completa</a>`}
     </section>
     <section class="section">
-      ${editorialNote("..")}
+      ${editorialNote()}
     </section>
     <section class="section">
       <p class="eyebrow">Categoría relacionada</p>
       <h2>${esc(category.name)}</h2>
       <p>${esc(category.intent)}.</p>
-      <a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoría completa</a>
+      <a class="button secondary" href="${abs(categoryPath(category.slug))}">Ver categoría completa</a>
     </section>
     ${faqBlock(faqItems)}
   </main>`;
@@ -929,7 +928,7 @@ function comparisonPage(a, b, category) {
       </div>
     </section>
     <section class="section">
-      ${editorialNote("..")}
+      ${editorialNote()}
     </section>
     <section class="section cta">
       <div>
@@ -938,8 +937,8 @@ function comparisonPage(a, b, category) {
         <p>${esc(winner.summary)}</p>
       </div>
       ${isAffiliateReady(winner)
-        ? `<a class="button primary" href="../${moneyPath(winner.slug)}" rel="sponsored"${affiliateDataAttrs(winner, "comparison-cta")}>Ver ${esc(winner.name)}</a>`
-        : `<a class="button secondary" href="../${categoryPath(category.slug)}">Ver categoría completa</a>`}
+        ? `<a class="button primary" href="${abs(moneyPath(winner.slug))}" rel="sponsored"${affiliateDataAttrs(winner, "comparison-cta")}>Ver ${esc(winner.name)}</a>`
+        : `<a class="button secondary" href="${abs(categoryPath(category.slug))}">Ver categoría completa</a>`}
     </section>
     ${faqBlock(faqItems)}
   </main>`;
@@ -979,7 +978,7 @@ function resourcePage(page) {
       </article>`).join("")}
     </section>
     <section class="section">
-      ${editorialNote("..")}
+      ${editorialNote()}
     </section>
   </main>`;
   return layout({
@@ -1010,13 +1009,13 @@ function goPage(tool) {
     <link rel="canonical" href="${esc(goCanonical)}">
     <title>Enlace pendiente de ${esc(tool.name)}</title>
     ${fontHeadTags}
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
     <main class="redirect-page">
       <h1>${esc(tool.name)}</h1>
       <p>El programa de afiliación o la URL oficial de esta herramienta está pendiente de validación editorial; por eso no redirigimos aún a una oferta.</p>
-      <a class="button secondary" href="../index.html#comparador">Volver al comparador</a>
+      <a class="button secondary" href="/#comparador">Volver al comparador</a>
     </main>
   </body>
 </html>`;
@@ -1032,7 +1031,7 @@ function goPage(tool) {
     <meta http-equiv="refresh" content="0; url=${esc(tool.affiliateUrl)}">
     <title>Redirigiendo a ${esc(tool.name)}</title>
     ${fontHeadTags}
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
     <main class="redirect-page">
