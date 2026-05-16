@@ -24,6 +24,10 @@ const readOptionalJson = async (file, fallback) => {
   }
 };
 
+// Populated in main() before first render — used by layout() for nav/footer
+let _navCategories = [];
+let _navTools = [];
+
 const normalizeBaseUrl = (url) => String(url ?? "").replace(/\/$/, "");
 const absoluteUrl = (pathname) => {
   const base = normalizeBaseUrl(site.baseUrl);
@@ -209,18 +213,39 @@ function layout({ title, description, body, canonical = "", relative = ".", robo
         <span>${esc(site.name)}</span>
       </a>
       <nav class="nav" aria-label="Principal">
-        <a href="${assetPrefix}index.html#comparador">Comparador</a>
+        <a href="${assetPrefix}index.html#comparador">Herramientas</a>
         <a href="${assetPrefix}index.html#categorias">Categorías</a>
+        <a href="${assetPrefix}index.html#comparativas">Comparativas</a>
         <a href="${assetPrefix}recursos/metodologia.html">Método</a>
-        <a href="${assetPrefix}index.html#guia">Guía</a>
       </nav>
+      <a class="btn-nav" href="${assetPrefix}index.html#comparador">Ver ranking →</a>
     </header>
     ${body}
-    <footer class="footer">
-      <span>© 2026 ${esc(site.name)}</span>
-      <a href="${assetPrefix}privacidad.html">Privacidad</a>
-      <a href="${assetPrefix}aviso-afiliados.html">Transparencia</a>
-      <a href="${assetPrefix}sitemap.xml">Sitemap</a>
+    <footer class="footer-full">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <p class="footer-label">Categorías</p>
+          <ul>${_navCategories.map(c => `<li><a href="${assetPrefix}categorias/${c.slug}.html">${esc(c.name)}</a></li>`).join("")}</ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-label">Herramientas</p>
+          <ul>${_navTools.map(t => `<li><a href="${assetPrefix}herramientas/${t.slug}/">${esc(t.name)}</a></li>`).join("")}
+            <li><a href="${assetPrefix}index.html#comparador">Ver todas →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-label">Legal</p>
+          <ul>
+            <li><a href="${assetPrefix}privacidad.html">Privacidad</a></li>
+            <li><a href="${assetPrefix}aviso-afiliados.html">Transparencia</a></li>
+            <li><a href="${assetPrefix}recursos/metodologia.html">Metodología</a></li>
+            <li><a href="${assetPrefix}sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ${esc(site.name)} — comparativas de software asequible para pequeños negocios</span>
+      </div>
     </footer>
   </body>
 </html>`;
@@ -1096,6 +1121,8 @@ async function main() {
   const allTools = [...tools].sort(byMonetization);
   const publicCategories = categories.filter((category) => publicTools.some((tool) => tool.category === category.slug));
   const allCategories = categories.filter((category) => allTools.some((tool) => tool.category === category.slug));
+  _navCategories = allCategories;
+  _navTools = publicTools.slice(0, 5);
   const offers = [...manualOffers, ...scrapedOffers].slice(0, 24);
   const paths = [];
 
