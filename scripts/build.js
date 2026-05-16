@@ -1131,6 +1131,11 @@ async function main() {
   await cp(path.join(root, "assets"), path.join(dist, "assets"), { recursive: true });
   await copyFile(path.join(root, "styles.css"), path.join(dist, "styles.css"));
   await copyFile(path.join(root, "script.js"), path.join(dist, "script.js"));
+  // Copy root-level files from assets/ to dist/ root (IndexNow key, etc.)
+  for (const f of ["e6508fe838ed4faa36f6c80dbd93bda6.txt"]) {
+    const src = path.join(root, "assets", f);
+    if (existsSync(src)) await copyFile(src, path.join(dist, f));
+  }
 
   await writeHtml("index.html", homePage(publicTools, publicCategories, offers, allCategories), paths);
   await writeHtml("panel.html", panelPage(publicTools, publicCategories), paths, { indexable: false });
