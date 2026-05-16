@@ -679,6 +679,47 @@ h3 {
   box-shadow: var(--shadow-sm);
 }
 
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.comp-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  flex-wrap: wrap;
+}
+
+.comp-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(13, 107, 98, 0.3);
+  box-shadow: var(--shadow-sm);
+}
+
+.comp-card span {
+  color: var(--ink);
+}
+
+.comp-card em {
+  font-style: normal;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
 .money-strip {
   padding-top: 34px;
 }
@@ -1008,6 +1049,13 @@ h3 {
   border-bottom: 1px solid var(--line);
 }
 
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
 .signup label {
   display: block;
   margin-bottom: 8px;
@@ -1104,12 +1152,19 @@ h3 {
 
   .tool-grid,
   .money-grid,
-  .programmatic-grid,
   .panel-stats,
   .editorial-note,
   .split,
   .cta {
     grid-template-columns: 1fr;
+  }
+
+  .programmatic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .comp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .trust-strip span + span {

@@ -269,9 +269,10 @@ function toolCard(tool, categories, relative = ".") {
   </article>`;
 }
 
-function homePage(tools, categories, offers) {
+function homePage(tools, categories, offers, allCats) {
   const featured = tools.filter(isAffiliateReady).sort(byMonetization).slice(0, 6);
   const publicCategories = categories.filter((category) => tools.some((tool) => tool.category === category.slug && isAffiliateReady(tool)));
+  const visibleCategories = allCats ?? publicCategories;
   const publicOffers = offers
     .map((offer) => ({ offer, tool: tools.find((item) => item.slug === offer.tool) }))
     .filter(({ tool }) => tool && isAffiliateReady(tool));
@@ -279,20 +280,21 @@ function homePage(tools, categories, offers) {
     <section class="hero">
       <img class="hero-bg" src="assets/hero.svg" alt="" aria-hidden="true">
       <div class="hero-content">
-        <p class="eyebrow">Comparador independiente de software</p>
-        <h1>${esc(site.name)}</h1>
-        <p class="hero-copy">Te ayudamos a elegir herramientas para automatizar, captar leads y vender sin pagar por funciones que todavía no vas a usar.</p>
-        <p class="hero-sub">Criterios editoriales: implantación rápida, precio inicial razonable y riesgo operativo bajo. Algunas recomendaciones pueden incluir enlaces de afiliado; siempre puedes leer el <a href="aviso-afiliados.html">aviso de transparencia</a>.</p>
+        <p class="eyebrow">${esc(site.name)}</p>
+        <h1>Herramientas de software asequibles para pequeños negocios</h1>
+        <p class="hero-copy">Comparamos SaaS de automatización, email marketing, SEO, IA y más para que elijas con criterio y no pagues por funciones que no vas a usar.</p>
+        <p class="hero-sub">Criterios editoriales: implantación rápida, precio inicial razonable y riesgo operativo bajo. Algunas recomendaciones incluyen enlaces de afiliado; puedes leer el <a href="aviso-afiliados.html">aviso de transparencia</a>.</p>
         <div class="hero-actions">
-          <a class="button primary" href="#comparador">Comparar herramientas</a>
-          <a class="button secondary" href="#categorias">Ver categorías</a>
+          <a class="button primary" href="#comparador">Ver herramientas</a>
+          <a class="button secondary" href="#categorias">Explorar categorías</a>
         </div>
       </div>
     </section>
-    <section class="trust-strip" aria-label="Avisos importantes">
-      <span>Contenido revisable y actualizable</span>
-      <span>Criterios explícitos</span>
-      <span>Sin prometer ingresos ni tráfico</span>
+    <section class="trust-strip" aria-label="Métricas del comparador">
+      <span>33 herramientas comparadas</span>
+      <span>8 categorías de software</span>
+      <span>5 programas de afiliación verificados</span>
+      <span>Actualizado mayo 2026</span>
     </section>
     <section id="comparador" class="section">
       <div class="section-head">
@@ -316,42 +318,68 @@ function homePage(tools, categories, offers) {
         </div>
       </div>
       <div class="programmatic-grid">
-        ${publicCategories.map((category) => `<a class="program-card" href="${categoryPath(category.slug)}">
+        ${visibleCategories.map((category) => `<a class="program-card" href="${categoryPath(category.slug)}">
           <span>${esc(category.name)}</span>
           <strong>Herramientas de ${esc(category.name)}</strong>
           <p>${esc(category.intent)} para ${esc(category.audience)}.</p>
         </a>`).join("")}
       </div>
     </section>
+    <section id="comparativas" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Comparativas</p>
+          <h2>Las dudas más habituales antes de elegir</h2>
+          <p class="section-lead">Análisis directos entre las opciones más consultadas en cada categoría.</p>
+        </div>
+      </div>
+      <div class="comp-grid">
+        ${[
+          { a: "make",       na: "Make",        b: "zapier",        nb: "Zapier" },
+          { a: "mangools",   na: "Mangools",     b: "semrush",       nb: "SEMrush" },
+          { a: "getresponse",na: "GetResponse",  b: "mailerlite",    nb: "MailerLite" },
+          { a: "lowfruits",  na: "LowFruits",    b: "ahrefs",        nb: "Ahrefs" },
+          { a: "systeme-io", na: "systeme.io",   b: "activecampaign",nb: "ActiveCampaign" },
+          { a: "nordvpn",    na: "NordVPN",      b: "surfshark",     nb: "Surfshark" },
+          { a: "hubspot",    na: "HubSpot",      b: "pipedrive",     nb: "Pipedrive" },
+          { a: "n8n",        na: "n8n",          b: "zapier",        nb: "Zapier" },
+          { a: "cloudways",  na: "Cloudways",    b: "hostinger",     nb: "Hostinger" },
+          { a: "chatgpt",    na: "ChatGPT",      b: "notion",        nb: "Notion" },
+          { a: "brevo",      na: "Brevo",        b: "mailerlite",    nb: "MailerLite" },
+          { a: "mangools",   na: "Mangools",     b: "ahrefs",        nb: "Ahrefs" },
+        ].map(({ a, na, b, nb }) => `<a class="comp-card" href="${comparisonPath(a, b)}">
+            <span>${esc(na)}</span>
+            <em>vs</em>
+            <span>${esc(nb)}</span>
+          </a>`).join("")}
+      </div>
+    </section>
     <section id="guia" class="section">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Puntos de partida</p>
-          <h2>Casos donde una herramienta puede ahorrar tiempo</h2>
+          <p class="eyebrow">Por caso de uso</p>
+          <h2>¿Cuál es tu objetivo concreto?</h2>
+          <p class="section-lead">Elige el escenario más cercano a tu situación y ve directamente al análisis que lo cubre.</p>
         </div>
       </div>
       <div class="offer-list">
-        ${publicOffers.map(({ offer, tool }) => `<a href="${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "offer-list")}>
+        ${featured.map((tool) => `<a href="herramientas/${esc(tool.slug)}.html"${affiliateDataAttrs(tool, "use-case-list")}>
             <span>${esc(tool.name)}</span>
-            <strong>${esc(offer.label)}</strong>
-            <small>${esc(offer.urgency)}</small>
+            <strong>${esc(tool.summary)}</strong>
+            <small>Mejor para: ${esc(tool.bestFor)}</small>
           </a>`).join("")}
       </div>
     </section>
     <section id="newsletter" class="section cta">
       <div>
-        <p class="eyebrow">Guía de compra</p>
-        <h2>Elige con un caso real, no por una lista de funciones</h2>
-        <p>${isContactReady() ? "Recibe nuevas comparativas y guías prácticas cuando se publiquen." : "Antes de pagar, define una tarea concreta (por ejemplo: captar 20 leads o ahorrar 3 h/semana) y comprueba si la herramienta la cumple en la prueba."}</p>
+        <p class="eyebrow">Antes de pagar</p>
+        <h2>Define una tarea concreta y compruébala en la prueba</h2>
+        <p>El error habitual es contratar por el plan, no por el caso de uso. Aquí comparamos herramientas con criterios explícitos: coste inicial, límites del plan gratuito, curva de aprendizaje y riesgo de dependencia.</p>
       </div>
-      ${isContactReady() ? `<form class="signup" action="mailto:${esc(site.email)}" method="post" enctype="text/plain">
-        <label for="email">Email</label>
-        <div class="input-row">
-          <input id="email" name="email" type="email" placeholder="tu@email.com" required>
-          <button class="button primary" type="submit">Apuntarme</button>
-        </div>
-        <small>Sin spam. Puedes darte de baja cuando quieras.</small>
-      </form>` : `<a class="button secondary" href="recursos/metodologia.html">Leer el método editorial</a>`}
+      <div class="cta-actions">
+        <a class="button primary" href="#comparativas">Ver comparativas</a>
+        <a class="button secondary" href="recursos/metodologia.html">Leer el método</a>
+      </div>
     </section>
   </main>
   <script src="script.js"></script>`;
@@ -1077,7 +1105,7 @@ async function main() {
   await copyFile(path.join(root, "styles.css"), path.join(dist, "styles.css"));
   await copyFile(path.join(root, "script.js"), path.join(dist, "script.js"));
 
-  await writeHtml("index.html", homePage(publicTools, publicCategories, offers), paths);
+  await writeHtml("index.html", homePage(publicTools, publicCategories, offers, allCategories), paths);
   await writeHtml("panel.html", panelPage(publicTools, publicCategories), paths, { indexable: false });
   await writeHtml("privacidad.html", legalPage("privacidad"), paths);
   await writeHtml("aviso-afiliados.html", legalPage("afiliados"), paths);
