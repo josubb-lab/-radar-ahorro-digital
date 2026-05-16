@@ -1065,7 +1065,9 @@ async function main() {
   ]);
   Object.assign(site, siteConfig);
   const publicTools = tools.filter(isAffiliateReady);
+  const allTools = [...tools].sort(byMonetization);
   const publicCategories = categories.filter((category) => publicTools.some((tool) => tool.category === category.slug));
+  const allCategories = categories.filter((category) => allTools.some((tool) => tool.category === category.slug));
   const offers = [...manualOffers, ...scrapedOffers].slice(0, 24);
   const paths = [];
 
@@ -1092,16 +1094,16 @@ async function main() {
     }
   }
 
-  for (const tool of publicTools) {
-    const category = publicCategories.find((item) => item.slug === tool.category);
-    const competitors = publicTools.filter((item) => item.category === tool.category && item.slug !== tool.slug).sort(byMonetization).slice(0, 3);
+  for (const tool of allTools) {
+    const category = allCategories.find((item) => item.slug === tool.category);
+    const competitors = allTools.filter((item) => item.category === tool.category && item.slug !== tool.slug).sort(byMonetization).slice(0, 3);
     await writeHtml(toolReviewPath(tool.slug), toolReviewPage(tool, category, competitors), paths);
     await writeHtml(alternativePath(tool.slug), alternativePage(tool, category, competitors), paths);
     await writeHtml(moneyPath(tool.slug), goPage(tool), paths, { indexable: false });
   }
 
-  for (const category of publicCategories) {
-    const categoryTools = publicTools.filter((tool) => tool.category === category.slug).sort(byMonetization);
+  for (const category of allCategories) {
+    const categoryTools = allTools.filter((tool) => tool.category === category.slug).sort(byMonetization);
     for (let left = 0; left < categoryTools.length - 1; left += 1) {
       for (let right = left + 1; right < categoryTools.length; right += 1) {
         const a = categoryTools[left];
@@ -1112,9 +1114,9 @@ async function main() {
   }
 
   for (const useCase of useCases) {
-    const category = publicCategories.find((item) => item.slug === useCase.category);
+    const category = allCategories.find((item) => item.slug === useCase.category);
     if (!category) continue;
-    await writeHtml(useCasePath(category.slug, useCase.slug), useCasePage(useCase, category, publicTools, publicCategories), paths);
+    await writeHtml(useCasePath(category.slug, useCase.slug), useCasePage(useCase, category, allTools, allCategories), paths);
   }
 
   await writeFile(path.join(dist, "sitemap.xml"), sitemap(paths), "utf8");
