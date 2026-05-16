@@ -280,7 +280,7 @@ function homePage(tools, categories, offers, allCats) {
     <section class="hero">
       <img class="hero-bg" src="assets/hero.svg" alt="" aria-hidden="true">
       <div class="hero-content">
-        <p class="eyebrow">${esc(site.name)}</p>
+        <p class="eyebrow">Comparador independiente · ${esc(site.name)}</p>
         <h1>Herramientas de software asequibles para pequeños negocios</h1>
         <p class="hero-copy">Comparamos SaaS de automatización, email marketing, SEO, IA y más para que elijas con criterio y no pagues por funciones que no vas a usar.</p>
         <p class="hero-sub">Criterios editoriales: implantación rápida, precio inicial razonable y riesgo operativo bajo. Algunas recomendaciones incluyen enlaces de afiliado; puedes leer el <a href="aviso-afiliados.html">aviso de transparencia</a>.</p>

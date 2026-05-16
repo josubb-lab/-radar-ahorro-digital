@@ -208,6 +208,12 @@ h1 {
   font-weight: 800;
 }
 
+.hero h1 {
+  font-size: clamp(1.95rem, 4.2vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.028em;
+}
+
 h2 {
   margin: 0;
   font-size: clamp(1.85rem, 3.8vw, 2.85rem);
@@ -548,7 +554,7 @@ h3 {
 
 .programmatic-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 14px;
 }
 
@@ -681,7 +687,7 @@ h3 {
 
 .comp-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 12px;
 }
 
@@ -1159,13 +1165,6 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .programmatic-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .comp-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
   .trust-strip span + span {
     border-left: none;
