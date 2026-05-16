@@ -203,8 +203,8 @@ function layout({ title, description, body, canonical = "", relative = ".", robo
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:type" content="website">${jsonLd}
     ${fontHeadTags}
-    <link rel="icon" href="${assetPrefix}assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="${assetPrefix}styles.css">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
     <header class="site-header">

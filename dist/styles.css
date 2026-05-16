@@ -579,6 +579,8 @@ h3 {
 }
 
 .program-card {
+  display: flex;
+  flex-direction: column;
   min-height: 150px;
   padding: 18px;
   border: 1px solid var(--line);
