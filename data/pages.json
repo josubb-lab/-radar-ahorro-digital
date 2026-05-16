@@ -55,5 +55,204 @@
         "body": "Guarda al menos campaña, página de entrada y tipo/formulario. Sin ese dato no sabrás qué contenidos o anuncios merecen más inversión y mezclarás «curiosos» con oportunidades reales."
       }
     ]
+  },
+  {
+    "slug": "make-vs-zapier",
+    "title": "Make vs Zapier: cuál automatizador vale más para pequeños negocios en 2026",
+    "description": "Comparativa honesta de Make y Zapier para equipos pequeños y autónomos: precios, curva de aprendizaje, límites y cuándo elegir cada uno.",
+    "sections": [
+      {
+        "heading": "El problema que resuelven los dos",
+        "body": "Make y Zapier hacen lo mismo en esencia: conectan aplicaciones sin que tengas que saber programar. Formulario recibe lead → se añade al CRM → se envía email de bienvenida → se notifica al equipo por Slack. Ese tipo de flujo, que antes requería un desarrollador, hoy se monta visualmente en menos de una hora con cualquiera de los dos. La diferencia está en el precio, la flexibilidad y en qué tipo de usuario aprovecha mejor cada plataforma."
+      },
+      {
+        "heading": "Precios: aquí es donde más se nota la diferencia",
+        "body": "Zapier cobra por tareas (cada ejecución de una acción cuenta). En el plan gratuito tienes 100 tareas al mes y 5 Zaps activos, lo que se queda corto en cuanto montas algo con varias etapas. El plan Starter cuesta 19,99 USD/mes por 750 tareas. Make en cambio cobra por operaciones (más granular) y su plan gratuito incluye 1.000 operaciones al mes con escenarios ilimitados. Para flujos moderados, Make sale entre dos y cuatro veces más barato que Zapier haciendo la misma función."
+      },
+      {
+        "heading": "Curva de aprendizaje: Zapier es más rápido de arrancar",
+        "body": "Zapier está diseñado para usuarios no técnicos que quieren resultados en minutos. El flujo es lineal: trigger → acción → acción. Fácil de entender y de depurar. Make tiene un canvas visual más potente que permite ramificaciones, bucles y condiciones complejas, pero requiere más tiempo para entender su lógica. Si nunca has automatizado nada, Zapier te da resultado antes. Si llevas tiempo haciendo automatizaciones básicas y quieres más control, Make compensa el esfuerzo inicial."
+      },
+      {
+        "heading": "Integraciones disponibles",
+        "body": "Zapier conecta con más de 6.000 aplicaciones, Make con más de 1.500. En la práctica, las herramientas más usadas por pequeños negocios están en los dos: Google Workspace, Notion, Slack, HubSpot, Mailerlite, Shopify, WooCommerce, Typeform, Airtable. Donde Zapier tiene ventaja es en herramientas muy nicho o recién lanzadas, que suelen publicar primero su integración con Zapier por su mayor base de usuarios."
+      },
+      {
+        "heading": "Cuándo elegir Make",
+        "body": "Make es la opción clara si tienes flujos con lógica compleja: condiciones múltiples, bifurcaciones, iteraciones sobre listas o transformaciones de datos. También si el coste importa y prevés volumen: el precio por operación de Make escala mucho mejor. Es especialmente útil para negocios digitales que manejan leads, ventas online o generación de contenido automatizada donde un solo escenario puede ejecutarse cientos de veces al día."
+      },
+      {
+        "heading": "Cuándo elegir Zapier",
+        "body": "Zapier gana cuando quieres montar algo rápido y simple: conectar dos o tres apps sin lógica compleja, o cuando el equipo no tiene perfil técnico y cualquier persona debe poder entender y editar el flujo. También si necesitas una integración muy específica que Make no tiene todavía. Para flujos simples de bajo volumen donde el coste por tarea no duele, Zapier ofrece la menor fricción."
+      },
+      {
+        "heading": "Veredicto para pequeños negocios",
+        "body": "Para la mayoría de pequeños negocios que automatizan por primera vez, Make es la recomendación: plan gratuito más generoso, precio mucho mejor cuando escala, y flexibilidad suficiente para crecer sin cambiar de herramienta. Zapier tiene sentido si priorizas velocidad de puesta en marcha sobre coste, o si ya usas integraciones específicas que solo existen en Zapier. En AhorroSaaS tenemos análisis detallados de los dos con los precios actualizados."
+      },
+      {
+        "heading": "Alternativas a considerar",
+        "body": "Si ni Make ni Zapier convencen del todo, vale la pena mirar n8n (self-hosted gratuito, máximo control) y Pabbly Connect (pago único sin límite de operaciones). Para flujos simples con Google Workspace, Google Apps Script puede cubrir el caso sin coste adicional. La clave es no pagar por capacidad que no vas a usar en los próximos seis meses."
+      }
+    ]
+  },
+  {
+    "slug": "mangools-vs-semrush",
+    "title": "Mangools vs SEMrush: herramientas SEO baratas vs caras, análisis real 2026",
+    "description": "Comparativa directa de Mangools y SEMrush para autónomos y pequeños negocios: cuándo pagar más tiene sentido y cuándo no.",
+    "sections": [
+      {
+        "heading": "Por qué compararlas tiene sentido",
+        "body": "SEMrush es la suite SEO más conocida del mercado y Mangools una de las opciones más valoradas para quienes no pueden o no quieren pagar una suite completa. El precio base de SEMrush parte de 117 USD/mes frente a los 29 USD/mes de Mangools en su plan de entrada. La diferencia de precio es tan grande que la pregunta real no es cuál es mejor en términos absolutos, sino si las funciones extra de SEMrush justifican ese coste para tu caso concreto."
+      },
+      {
+        "heading": "Lo que hace Mangools bien",
+        "body": "Mangools brilla en investigación de palabras clave y análisis de backlinks básico. Su herramienta KWFinder es de las más intuitivas del mercado para encontrar keywords long-tail con competencia manejable. SERPChecker permite ver quién está posicionando y con qué métricas de dominio. LinkMiner analiza perfiles de enlaces de forma visual. Para un blogger, creador de contenido o negocio local que quiere encontrar oportunidades de contenido sin volverse loco con datos, Mangools cubre el 80 % de las necesidades a un cuarto del precio."
+      },
+      {
+        "heading": "Lo que hace SEMrush que Mangools no puede",
+        "body": "SEMrush es una suite completa: auditoría técnica del sitio, seguimiento de posiciones, análisis de la competencia en publicidad, investigación de contenido, social media toolkit, gestión de proyectos SEO y mucho más. Si gestionas varios clientes, necesitas informes automatizados o trabajas en SEO técnico avanzado, SEMrush justifica su precio. También si haces campañas de pago y quieres ver los anuncios de la competencia: ahí Mangools directamente no compite."
+      },
+      {
+        "heading": "Datos y precisión: ¿quién es más fiable?",
+        "body": "SEMrush tiene una de las bases de datos de palabras clave más grandes del mercado (más de 25.000 millones de keywords). Mangools usa datos de terceros como Moz para métricas de dominio y tiene un volumen de datos menor. En la práctica, para keywords en español y mercados hispanohablantes, la diferencia de precisión es real pero no siempre crítica: ambas herramientas dan direcciones correctas aunque los números exactos varíen. Para decisiones de contenido del día a día, Mangools es suficientemente preciso."
+      },
+      {
+        "heading": "Límites de uso: dónde duele más",
+        "body": "Mangools en el plan básico limita las búsquedas de keywords a 100 por día y el rastreo de posiciones a 10 palabras clave. Si publicas mucho o gestionas varios proyectos, esos límites se quedan cortos. SEMrush también tiene límites pero más amplios: el plan Pro permite 3.000 informes al día. Si usas las herramientas intensivamente cada día, SEMrush escala mejor. Si usas SEO de forma esporádica, los límites de Mangools no suelen ser un problema."
+      },
+      {
+        "heading": "Para quién es cada una",
+        "body": "Mangools es ideal para bloggers, nichos, negocios locales, autónomos que hacen su propio SEO y equipos pequeños sin presupuesto para suites enterprise. SEMrush es para agencias, equipos de marketing con presupuesto, ecommerce con muchas categorías y negocios donde el SEO es una palanca principal de ingresos. Si estás empezando y el presupuesto importa, empieza con Mangools y salta a SEMrush cuando el ROI lo justifique."
+      },
+      {
+        "heading": "Alternativas en el medio",
+        "body": "Entre Mangools y SEMrush hay opciones interesantes: SE Ranking (52 USD/mes, buena auditoría técnica), Ahrefs (129 USD/mes, mejor para análisis de backlinks) y LowFruits (pago por créditos, especializado en long-tail). Para nichos nuevos donde la competencia es baja, LowFruits puede ser incluso más útil que las dos grandes porque está diseñado específicamente para encontrar keywords con débil competencia."
+      },
+      {
+        "heading": "Conclusión práctica",
+        "body": "Si tienes un presupuesto ajustado y estás empezando, Mangools es la respuesta correcta. Si ya generas ingresos con SEO y necesitas datos más completos para seguir creciendo, SEMrush empieza a tener sentido. No pagues SEMrush antes de necesitarlo: en las primeras etapas, Mangools más el tiempo bien invertido en contenido supera a SEMrush mal usado."
+      }
+    ]
+  },
+  {
+    "slug": "beehiiv-vs-mailerlite",
+    "title": "Beehiiv vs Mailerlite: cuál elegir para tu newsletter en 2026",
+    "description": "Comparativa completa de Beehiiv y Mailerlite para creadores y pequeños negocios que quieren construir una lista de email sin pagar de más.",
+    "sections": [
+      {
+        "heading": "Dos herramientas, dos enfoques distintos",
+        "body": "Mailerlite lleva años siendo la opción de referencia para pequeños negocios que quieren email marketing completo a precio asequible: formularios, automatizaciones, landing pages y campañas en un solo sitio. Beehiiv nació con un enfoque distinto: está diseñado específicamente para newsletters y creadores que quieren monetizar su lista directamente. No son herramientas intercambiables, y elegir bien depende de qué quieres hacer con tu lista."
+      },
+      {
+        "heading": "Precio: Mailerlite gana en el plan gratuito",
+        "body": "Mailerlite ofrece un plan gratuito hasta 1.000 suscriptores con funciones bastante completas: campañas ilimitadas, automatizaciones básicas, formularios y landing pages. Beehiiv también tiene plan gratuito hasta 2.500 suscriptores, pero limita algunas funciones de monetización y personalización al plan de pago. Para alguien que empieza, Mailerlite da más funcionalidad sin pagar. Una vez que superas los 1.000 suscriptores, los precios son similares: Mailerlite desde 9 USD/mes, Beehiiv desde 39 USD/mes en el plan que desbloquea todas las funciones relevantes."
+      },
+      {
+        "heading": "Diseño y experiencia de escritura",
+        "body": "Beehiiv tiene un editor más limpio y centrado en la escritura, similar a Substack pero con más control. Si escribes newsletters largas con mucho texto, Beehiiv es más cómodo. Mailerlite tiene un editor de arrastrar y soltar orientado a emails de marketing visual: banners, imágenes destacadas, bloques de productos. Si tu newsletter es más una campaña de marketing que una publicación editorial, Mailerlite se adapta mejor."
+      },
+      {
+        "heading": "Automatizaciones: ventaja clara de Mailerlite",
+        "body": "Mailerlite tiene automatizaciones más maduras: secuencias de bienvenida, etiquetado por comportamiento, automatizaciones basadas en clics y aperturas, y flujos de reactivación. Beehiiv tiene automatizaciones básicas pero está más enfocado en la distribución y monetización que en los flujos complejos de email marketing. Si tu negocio depende de secuencias automatizadas para convertir leads, Mailerlite es más potente."
+      },
+      {
+        "heading": "Monetización: Beehiiv gana aquí",
+        "body": "Beehiiv tiene funciones de monetización integradas que Mailerlite no tiene: suscripciones de pago directo a tu newsletter, boosts (te pagan por recomendar otras newsletters) y un programa de referidos nativo. Si tu modelo de negocio es la newsletter en sí, Beehiiv te da herramientas para que tu lista genere ingresos directamente sin necesitar plataformas externas. Mailerlite no tiene nada equivalente: para monetizar necesitarías conectar con Stripe o una plataforma de membresías aparte."
+      },
+      {
+        "heading": "Analítica y crecimiento",
+        "body": "Beehiiv tiene métricas más detalladas orientadas al crecimiento de la newsletter: tasa de apertura por segmento, fuentes de suscriptores, rendimiento de cada edición y seguimiento de upgrades a pago. Mailerlite ofrece analítica estándar de email marketing: aperturas, clics, rebotes y bajas. Para optimizar el crecimiento orgánico de una newsletter, Beehiiv da más contexto."
+      },
+      {
+        "heading": "Para quién es cada una",
+        "body": "Elige Beehiiv si tu objetivo principal es construir y monetizar una newsletter editorial: escribes con frecuencia, quieres cobrar suscripciones o sponsorships y buscas crecer tu audiencia de forma orgánica. Elige Mailerlite si el email es un canal dentro de una estrategia de marketing más amplia: tienes una tienda, un servicio o un negocio local y la newsletter es una herramienta de retención y conversión, no el producto principal."
+      },
+      {
+        "heading": "La opción intermedia",
+        "body": "Si tienes menos de 1.000 suscriptores y no sabes aún hacia dónde va tu newsletter, empieza con Mailerlite gratis. Tiene menos fricción para montar formularios, automatizaciones básicas y campañas. Cuando sepas si tu modelo va más hacia la publicación editorial o el marketing convencional, migrar a Beehiiv o quedarte en Mailerlite es una decisión que puedes tomar con datos reales."
+      }
+    ]
+  },
+  {
+    "slug": "lowfruits-review",
+    "title": "LowFruits review 2026: ¿vale la pena para SEO de nicho?",
+    "description": "Análisis honesto de LowFruits para bloggers, sitios de nicho y pequeños negocios que quieren encontrar keywords con competencia manejable sin pagar una suite SEO cara.",
+    "sections": [
+      {
+        "heading": "Qué es LowFruits y para qué sirve",
+        "body": "LowFruits es una herramienta SEO especializada en encontrar keywords long-tail donde la competencia en el top 10 de Google es débil: páginas de foros, Reddit, Quora, dominios con baja autoridad o contenido poco optimizado. La idea es que esas posiciones son más fáciles de arrebatar para un sitio nuevo o pequeño que no puede competir con medios con miles de backlinks. No es una suite SEO completa: no hace auditorías técnicas ni rastrea posiciones. Hace bien una cosa específica: encontrar las keywords correctas para empezar."
+      },
+      {
+        "heading": "Cómo funciona el modelo de pago por créditos",
+        "body": "LowFruits funciona con créditos en lugar de suscripción mensual fija. Compras créditos y los gastas cuando haces búsquedas. Un análisis de 100 keywords cuesta aproximadamente 2 créditos. Los planes empiezan en 25 USD por 2.000 créditos (plan básico) hasta 75 USD por 8.000 créditos. También tienen suscripción mensual desde 29 USD/mes con créditos mensuales renovables. Para alguien que hace investigación de keywords de forma esporádica, el modelo por créditos es muy eficiente: pagas solo cuando usas, sin suscripción que corra aunque no entres."
+      },
+      {
+        "heading": "Lo que hace bien: encontrar oportunidades reales",
+        "body": "La función estrella de LowFruits es el análisis de SERP por lotes: introduces una semilla de keyword o una lista de palabras clave, y LowFruits analiza quién está en el top 10 para cada una, buscando señales de baja competencia. Marca con un icono de fruta las keywords donde detecta dominios débiles posicionados. En la práctica, funciona: con un sitio nuevo de pocas semanas, keywords encontradas con LowFruits han posicionado en primera página antes que keywords elegidas con herramientas más caras. No siempre, pero con una tasa de acierto mejor que la media."
+      },
+      {
+        "heading": "Lo que no hace y hay que saber antes de comprar",
+        "body": "LowFruits no reemplaza una suite SEO completa. No rastrea posiciones, no hace auditorías de velocidad ni de estructura de la web, no analiza backlinks en profundidad y no tiene datos de competencia de pago (anuncios). Tampoco es la mejor herramienta para mercados muy competitivos o keywords con mucho volumen donde todos los resultados son medios con alta autoridad: ahí sus señales de baja competencia simplemente no aparecen. Es una herramienta de descubrimiento para nichos, no una herramienta de análisis completa."
+      },
+      {
+        "heading": "Comparación con alternativas",
+        "body": "Frente a Mangools (29 USD/mes), LowFruits es más barato si usas las keywords de forma puntual, pero Mangools tiene más funciones: seguimiento de posiciones, análisis de backlinks, métricas de dominio más detalladas. Frente a SEMrush o Ahrefs, LowFruits ni se compara en capacidades pero tampoco en precio. La comparación más justa es con herramientas específicas de long-tail como KeySearch o Ubersuggest: LowFruits tiene la ventaja del análisis visual de SERP que los otros no hacen igual de bien."
+      },
+      {
+        "heading": "Casos de uso donde LowFruits tiene más sentido",
+        "body": "Sitios de nicho nuevos que buscan sus primeras posiciones, bloggers que publican contenido evergreen en mercados específicos, negocios locales que quieren posicionar servicios en ciudades concretas, y creadores de contenido que necesitan ideas de artículos con probabilidad real de rankear sin un presupuesto grande de backlinks. También es útil como herramienta complementaria a Mangools o SEMrush para la fase inicial de investigación de un nuevo proyecto."
+      },
+      {
+        "heading": "Veredicto final",
+        "body": "LowFruits vale la pena si tu situación encaja con lo que hace bien: tienes un sitio relativamente nuevo, te mueves en nichos con competencia moderada y quieres priorizar el contenido por probabilidad de rankear, no solo por volumen. Si ya tienes un sitio con autoridad establecida o trabajas en mercados muy competitivos, otras herramientas te darán más contexto. Para nichos en español donde la competencia seo es menor que en inglés, LowFruits funciona especialmente bien."
+      },
+      {
+        "heading": "Cómo empezar sin riesgo",
+        "body": "Compra el paquete de entrada (25 USD, 2.000 créditos) y haz una investigación real de 20-30 keywords objetivo de tu nicho. Si encuentras 5-10 oportunidades claras con señales de competencia débil que no habías identificado antes, la herramienta se ha pagado sola. Si no encuentras nada útil, sabrás que tu nicho tiene una competencia más pareja y necesitas otra estrategia. Es una de las pocas herramientas SEO donde el riesgo de la prueba es realmente bajo."
+      }
+    ]
+  },
+  {
+    "slug": "mejores-herramientas-email-marketing",
+    "title": "Mejores herramientas de email marketing para pequeños negocios en 2026",
+    "description": "Guía completa con comparativa de precios y funciones de las principales herramientas de email marketing para autónomos, creadores y pequeños negocios.",
+    "sections": [
+      {
+        "heading": "Por qué el email marketing sigue siendo rentable",
+        "body": "El ROI medio del email marketing se sitúa entre 36 y 42 USD por cada 1 USD invertido según varios estudios del sector. A diferencia de las redes sociales, una lista de email es tuya: no depende de algoritmos ni de plataformas que pueden cambiar las reglas mañana. Para un pequeño negocio, construir una lista propia es uno de los activos más valiosos a largo plazo, y las herramientas de hoy lo hacen accesible sin presupuesto grande ni conocimientos técnicos."
+      },
+      {
+        "heading": "Qué mirar antes de elegir herramienta",
+        "body": "Lo más importante no es el número de funciones sino cuatro variables concretas: precio del plan según tu tamaño actual de lista, límites de envío mensual, facilidad para crear automatizaciones básicas y calidad de la entregabilidad (que tus emails lleguen a la bandeja principal y no al spam). Una herramienta cara con buena entregabilidad puede ser mejor inversión que una barata con problemas de spam. También importa la facilidad de migración: si en un año quieres cambiar, exportar tu lista debe ser sencillo."
+      },
+      {
+        "heading": "Mailerlite: la opción más equilibrada para empezar",
+        "body": "Mailerlite es posiblemente la mejor opción para pequeños negocios que empiezan: plan gratuito hasta 1.000 suscriptores con automatizaciones, landing pages y formularios incluidos. El editor es visual e intuitivo, la entregabilidad es buena y el soporte responde en tiempo razonable. Cuando superas los 1.000 suscriptores, el plan de pago empieza en 9 USD/mes. Para negocios locales, tiendas online pequeñas y autónomos que envían newsletters o secuencias de bienvenida, Mailerlite es suficiente durante mucho tiempo."
+      },
+      {
+        "heading": "GetResponse: para quien quiere todo en uno",
+        "body": "GetResponse va un paso más allá del email puro: incluye constructor de landing pages, webinars, embudos de conversión y automatizaciones avanzadas. Es una buena opción si quieres un único proveedor para email y parte de tu estrategia de captación en lugar de pagar herramientas separadas. El precio de entrada es algo más alto que Mailerlite pero se justifica si usas las funciones adicionales. Para negocios que venden formación o servicios con ciclos de venta más largos, el ecosistema de GetResponse ahorra integraciones."
+      },
+      {
+        "heading": "systeme.io: la opción todo en uno más barata",
+        "body": "systeme.io compite directamente con GetResponse pero con un plan gratuito más amplio que incluye embudos, email, automatizaciones, cursos y pagos. Si estás montando un negocio digital desde cero con presupuesto muy ajustado, systeme.io te permite tener todo en un solo sitio sin pagar nada durante los primeros meses. La contrapartida es que ninguna de sus funciones es tan buena como la herramienta especializada equivalente: el email es más básico que Mailerlite, los embudos más básicos que ClickFunnels. Pero para empezar, esa amplitud por ese precio es difícil de batir."
+      },
+      {
+        "heading": "Beehiiv: solo si tu modelo es la newsletter",
+        "body": "Beehiiv está diseñado para creadores que quieren hacer de la newsletter su negocio: suscripciones de pago integradas, boosts para monetizar la audiencia recomendando otras newsletters y analítica orientada al crecimiento. Si tu lista es el producto y quieres cobrar por ella directamente, Beehiiv da herramientas que las demás no tienen. Si el email es un canal dentro de una estrategia más amplia, Beehiiv es demasiado específico y las automatizaciones de marketing son más limitadas que en Mailerlite o GetResponse."
+      },
+      {
+        "heading": "ActiveCampaign: cuando el email pasa a ser CRM",
+        "body": "ActiveCampaign es la opción cuando el email marketing se convierte en gestión de relaciones con clientes: lead scoring, automatizaciones complejas basadas en comportamiento, CRM integrado y segmentación avanzada. El precio empieza en 15 USD/mes pero las funciones avanzadas requieren planes superiores. Es la herramienta adecuada para negocios B2B o de servicios donde el ciclo de venta es largo y necesitas saber exactamente en qué etapa está cada contacto. Para una newsletter simple o un ecommerce pequeño es excesivo."
+      },
+      {
+        "heading": "ConvertKit / Kit: para creadores de contenido",
+        "body": "Kit (antes ConvertKit) se diseñó para bloggers, podcasters y creadores digitales. Tiene un sistema de etiquetado muy flexible, formularios que se integran bien en cualquier web y automatizaciones visuales intuitivas. El plan gratuito llega hasta 10.000 suscriptores con funciones básicas, lo que lo hace muy competitivo en precio para audiencias medianas. La contrapartida es que el editor de emails es más básico que Mailerlite en cuanto a diseño visual: prioriza el texto sobre el diseño."
+      },
+      {
+        "heading": "Cómo elegir según tu situación",
+        "body": "Estás empezando con lista pequeña y presupuesto cero: Mailerlite gratis o systeme.io gratis. Quieres todo en uno con embudos: systeme.io o GetResponse. Tu negocio es la newsletter: Beehiiv. Necesitas automatizaciones avanzadas y CRM: ActiveCampaign. Eres creador de contenido con audiencia creciente: Kit. La herramienta correcta es la que usas de verdad, no la más completa del mercado. Empieza con la que te ponga en marcha esta semana."
+      }
+    ]
   }
 ]
