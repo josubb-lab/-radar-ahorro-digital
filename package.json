@@ -7,6 +7,8 @@
     "build": "node scripts/build.js",
     "scrape": "node scripts/scrape.js",
     "pipeline": "node scripts/scrape.js && node scripts/build.js",
-    "deploy:cloudflare": "npm run build && npx wrangler pages deploy dist --project-name ahorrosaas --branch master"
+    "deploy:cloudflare": "npm run build && npx wrangler pages deploy dist --project-name ahorrosaas --branch master",
+    "parasite": "node scripts/parasite-seo.js",
+    "parasite:dry": "node scripts/parasite-seo.js --dry"
   }
 }
