@@ -145,7 +145,7 @@ a {
 
 .hero {
   position: relative;
-  min-height: min(720px, calc(100vh - 72px));
+  min-height: min(520px, calc(100vh - 72px));
   display: grid;
   align-items: end;
   overflow: hidden;
@@ -176,7 +176,7 @@ a {
 .hero-content {
   width: min(780px, calc(100% - 36px));
   margin: 0 auto;
-  padding: 84px 0 96px;
+  padding: 48px 0 60px;
 }
 
 .eyebrow {
@@ -202,38 +202,38 @@ p {
 h1 {
   margin: 0;
   max-width: 720px;
-  font-size: clamp(2.85rem, 7.5vw, 5.75rem);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
   font-weight: 800;
 }
 
 .hero h1 {
-  font-size: clamp(1.95rem, 4.2vw, 3.4rem);
-  line-height: 1.1;
-  letter-spacing: -0.028em;
+  font-size: clamp(1.65rem, 3.2vw, 2.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
 }
 
 h2 {
   margin: 0;
-  font-size: clamp(1.85rem, 3.8vw, 2.85rem);
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   font-weight: 800;
 }
 
 h3 {
-  margin: 16px 0 10px;
-  font-size: 1.22rem;
-  letter-spacing: -0.02em;
+  margin: 14px 0 8px;
+  font-size: 1.08rem;
+  letter-spacing: -0.015em;
   font-weight: 700;
 }
 
 .hero-copy {
-  max-width: 620px;
-  margin: 28px 0 18px;
+  max-width: 580px;
+  margin: 18px 0 14px;
   color: #334155;
-  font-size: 1.14rem;
+  font-size: 1rem;
   line-height: 1.55;
   font-weight: 500;
 }
@@ -358,7 +358,7 @@ h3 {
 .section {
   width: min(1160px, calc(100% - 36px));
   margin: 0 auto;
-  padding: 80px 0;
+  padding: 52px 0;
 }
 
 .section-head {
@@ -420,7 +420,7 @@ h3 {
 
 .tool-card {
   display: flex;
-  min-height: 430px;
+  min-height: 320px;
   flex-direction: column;
   padding: 26px;
   border: 1px solid var(--line);
@@ -559,8 +559,8 @@ h3 {
 }
 
 .program-card {
-  min-height: 220px;
-  padding: 22px;
+  min-height: 150px;
+  padding: 18px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--white);
@@ -637,12 +637,12 @@ h3 {
 .page-hero {
   width: min(980px, calc(100% - 36px));
   margin: 0 auto;
-  padding: 72px 0 40px;
+  padding: 48px 0 28px;
 }
 
 .page-hero h1 {
-  font-size: clamp(2.35rem, 5.5vw, 4.25rem);
-  letter-spacing: -0.035em;
+  font-size: clamp(1.65rem, 3.5vw, 2.6rem);
+  letter-spacing: -0.025em;
 }
 
 .page-hero p {
