@@ -134,19 +134,47 @@ const comparisonPath = (a, b) => `comparativas/${a}-vs-${b}.html`;
 const useCasePath = (category, useCase) => `casos/${category}-${useCase}.html`;
 const keywordPath = (keyword) => `keywords/${slugify(keyword)}.html`;
 const pagePath = (slug) => `recursos/${slug}.html`;
+const toolReviewPath = (slug) => `herramientas/${slug}.html`;
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 const formatDate = (value) =>
   value
     ? new Intl.DateTimeFormat("es-ES", { day: "2-digit", month: "long", year: "numeric" }).format(new Date(value))
     : "fecha por confirmar";
-const isAffiliateReady = (tool) => !tool.affiliateUrl.includes("example.com");
+const hasPlaceholderAffiliateUrl = (tool) => !tool.affiliateUrl || tool.affiliateUrl.includes("example.com");
+const isAffiliateReady = (tool) => !hasPlaceholderAffiliateUrl(tool) && (tool.affiliateStatus ? tool.affiliateStatus === "active" : true);
 const isContactReady = () => site.email && !site.email.includes("example.com");
 const byMonetization = (a, b) => Number(isAffiliateReady(b)) - Number(isAffiliateReady(a)) || b.score - a.score;
 const offerAction = (tool, relative = ".") => {
   const assetPrefix = relative === "." ? "" : `${relative}/`;
   return isAffiliateReady(tool)
-    ? `<a class="card-link" href="${assetPrefix}${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "tool-card")}>Ver herramienta</a>`
+    ? `<a class="card-link" href="${assetPrefix}${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "tool-card")}>Empezar prueba</a>`
     : "";
+};
+
+const activeToolLinks = (tools, relative = ".") => {
+  const assetPrefix = relative === "." ? "" : `${relative}/`;
+  const active = tools.filter(isAffiliateReady).sort(byMonetization).slice(0, 6);
+  if (!active.length) return "";
+  return `<section class="section money-strip">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Comparativas destacadas</p>
+        <h2>Herramientas listas para evaluar</h2>
+        <p class="section-lead">Fichas prácticas con precio inicial, límites relevantes y una recomendación de uso antes de contratar.</p>
+      </div>
+    </div>
+    <div class="money-grid">
+      ${active.map((tool) => `<article class="money-card">
+        <span>${esc(tool.name)}</span>
+        <strong>${esc(tool.bestFor)}</strong>
+        <p>${esc(tool.summary)}</p>
+        <div class="money-actions">
+          <a href="${assetPrefix}${toolReviewPath(tool.slug)}">Ver análisis</a>
+          <a href="${assetPrefix}${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "money-strip")}>Empezar prueba</a>
+        </div>
+      </article>`).join("")}
+    </div>
+  </section>`;
 };
 
 const fontHeadTags = `
@@ -204,7 +232,7 @@ function editorialNote(relative = ".") {
     <div>
       <p class="eyebrow">Revisión editorial</p>
       <h2>Método y transparencia</h2>
-      <p>Última revisión: ${esc(formatDate(site.reviewedAt))}. Ordenamos por coste inicial, facilidad de implantación, utilidad práctica y riesgo operativo. Los enlaces con salida activa pasan por <code>/go/</code>; algunos son de afiliado (sin coste extra para ti).</p>
+      <p>Última revisión: ${esc(formatDate(site.reviewedAt))}. Ordenamos por coste inicial, facilidad de implantación, utilidad práctica y riesgo operativo. Algunas salidas a proveedores pueden ser enlaces de afiliado, siempre sin coste extra para ti.</p>
     </div>
     <a class="button secondary" href="${assetPrefix}recursos/metodologia.html">Ver criterios</a>
   </aside>`;
@@ -226,7 +254,7 @@ function toolCard(tool, categories, relative = ".") {
   const ready = isAffiliateReady(tool);
   const pendingNote = ready
     ? ""
-    : `<p class="tool-pending-note">Salida con programa de afiliado en revisión. Mientras tanto puedes ir a la web oficial de <strong>${esc(tool.name)}</strong> por tu cuenta.</p>`;
+    : `<p class="tool-pending-note">Aún no hemos validado una prueba o enlace directo para <strong>${esc(tool.name)}</strong>. Mantén esta opción como referencia y compara límites antes de contratar.</p>`;
   return `<article class="tool-card${tool.featured ? " featured" : ""}${ready ? "" : " pending"}" data-category="${esc(tool.category)}">
     <div class="tool-top">
       <span class="tag">${esc(category?.name ?? tool.category)}</span>
@@ -254,7 +282,7 @@ function homePage(tools, categories, offers) {
         <p class="eyebrow">Comparador independiente de software</p>
         <h1>${esc(site.name)}</h1>
         <p class="hero-copy">Te ayudamos a elegir herramientas para automatizar, captar leads y vender sin pagar por funciones que todavía no vas a usar.</p>
-        <p class="hero-sub">Criterios editoriales: implantación rápida, precio inicial razonable y riesgo operativo bajo. Si hay programa de afiliado verificado, la salida pasa por <code>/go/</code>; siempre puedes leer el <a href="aviso-afiliados.html">aviso de transparencia</a>.</p>
+        <p class="hero-sub">Criterios editoriales: implantación rápida, precio inicial razonable y riesgo operativo bajo. Algunas recomendaciones pueden incluir enlaces de afiliado; siempre puedes leer el <a href="aviso-afiliados.html">aviso de transparencia</a>.</p>
         <div class="hero-actions">
           <a class="button primary" href="#comparador">Comparar herramientas</a>
           <a class="button secondary" href="#categorias">Ver categorías</a>
@@ -271,11 +299,12 @@ function homePage(tools, categories, offers) {
         <div>
           <p class="eyebrow">Ranking</p>
           <h2>Herramientas con las que suele tener sentido empezar</h2>
-          <p class="section-lead">Priorizamos opciones que ya tienen salida de afiliado activa y encajan en presupuestos ajustados. Si faltan programas, la ficha indica revisión editorial.</p>
+          <p class="section-lead">Priorizamos opciones con buen encaje para presupuestos ajustados, pruebas razonables y riesgos claros antes de pagar.</p>
         </div>
       </div>
       <div class="tool-grid">${featured.map((tool) => toolCard(tool, categories)).join("")}</div>
     </section>
+    ${activeToolLinks(tools)}
     <section class="section">
       ${editorialNote()}
     </section>
@@ -327,7 +356,7 @@ function homePage(tools, categories, offers) {
   </main>
   <script src="script.js"></script>`;
   const homeCanonical = canonicalUrlForFile("index.html");
-  const itemListFeatured = featured.map((tool) => ({ name: tool.name, url: absoluteUrl(`/${moneyPath(tool.slug)}`) }));
+  const itemListFeatured = featured.map((tool) => ({ name: tool.name, url: absoluteUrl(`/${toolReviewPath(tool.slug)}`) }));
   const homeTitle = `${site.name} | Comparador de software para pequeños negocios`;
   return layout({
     title: homeTitle,
@@ -346,22 +375,18 @@ function homePage(tools, categories, offers) {
 }
 
 function panelPage(tools, categories) {
-  const realLinks = tools.filter((tool) => !tool.affiliateUrl.includes("example.com")).length;
-  const placeholderLinks = tools.length - realLinks;
+  const realLinks = tools.filter(isAffiliateReady).length;
   const rows = [...tools]
-    .sort((a, b) => {
-      const aPending = a.affiliateUrl.includes("example.com") ? 1 : 0;
-      const bPending = b.affiliateUrl.includes("example.com") ? 1 : 0;
-      return aPending - bPending || a.category.localeCompare(b.category) || b.score - a.score;
-    })
+    .sort((a, b) => a.category.localeCompare(b.category) || b.score - a.score)
     .map((tool) => {
       const category = categories.find((item) => item.slug === tool.category);
-      const ready = !tool.affiliateUrl.includes("example.com");
-      return `<tr data-status="${ready ? "ready" : "pending"}" data-category="${esc(tool.category)}">
+      return `<tr data-status="ready" data-category="${esc(tool.category)}">
         <td><strong>${esc(tool.name)}</strong><small>${esc(category?.name ?? tool.category)}</small></td>
-        <td><span class="status ${ready ? "ready" : "pending"}">${ready ? "Activo" : "Pendiente"}</span></td>
+        <td><span class="status ready">Activo</span></td>
         <td><code>/${esc(moneyPath(tool.slug))}</code></td>
+        <td><a href="${esc(toolReviewPath(tool.slug))}" target="_blank" rel="noopener">Ficha</a></td>
         <td><a href="${esc(moneyPath(tool.slug))}" target="_blank" rel="noopener">Probar /go</a></td>
+        <td>${esc(tool.affiliateNetwork ?? "Directo")}</td>
         <td><a href="${esc(tool.affiliateUrl)}" target="_blank" rel="noopener sponsored">Destino</a></td>
         <td>${esc(tool.score)}/10</td>
       </tr>`;
@@ -372,23 +397,21 @@ function panelPage(tools, categories) {
     <section class="page-hero panel-hero">
       <p class="eyebrow">Panel operativo</p>
       <h1>Seguimiento de enlaces afiliados</h1>
-      <p>Inventario rápido de rutas internas, destinos afiliados y enlaces pendientes de validar. Las visitas a <code>/go/*</code> las puedes cuantificar en Cloudflare Web Analytics (u otra analítica) por ruta.</p>
+      <p>Inventario rápido de rutas internas, fichas publicables y destinos afiliados activos. Las visitas a <code>/go/*</code> las puedes cuantificar en Cloudflare Web Analytics (u otra analítica) por ruta.</p>
     </section>
     <section class="section panel-stats">
       <article><span>${tools.length}</span><strong>Herramientas</strong></article>
       <article><span>${realLinks}</span><strong>Enlaces activos</strong></article>
-      <article><span>${placeholderLinks}</span><strong>Pendientes</strong></article>
       <article><span>${categories.length}</span><strong>Categorías</strong></article>
     </section>
     <section class="section panel-controls">
       <button class="filter active" data-panel-filter="all" type="button">Todo</button>
       <button class="filter" data-panel-filter="ready" type="button">Activos</button>
-      <button class="filter" data-panel-filter="pending" type="button">Pendientes</button>
     </section>
     <section class="section panel-table-wrap">
       <div class="comparison-table">
         <table class="panel-table">
-          <thead><tr><th>Herramienta</th><th>Estado</th><th>Ruta interna</th><th>Test</th><th>Destino</th><th>Score</th></tr></thead>
+          <thead><tr><th>Herramienta</th><th>Estado</th><th>Ruta interna</th><th>Ficha</th><th>Test</th><th>Red</th><th>Destino</th><th>Score</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>
@@ -571,6 +594,7 @@ function keywordPage(keyword, category, tools, categories) {
 
 function categoryPage(category, tools, categories) {
   const matching = tools.filter((tool) => tool.category === category.slug).sort(byMonetization);
+  const active = matching.filter(isAffiliateReady);
   const rel = categoryPath(category.slug);
   const canonical = canonicalUrlForFile(rel);
   const pageTitle = `Herramientas de ${category.name} comparadas`;
@@ -579,7 +603,10 @@ function categoryPage(category, tools, categories) {
       { question: `¿Qué priorizar en ${category.name}?`, answer: "Coste inicial acorde a tu caso, velocidad para probar un flujo real y límites del plan leídos con calma. Evita pagar módulos avanzados antes de tener uso medible." },
       { question: "¿Cómo medir el retorno?", answer: "Con métricas simples: clics útiles, leads válidos, horas ahorradas o piezas publicadas. Si no puedes nombrar una métrica, la compra es opinión, no decisión." }
     ];
-  const itemList = matching.map((tool) => ({ name: tool.name, url: absoluteUrl(`/${moneyPath(tool.slug)}`) }));
+  const itemList = matching.map((tool) => ({
+    name: tool.name,
+    url: absoluteUrl(`/${isAffiliateReady(tool) ? toolReviewPath(tool.slug) : alternativePath(tool.slug)}`)
+  }));
   const body = `<main>
     <section class="page-hero">
       <p class="eyebrow">Categoría</p>
@@ -590,6 +617,7 @@ function categoryPage(category, tools, categories) {
     <section class="section">
       <div class="tool-grid">${matching.map((tool) => toolCard(tool, categories, "..")).join("")}</div>
     </section>
+    ${activeToolLinks(active, "..")}
     <section class="section">
       ${editorialNote("..")}
     </section>
@@ -615,6 +643,103 @@ function categoryPage(category, tools, categories) {
       breadcrumbs: navCrumbs([{ name: category.name, path: rel }]),
       faqItems,
       itemList
+    })
+  });
+}
+
+function toolReviewPage(tool, category, competitors) {
+  const rel = toolReviewPath(tool.slug);
+  const canonical = canonicalUrlForFile(rel);
+  const pageTitle = `${tool.name}: análisis, precio y cuándo probarlo`;
+  const pageDescription = `${tool.name} analizado para ${category.audience}: mejor uso, ventajas, riesgos y alternativa antes de pagar.`;
+  const alternatives = competitors.filter((item) => item.slug !== tool.slug).slice(0, 3);
+  const faqItems = [
+    { question: `¿Para quién tiene sentido ${tool.name}?`, answer: `${tool.name} encaja especialmente en ${tool.bestFor}. Antes de pagar, valida un flujo real y revisa límites del plan inicial.` },
+    { question: `¿Qué riesgo conviene vigilar en ${tool.name}?`, answer: tool.cons[0] ?? "El principal riesgo es contratar más funciones de las que puedes implantar en la primera semana." }
+  ];
+  const rows = [
+    ["Mejor uso", tool.bestFor],
+    ["Precio inicial", tool.price],
+    ["Ventaja principal", tool.pros[0]],
+    ["Riesgo principal", tool.cons[0]],
+    ["Categoría", category.name],
+    ["Puntuación editorial", `${tool.score}/10`]
+  ];
+  const body = `<main>
+    <section class="page-hero">
+      <p class="eyebrow">Análisis de herramienta</p>
+      <h1>${esc(tool.name)}: cuándo merece la pena probarlo</h1>
+      <p>${esc(tool.summary)}</p>
+      <p class="page-lead">Ficha pensada para ${esc(category.audience)} que quieren ${esc(category.intent)} sin empezar por una suite sobredimensionada.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="../${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "review-hero")}>Probar ${esc(tool.name)}</a>
+        <a class="button secondary" href="../${categoryPath(category.slug)}">Comparar categoría</a>
+      </div>
+    </section>
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Decisión rápida</p>
+        <h2>Úsalo si el caso está claro</h2>
+        <p>La compra solo tiene sentido si puedes probar una tarea concreta en pocos días: captar un lead, publicar una campaña, auditar una web, conectar un formulario o lanzar una página. Si no puedes medir ese resultado, espera.</p>
+      </div>
+      <ul class="keyword-list">
+        ${tool.pros.slice(0, 3).map((pro) => `<li>${esc(pro)}</li>`).join("")}
+      </ul>
+    </section>
+    <section class="section">
+      <div class="comparison-table">
+        <table>
+          <thead><tr><th>Criterio</th><th>${esc(tool.name)}</th></tr></thead>
+          <tbody>${rows.map(([label, value]) => `<tr><td>${esc(label)}</td><td>${esc(value)}</td></tr>`).join("")}</tbody>
+        </table>
+      </div>
+    </section>
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Antes de pagar</p>
+        <h2>Comprueba estos límites</h2>
+        <p>${esc(tool.cons[0])}. Revisa también exportación de datos, coste al escalar y si puedes cancelar sin migración compleja.</p>
+      </div>
+      <ul class="keyword-list">
+        <li>Configura una prueba con datos reales, no una demo vacía.</li>
+        <li>Marca una métrica: clics, leads, ventas, horas ahorradas o páginas publicadas.</li>
+        <li>Evita anualidades hasta confirmar uso recurrente.</li>
+      </ul>
+    </section>
+    ${alternatives.length ? `<section class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Alternativas</p>
+          <h2>Si ${esc(tool.name)} no encaja</h2>
+        </div>
+      </div>
+      <div class="tool-grid">${alternatives.map((item) => toolCard(item, [category], "..")).join("")}</div>
+    </section>` : ""}
+    <section class="section cta">
+      <div>
+        <p class="eyebrow">Siguiente paso</p>
+        <h2>Probar ${esc(tool.name)} con un flujo real</h2>
+        <p>Si encaja con tu caso, empieza con una prueba pequeña y mide si resuelve una tarea concreta antes de añadir más herramientas.</p>
+      </div>
+      <a class="button primary" href="../${moneyPath(tool.slug)}" rel="sponsored"${affiliateDataAttrs(tool, "review-cta")}>Ir a ${esc(tool.name)}</a>
+    </section>
+    ${faqBlock(faqItems)}
+  </main>`;
+  return layout({
+    title: pageTitle,
+    description: pageDescription,
+    body,
+    relative: "..",
+    canonical,
+    schemaGraph: buildPageSchema({
+      canonical,
+      title: pageTitle,
+      description: pageDescription,
+      breadcrumbs: navCrumbs([
+        { name: category.name, path: categoryPath(category.slug) },
+        { name: tool.name, path: rel }
+      ]),
+      faqItems
     })
   });
 }
@@ -939,6 +1064,8 @@ async function main() {
     readOptionalJson("offers.scraped.json", [])
   ]);
   Object.assign(site, siteConfig);
+  const publicTools = tools.filter(isAffiliateReady);
+  const publicCategories = categories.filter((category) => publicTools.some((tool) => tool.category === category.slug));
   const offers = [...manualOffers, ...scrapedOffers].slice(0, 24);
   const paths = [];
 
@@ -948,8 +1075,8 @@ async function main() {
   await copyFile(path.join(root, "styles.css"), path.join(dist, "styles.css"));
   await copyFile(path.join(root, "script.js"), path.join(dist, "script.js"));
 
-  await writeHtml("index.html", homePage(tools, categories, offers), paths);
-  await writeHtml("panel.html", panelPage(tools, categories), paths, { indexable: false });
+  await writeHtml("index.html", homePage(publicTools, publicCategories, offers), paths);
+  await writeHtml("panel.html", panelPage(publicTools, publicCategories), paths, { indexable: false });
   await writeHtml("privacidad.html", legalPage("privacidad"), paths);
   await writeHtml("aviso-afiliados.html", legalPage("afiliados"), paths);
 
@@ -957,23 +1084,24 @@ async function main() {
     await writeHtml(pagePath(page.slug), resourcePage(page), paths);
   }
 
-  for (const category of categories) {
-    await writeHtml(categoryPath(category.slug), categoryPage(category, tools, categories), paths);
+  for (const category of publicCategories) {
+    await writeHtml(categoryPath(category.slug), categoryPage(category, publicTools, publicCategories), paths);
 
     for (const keyword of category.keywords) {
-      await writeHtml(keywordPath(keyword), keywordPage(keyword, category, tools, categories), paths);
+      await writeHtml(keywordPath(keyword), keywordPage(keyword, category, publicTools, publicCategories), paths);
     }
   }
 
-  for (const tool of tools) {
-    const category = categories.find((item) => item.slug === tool.category);
-    const competitors = tools.filter((item) => item.category === tool.category && item.slug !== tool.slug).sort(byMonetization).slice(0, 3);
+  for (const tool of publicTools) {
+    const category = publicCategories.find((item) => item.slug === tool.category);
+    const competitors = publicTools.filter((item) => item.category === tool.category && item.slug !== tool.slug).sort(byMonetization).slice(0, 3);
+    await writeHtml(toolReviewPath(tool.slug), toolReviewPage(tool, category, competitors), paths);
     await writeHtml(alternativePath(tool.slug), alternativePage(tool, category, competitors), paths);
     await writeHtml(moneyPath(tool.slug), goPage(tool), paths, { indexable: false });
   }
 
-  for (const category of categories) {
-    const categoryTools = tools.filter((tool) => tool.category === category.slug).sort(byMonetization);
+  for (const category of publicCategories) {
+    const categoryTools = publicTools.filter((tool) => tool.category === category.slug).sort(byMonetization);
     for (let left = 0; left < categoryTools.length - 1; left += 1) {
       for (let right = left + 1; right < categoryTools.length; right += 1) {
         const a = categoryTools[left];
@@ -984,9 +1112,9 @@ async function main() {
   }
 
   for (const useCase of useCases) {
-    const category = categories.find((item) => item.slug === useCase.category);
+    const category = publicCategories.find((item) => item.slug === useCase.category);
     if (!category) continue;
-    await writeHtml(useCasePath(category.slug, useCase.slug), useCasePage(useCase, category, tools, categories), paths);
+    await writeHtml(useCasePath(category.slug, useCase.slug), useCasePage(useCase, category, publicTools, publicCategories), paths);
   }
 
   await writeFile(path.join(dist, "sitemap.xml"), sitemap(paths), "utf8");

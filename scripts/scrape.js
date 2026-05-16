@@ -5,9 +5,19 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dataDir = path.join(root, "data");
 const outFile = path.join(dataDir, "offers.scraped.json");
-const userAgent = "AhorroSaaSBot/0.1 (+static affiliate research; contact: tucorreo@example.com)";
 
 const readJson = async (file) => JSON.parse(await readFile(path.join(dataDir, file), "utf8"));
+const readOptionalJson = async (file, fallback) => {
+  try {
+    return JSON.parse(await readFile(path.join(dataDir, file), "utf8"));
+  } catch {
+    return fallback;
+  }
+};
+const buildUserAgent = (site) => {
+  const contact = site.email && !site.email.includes("example.com") ? site.email : "contacto pendiente";
+  return `AhorroSaaSBot/0.1 (+static affiliate research; contact: ${contact})`;
+};
 const textBetween = (value, tag) => {
   const match = value.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
   return match ? decodeXml(match[1].replace(/<!\\[CDATA\\[|\\]\\]>/g, "").trim()) : "";
@@ -27,7 +37,7 @@ function normalizeUrl(value) {
   }
 }
 
-async function robotsAllows(sourceUrl) {
+async function robotsAllows(sourceUrl, userAgent) {
   const url = normalizeUrl(sourceUrl);
   const robotsUrl = `${url.origin}/robots.txt`;
 
@@ -72,10 +82,10 @@ function parseRss(xml, source) {
   }).filter((offer) => offer.label);
 }
 
-async function scrapeSource(source) {
+async function scrapeSource(source, userAgent) {
   if (!source.enabled) return [];
   if (source.type !== "rss") throw new Error(`Tipo de fuente no soportado: ${source.type}`);
-  if (!await robotsAllows(source.url)) throw new Error(`robots.txt no permite acceder a ${source.url}`);
+  if (!await robotsAllows(source.url, userAgent)) throw new Error(`robots.txt no permite acceder a ${source.url}`);
 
   const response = await fetch(source.url, { headers: { "User-Agent": userAgent }, signal: AbortSignal.timeout(15000) });
   if (!response.ok) throw new Error(`${source.url} respondio ${response.status}`);
@@ -84,6 +94,8 @@ async function scrapeSource(source) {
 }
 
 async function main() {
+  const site = await readOptionalJson("site.json", {});
+  const userAgent = buildUserAgent(site);
   const sources = await readJson("sources.json");
   const enabled = sources.filter((source) => source.enabled);
 
@@ -96,7 +108,7 @@ async function main() {
 
   const results = [];
   for (const source of enabled) {
-    const offers = await scrapeSource(source);
+    const offers = await scrapeSource(source, userAgent);
     results.push(...offers);
     await new Promise((resolve) => setTimeout(resolve, 1500));
   }

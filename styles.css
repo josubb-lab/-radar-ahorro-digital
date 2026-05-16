@@ -679,6 +679,78 @@ h3 {
   box-shadow: var(--shadow-sm);
 }
 
+.money-strip {
+  padding-top: 34px;
+}
+
+.money-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.money-card {
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  padding: 22px;
+  border: 1px solid rgba(13, 107, 98, 0.22);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fcfb 100%);
+  box-shadow: var(--shadow-card);
+}
+
+.money-card span {
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.money-card strong {
+  display: block;
+  margin: 10px 0;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.money-card p {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+.money-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.money-actions a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.88rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.money-actions a:first-child {
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.money-actions a:last-child {
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
 .comparison-table {
   overflow-x: auto;
   border: 1px solid var(--line);
@@ -1031,6 +1103,7 @@ h3 {
   }
 
   .tool-grid,
+  .money-grid,
   .programmatic-grid,
   .panel-stats,
   .editorial-note,
@@ -1059,7 +1132,12 @@ h3 {
   }
 
   .button,
+  .money-actions,
   .input-row button {
     width: 100%;
+  }
+
+  .money-actions {
+    grid-template-columns: 1fr;
   }
 }
