@@ -1146,11 +1146,11 @@ async function main() {
     await writeHtml(pagePath(page.slug), resourcePage(page), paths);
   }
 
-  for (const category of publicCategories) {
-    await writeHtml(categoryPath(category.slug), categoryPage(category, publicTools, publicCategories), paths);
+  for (const category of allCategories) {
+    await writeHtml(categoryPath(category.slug), categoryPage(category, allTools, allCategories), paths);
 
     for (const keyword of category.keywords) {
-      await writeHtml(keywordPath(keyword), keywordPage(keyword, category, publicTools, publicCategories), paths);
+      await writeHtml(keywordPath(keyword), keywordPage(keyword, category, allTools, allCategories), paths);
     }
   }
 
