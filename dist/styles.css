@@ -638,6 +638,30 @@ h3 {
   font-weight: 800;
 }
 
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.tool-chip {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.tool-chip:hover {
+  border-color: var(--accent);
+  background: #f0faf4;
+  color: var(--accent);
+}
+
 .split {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);

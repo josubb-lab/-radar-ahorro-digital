@@ -27,6 +27,7 @@ const readOptionalJson = async (file, fallback) => {
 // Populated in main() before first render — used by layout() for nav/footer
 let _navCategories = [];
 let _navTools = [];
+let _allTools = [];
 
 const normalizeBaseUrl = (url) => String(url ?? "").replace(/\/$/, "");
 const absoluteUrl = (pathname) => {
@@ -186,7 +187,7 @@ const fontHeadTags = `
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">`;
 
-function layout({ title, description, body, canonical = "", relative = ".", robots = "index,follow,max-image-preview:large", schemaGraph = null }) {
+function layout({ title, description, body, canonical = "", relative = ".", robots = "index,follow,max-image-preview:large", schemaGraph = null, extraHeadTags = "" }) {
   const assetPrefix = relative === "." ? "" : `${relative}/`;
   const canonicalTag = canonical ? `\n    <link rel="canonical" href="${esc(canonical)}">` : "";
   const ogUrlTag = canonical ? `\n    <meta property="og:url" content="${esc(canonical)}">` : "";
@@ -198,13 +199,14 @@ function layout({ title, description, body, canonical = "", relative = ".", robo
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="${esc(robots)}">${canonicalTag}${ogUrlTag}
+    <meta name="robots" content="${esc(robots)}">${canonicalTag}${ogUrlTag}${extraHeadTags ? `\n    ${extraHeadTags}` : ""}
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:type" content="website">${jsonLd}
     ${fontHeadTags}
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/styles.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4637084595771900" crossorigin="anonymous"></script>
   </head>
   <body>
     <header class="site-header">
@@ -291,6 +293,67 @@ function toolCard(tool, categories) {
     ${pendingNote}
     ${offerAction(tool)}
   </article>`;
+}
+
+const ARTICLE_TOOLS = {
+  "make-vs-zapier": ["make", "zapier", "n8n", "pabbly-connect"],
+  "mangools-vs-semrush": ["mangools", "semrush", "se-ranking", "ahrefs", "lowfruits"],
+  "beehiiv-vs-mailerlite": ["beehiiv", "mailerlite", "getresponse", "systeme-io"],
+  "lowfruits-review": ["lowfruits", "mangools", "semrush", "se-ranking"],
+  "mejores-herramientas-email-marketing": ["getresponse", "mailerlite", "beehiiv", "brevo", "activecampaign", "convertkit"]
+};
+
+const ARTICLE_MAP = {
+  automatizacion: [
+    { slug: "make-vs-zapier", title: "Make vs Zapier: cuál automatizador vale más para pequeños negocios" }
+  ],
+  seo: [
+    { slug: "mangools-vs-semrush", title: "Mangools vs SEMrush: herramientas SEO baratas vs caras" },
+    { slug: "lowfruits-review", title: "LowFruits review 2026: ¿vale la pena para SEO de nicho?" }
+  ],
+  "email-marketing": [
+    { slug: "beehiiv-vs-mailerlite", title: "Beehiiv vs Mailerlite: cuál elegir para tu newsletter" },
+    { slug: "mejores-herramientas-email-marketing", title: "Mejores herramientas de email marketing para pequeños negocios" }
+  ],
+  "funnels-ventas": [
+    { slug: "mejores-herramientas-email-marketing", title: "Mejores herramientas de email marketing para pequeños negocios" }
+  ],
+  "crm-ventas": [
+    { slug: "make-vs-zapier", title: "Make vs Zapier: automatiza tu CRM sin pagar de más" }
+  ]
+};
+
+const TOOL_ARTICLE_MAP = {
+  make: ["make-vs-zapier"],
+  zapier: ["make-vs-zapier"],
+  mangools: ["mangools-vs-semrush"],
+  semrush: ["mangools-vs-semrush"],
+  lowfruits: ["lowfruits-review", "mangools-vs-semrush"],
+  beehiiv: ["beehiiv-vs-mailerlite", "mejores-herramientas-email-marketing"],
+  mailerlite: ["beehiiv-vs-mailerlite", "mejores-herramientas-email-marketing"],
+  getresponse: ["mejores-herramientas-email-marketing", "beehiiv-vs-mailerlite"],
+  "systeme-io": ["mejores-herramientas-email-marketing"],
+  brevo: ["mejores-herramientas-email-marketing"],
+  activecampaign: ["mejores-herramientas-email-marketing"],
+  convertkit: ["mejores-herramientas-email-marketing", "beehiiv-vs-mailerlite"]
+};
+
+const ALL_ARTICLES = {
+  "make-vs-zapier": "Make vs Zapier: cuál automatizador vale más para pequeños negocios",
+  "mangools-vs-semrush": "Mangools vs SEMrush: herramientas SEO baratas vs caras",
+  "beehiiv-vs-mailerlite": "Beehiiv vs Mailerlite: cuál elegir para tu newsletter",
+  "lowfruits-review": "LowFruits review 2026: ¿vale la pena para SEO de nicho?",
+  "mejores-herramientas-email-marketing": "Mejores herramientas de email marketing para pequeños negocios"
+};
+
+function relatedArticles(toolSlug, category) {
+  const slugs = TOOL_ARTICLE_MAP[toolSlug] ?? (ARTICLE_MAP[category]?.map(a => a.slug) ?? []);
+  const items = [...new Set(slugs)].slice(0, 3).map(s => ALL_ARTICLES[s] ? `<a class="guide-card" href="/recursos/${esc(s)}.html"><span class="guide-arrow">→</span><span>${esc(ALL_ARTICLES[s])}</span></a>` : "").filter(Boolean);
+  if (!items.length) return "";
+  return `<section class="section" id="leer-tambien">
+    <div class="section-head"><h2>Leer también</h2></div>
+    <div class="guide-list">${items.join("\n    ")}</div>
+  </section>`;
 }
 
 function homePage(tools, categories, offers, allCats) {
@@ -394,6 +457,37 @@ function homePage(tools, categories, offers, allCats) {
           </a>`).join("")}
       </div>
     </section>
+    <section class="section" id="guias">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Guías en profundidad</p>
+          <h2>Análisis largos para decidir mejor</h2>
+          <p class="section-lead">Comparativas detalladas y reviews honestas para las decisiones de software más habituales.</p>
+        </div>
+      </div>
+      <div class="guide-list">
+        <a href="/recursos/make-vs-zapier.html">
+          <span>Automatización</span>
+          <strong>Make vs Zapier: cuál vale más para pequeños negocios</strong>
+        </a>
+        <a href="/recursos/mangools-vs-semrush.html">
+          <span>SEO</span>
+          <strong>Mangools vs SEMrush: herramientas baratas vs caras</strong>
+        </a>
+        <a href="/recursos/beehiiv-vs-mailerlite.html">
+          <span>Email marketing</span>
+          <strong>Beehiiv vs Mailerlite: cuál elegir para tu newsletter</strong>
+        </a>
+        <a href="/recursos/lowfruits-review.html">
+          <span>SEO</span>
+          <strong>LowFruits review: ¿vale la pena para SEO de nicho?</strong>
+        </a>
+        <a href="/recursos/mejores-herramientas-email-marketing.html">
+          <span>Email marketing</span>
+          <strong>Mejores herramientas de email marketing en 2026</strong>
+        </a>
+      </div>
+    </section>
     <section id="newsletter" class="section cta">
       <div>
         <p class="eyebrow">Antes de pagar</p>
@@ -402,7 +496,7 @@ function homePage(tools, categories, offers, allCats) {
       </div>
       <div class="cta-actions">
         <a class="button primary" href="#comparativas">Ver comparativas</a>
-        <a class="button secondary" href="recursos/metodologia.html">Leer el método</a>
+        <a class="button secondary" href="/recursos/metodologia.html">Leer el método</a>
       </div>
     </section>
   </main>
@@ -415,6 +509,7 @@ function homePage(tools, categories, offers, allCats) {
     description: site.description,
     body,
     canonical: homeCanonical,
+    extraHeadTags: "<meta name='impact-site-verification' value='598a72d9-6f2d-44de-82cd-d4f9639418ba'>",
     schemaGraph: buildPageSchema({
       canonical: homeCanonical,
       title: homeTitle,
@@ -776,6 +871,7 @@ function toolReviewPage(tool, category, competitors) {
       <a class="button primary" href="${abs(moneyPath(tool.slug))}" rel="sponsored"${affiliateDataAttrs(tool, "review-cta")}>Ir a ${esc(tool.name)}</a>
     </section>
     ${faqBlock(faqItems)}
+    ${relatedArticles(tool.slug, tool.category)}
   </main>`;
   return layout({
     title: pageTitle,
@@ -977,6 +1073,16 @@ function resourcePage(page) {
         <p>${esc(section.body)}</p>
       </article>`).join("")}
     </section>
+    ${(() => {
+      const toolSlugs = ARTICLE_TOOLS[page.slug] ?? [];
+      const linked = toolSlugs.map(s => _allTools.find(t => t.slug === s)).filter(Boolean);
+      if (!linked.length) return "";
+      const cards = linked.map(t => `<a class="tool-chip" href="/${toolReviewPath(t.slug)}">${esc(t.name)}</a>`).join("\n        ");
+      return `<section class="section" id="herramientas-guia">
+      <div class="section-head"><h2>Herramientas en esta guía</h2></div>
+      <div class="chip-list">${cards}</div>
+    </section>`;
+    })()}
     <section class="section">
       ${editorialNote()}
     </section>
@@ -1122,6 +1228,7 @@ async function main() {
   const allCategories = categories.filter((category) => allTools.some((tool) => tool.category === category.slug));
   _navCategories = allCategories;
   _navTools = publicTools.slice(0, 5);
+  _allTools = allTools;
   const offers = [...manualOffers, ...scrapedOffers].slice(0, 24);
   const paths = [];
 

@@ -8,10 +8,19 @@
     "affiliateStatus": "active",
     "summary": "Todo en uno para embudos, email, automatizaciones, cursos y pagos; encaja cuando no quieres encadenar cinco herramientas.",
     "bestFor": "creadores y pequeños negocios que venden online sin equipo técnico grande",
-    "pros": ["Plan gratuito amplio", "Embudos y email bajo el mismo techo", "Muy útil con productos digitales"],
-    "cons": ["Menos «best in class» que herramientas dedicadas por bloque", "Puede sobrar si solo quieres una newsletter"],
+    "pros": [
+      "Plan gratuito amplio",
+      "Embudos y email bajo el mismo techo",
+      "Muy útil con productos digitales"
+    ],
+    "cons": [
+      "Menos «best in class» que herramientas dedicadas por bloque",
+      "Puede sobrar si solo quieres una newsletter"
+    ],
     "score": 8.3,
-    "featured": true
+    "featured": true,
+    "affiliateEmail": "josubb@gmail.com",
+    "affiliateNetwork": "Nativo systeme.io"
   },
   {
     "slug": "getresponse",
@@ -23,10 +32,18 @@
     "affiliateStatus": "active",
     "summary": "Email, automatización, formularios y funnels ligeros en una sola cuenta; atractivo si quieres menos piezas sueltas.",
     "bestFor": "negocios que prefieren marketing y automatización sin montar cinco cuentas",
-    "pros": ["Abanico amplio bajo una marca", "Automatizaciones completas razonables", "Encaje en equipos pequeños y creadores"],
-    "cons": ["Puede ser más herramienta de la que necesitas solo para newsletter", "Requiere ordenar bien los flujos"],
+    "pros": [
+      "Abanico amplio bajo una marca",
+      "Automatizaciones completas razonables",
+      "Encaje en equipos pequeños y creadores"
+    ],
+    "cons": [
+      "Puede ser más herramienta de la que necesitas solo para newsletter",
+      "Requiere ordenar bien los flujos"
+    ],
     "score": 8.5,
-    "featured": true
+    "featured": true,
+    "affiliateEmail": "josubb@gmail.com"
   },
   {
     "slug": "make",
@@ -37,10 +54,19 @@
     "affiliateStatus": "active",
     "summary": "Automatizador visual para unir formularios, hojas, CRM y marketing; muy potente cuando los flujos llevan lógica y bifurcaciones.",
     "bestFor": "flujos no-code con varias condiciones y sistemas conectados",
-    "pros": ["Gran flexibilidad visual", "Plan gratuito para pruebas", "Depuración clara de escenarios"],
-    "cons": ["Curva de aprendizaje real", "Escenarios mal diseñados consumen operaciones"],
+    "pros": [
+      "Gran flexibilidad visual",
+      "Plan gratuito para pruebas",
+      "Depuración clara de escenarios"
+    ],
+    "cons": [
+      "Curva de aprendizaje real",
+      "Escenarios mal diseñados consumen operaciones"
+    ],
     "score": 8.8,
-    "featured": true
+    "featured": true,
+    "affiliateEmail": "josubb@gmail.com",
+    "affiliateNetwork": "Nativo Make"
   },
   {
     "slug": "lowfruits",
@@ -51,10 +77,19 @@
     "affiliateStatus": "active",
     "summary": "Enfoque long-tail: detecta consultas con señales de competencia asumible; muy útil para sitios nuevos o de nicho.",
     "bestFor": "priorizar contenido cuando no compites con medios enormes",
-    "pros": ["Orientación long-tail", "Pago por créditos flexible", "Ayuda a decidir qué escribir primero"],
-    "cons": ["No reemplaza una suite SEO completa", "Exige criterio editorial humano"],
+    "pros": [
+      "Orientación long-tail",
+      "Pago por créditos flexible",
+      "Ayuda a decidir qué escribir primero"
+    ],
+    "cons": [
+      "No reemplaza una suite SEO completa",
+      "Exige criterio editorial humano"
+    ],
     "score": 8.5,
-    "featured": true
+    "featured": true,
+    "affiliateEmail": "josubb@gmail.com",
+    "affiliateNetwork": "Nativo LowFruits"
   },
   {
     "slug": "mangools",
@@ -65,10 +100,19 @@
     "affiliateStatus": "active",
     "summary": "Suite SEO asequible para keyword research, SERP, backlinks básicos y seguimiento; interfaz clara para quien sale de hojas de cálculo.",
     "bestFor": "proyectos que buscan alternativa más barata y simple que suites masivas",
-    "pros": ["Interfaz sencilla", "Precio contenido", "Útil en nichos y long-tail"],
-    "cons": ["Menos datos que enterprise puro", "Grandes agencias pueden quedarse cortas"],
+    "pros": [
+      "Interfaz sencilla",
+      "Precio contenido",
+      "Útil en nichos y long-tail"
+    ],
+    "cons": [
+      "Menos datos que enterprise puro",
+      "Grandes agencias pueden quedarse cortas"
+    ],
     "score": 8.4,
-    "featured": true
+    "featured": true,
+    "affiliateEmail": "josubb@gmail.com",
+    "affiliateNetwork": "Nativo Mangools"
   },
   {
     "slug": "semrush",
@@ -76,13 +120,22 @@
     "category": "seo",
     "price": "Desde 117 USD/mes",
     "affiliateUrl": "https://example.com/go/semrush",
-    "affiliateStatus": "pending",
+    "affiliateStatus": "rejected",
     "summary": "Suite SEO líder con keyword research, auditorías, backlinks y seguimiento de posiciones; referencia del sector pero con precio enterprise.",
     "bestFor": "agencias y equipos con volumen de análisis SEO alto",
-    "pros": ["Base de datos de keywords enorme", "Auditoría técnica completa", "Seguimiento de competencia detallado"],
-    "cons": ["Precio elevado para autónomos", "Muchas funciones que no usarás en proyectos pequeños"],
+    "pros": [
+      "Base de datos de keywords enorme",
+      "Auditoría técnica completa",
+      "Seguimiento de competencia detallado"
+    ],
+    "cons": [
+      "Precio elevado para autónomos",
+      "Muchas funciones que no usarás en proyectos pequeños"
+    ],
     "score": 9.1,
-    "featured": false
+    "featured": false,
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "affiliateNetwork": "Impact.com"
   },
   {
     "slug": "ahrefs",
@@ -93,9 +146,16 @@
     "affiliateStatus": "pending",
     "summary": "Referencia en análisis de backlinks y keyword research; muy valorado por SEOs profesionales para auditorías de autoridad.",
     "bestFor": "SEOs que priorizan análisis de enlaces y competencia orgánica",
-    "pros": ["Índice de backlinks más completo", "Keyword Explorer muy preciso", "Content Explorer útil para ideación"],
-    "cons": ["Sin plan gratuito real", "Coste alto para proyectos pequeños"],
-    "score": 9.0,
+    "pros": [
+      "Índice de backlinks más completo",
+      "Keyword Explorer muy preciso",
+      "Content Explorer útil para ideación"
+    ],
+    "cons": [
+      "Sin plan gratuito real",
+      "Coste alto para proyectos pequeños"
+    ],
+    "score": 9,
     "featured": false
   },
   {
@@ -107,8 +167,15 @@
     "affiliateStatus": "pending",
     "summary": "Suite SEO completa con precio más asequible que Semrush o Ahrefs; buena alternativa para freelancers y agencias pequeñas.",
     "bestFor": "freelancers y agencias que necesitan suite completa sin precio enterprise",
-    "pros": ["Precio significativamente menor que competidores top", "Seguimiento de posiciones preciso", "Auditoría técnica sólida"],
-    "cons": ["Base de datos de backlinks menor que Ahrefs", "Algunas funciones menos maduras"],
+    "pros": [
+      "Precio significativamente menor que competidores top",
+      "Seguimiento de posiciones preciso",
+      "Auditoría técnica sólida"
+    ],
+    "cons": [
+      "Base de datos de backlinks menor que Ahrefs",
+      "Algunas funciones menos maduras"
+    ],
     "score": 8.2,
     "featured": false
   },
@@ -121,8 +188,15 @@
     "affiliateStatus": "pending",
     "summary": "Rastreador SEO técnico de referencia para auditorías on-page; imprescindible para detectar errores, redirecciones y metadatos.",
     "bestFor": "auditorías técnicas SEO en sitios medianos y grandes",
-    "pros": ["Versión gratuita funcional", "Muy potente para auditoría técnica", "Exporta datos listos para análisis"],
-    "cons": ["Interfaz anticuada", "No es una suite completa (solo rastreo)"],
+    "pros": [
+      "Versión gratuita funcional",
+      "Muy potente para auditoría técnica",
+      "Exporta datos listos para análisis"
+    ],
+    "cons": [
+      "Interfaz anticuada",
+      "No es una suite completa (solo rastreo)"
+    ],
     "score": 8.6,
     "featured": false
   },
@@ -135,8 +209,15 @@
     "affiliateStatus": "pending",
     "summary": "Herramienta SEO accesible con keyword research, auditoría y seguimiento; buena entrada para quienes empiezan con SEO.",
     "bestFor": "pequeños negocios que empiezan con SEO y quieren coste bajo",
-    "pros": ["Precio muy bajo", "Pago único disponible", "Interfaz fácil para principiantes"],
-    "cons": ["Datos menos precisos que suites top", "Funciones avanzadas limitadas"],
+    "pros": [
+      "Precio muy bajo",
+      "Pago único disponible",
+      "Interfaz fácil para principiantes"
+    ],
+    "cons": [
+      "Datos menos precisos que suites top",
+      "Funciones avanzadas limitadas"
+    ],
     "score": 7.5,
     "featured": false
   },
@@ -149,8 +230,15 @@
     "affiliateStatus": "pending",
     "summary": "Herramienta especializada en mapear preguntas relacionadas de 'People Also Ask'; útil para estructurar contenido con intención real.",
     "bestFor": "creadores de contenido y SEOs que quieren cubrir intención informacional",
-    "pros": ["Especializada en preguntas de usuario", "Visualización clara de clusters", "Complemento perfecto a keyword tools"],
-    "cons": ["Nicho muy específico", "No reemplaza una suite completa"],
+    "pros": [
+      "Especializada en preguntas de usuario",
+      "Visualización clara de clusters",
+      "Complemento perfecto a keyword tools"
+    ],
+    "cons": [
+      "Nicho muy específico",
+      "No reemplaza una suite completa"
+    ],
     "score": 7.8,
     "featured": false
   },
@@ -163,8 +251,15 @@
     "affiliateStatus": "pending",
     "summary": "Email marketing limpio y directo con automatizaciones básicas; muy popular entre newsletters y creadores por su plan gratuito generoso.",
     "bestFor": "newsletters, bloggers y creadores que empiezan a construir lista",
-    "pros": ["Plan gratuito hasta 1.000 contactos", "Interfaz muy limpia", "Automatizaciones suficientes para empezar"],
-    "cons": ["Funciones avanzadas limitadas vs competidores", "Soporte lento en plan gratuito"],
+    "pros": [
+      "Plan gratuito hasta 1.000 contactos",
+      "Interfaz muy limpia",
+      "Automatizaciones suficientes para empezar"
+    ],
+    "cons": [
+      "Funciones avanzadas limitadas vs competidores",
+      "Soporte lento en plan gratuito"
+    ],
     "score": 8.1,
     "featured": false
   },
@@ -174,13 +269,22 @@
     "category": "email-marketing",
     "price": "Gratis hasta 300 emails/día",
     "affiliateUrl": "https://example.com/go/brevo",
-    "affiliateStatus": "pending",
+    "affiliateStatus": "applied",
     "summary": "Email marketing y CRM ligero en un paquete; precio por emails enviados (no por contactos) lo hace competitivo con listas grandes.",
     "bestFor": "negocios con listas grandes pero envíos menos frecuentes",
-    "pros": ["Precio por envío, no por contacto", "CRM básico incluido", "SMS y WhatsApp integrados"],
-    "cons": ["Interfaz menos moderna que competidores", "Automatizaciones algo limitadas en plan básico"],
-    "score": 8.0,
-    "featured": false
+    "pros": [
+      "Precio por envío, no por contacto",
+      "CRM básico incluido",
+      "SMS y WhatsApp integrados"
+    ],
+    "cons": [
+      "Interfaz menos moderna que competidores",
+      "Automatizaciones algo limitadas en plan básico"
+    ],
+    "score": 8,
+    "featured": false,
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "affiliateNetwork": "Nativo Brevo"
   },
   {
     "slug": "activecampaign",
@@ -191,8 +295,15 @@
     "affiliateStatus": "pending",
     "summary": "Email marketing con automatizaciones avanzadas y CRM integrado; referencia para negocios que necesitan nurturing complejo.",
     "bestFor": "negocios que necesitan automatizaciones y segmentación avanzada",
-    "pros": ["Automatizaciones muy potentes", "CRM integrado sólido", "Segmentación avanzada"],
-    "cons": ["Precio escala rápido con los contactos", "Curva de aprendizaje considerable"],
+    "pros": [
+      "Automatizaciones muy potentes",
+      "CRM integrado sólido",
+      "Segmentación avanzada"
+    ],
+    "cons": [
+      "Precio escala rápido con los contactos",
+      "Curva de aprendizaje considerable"
+    ],
     "score": 8.7,
     "featured": false
   },
@@ -201,14 +312,22 @@
     "name": "ConvertKit",
     "category": "email-marketing",
     "price": "Gratis hasta 10.000 suscriptores",
-    "affiliateUrl": "https://example.com/go/convertkit",
-    "affiliateStatus": "pending",
+    "affiliateUrl": "https://kit.com/?via=ahorrosaas",
+    "affiliateStatus": "active",
     "summary": "Email pensado para creadores: newsletters, cursos por email y automatizaciones simples; plan gratuito muy generoso.",
     "bestFor": "creadores de contenido, escritores y podcasters",
-    "pros": ["Plan gratuito hasta 10.000 contactos", "Orientado a creadores", "Páginas de suscripción limpias"],
-    "cons": ["Funciones de diseño limitadas", "Menos potente para ecommerce"],
+    "pros": [
+      "Plan gratuito hasta 10.000 contactos",
+      "Orientado a creadores",
+      "Páginas de suscripción limpias"
+    ],
+    "cons": [
+      "Funciones de diseño limitadas",
+      "Menos potente para ecommerce"
+    ],
     "score": 8.2,
-    "featured": false
+    "featured": false,
+    "affiliateNetwork": "via-unverified"
   },
   {
     "slug": "beehiiv",
@@ -219,24 +338,41 @@
     "affiliateStatus": "active",
     "summary": "Plataforma de newsletter moderna con monetización integrada (suscripciones de pago, red de anunciantes) y analítica detallada.",
     "bestFor": "newsletters que quieren monetizar directamente sin herramientas extra",
-    "pros": ["Monetización nativa incluida", "Analítica avanzada", "Diseño moderno y limpio"],
-    "cons": ["Enfocado en newsletters, no en email marketing general", "Funciones CRM inexistentes"],
+    "pros": [
+      "Monetización nativa incluida",
+      "Analítica avanzada",
+      "Diseño moderno y limpio"
+    ],
+    "cons": [
+      "Enfocado en newsletters, no en email marketing general",
+      "Funciones CRM inexistentes"
+    ],
     "score": 8.3,
-    "featured": false
+    "featured": false,
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "affiliateNetwork": "Nativo Beehiiv"
   },
   {
     "slug": "buttondown",
     "name": "Buttondown",
     "category": "email-marketing",
     "price": "Gratis hasta 100 suscriptores",
-    "affiliateUrl": "https://example.com/go/buttondown",
-    "affiliateStatus": "pending",
+    "affiliateUrl": "https://buttondown.email/?via=ahorrosaas",
+    "affiliateStatus": "active",
     "summary": "Newsletter minimalista para escritores técnicos; API potente, sin distracciones, orientado a quien prefiere escribir en Markdown.",
     "bestFor": "desarrolladores y escritores técnicos que priorizan simplicidad",
-    "pros": ["API bien documentada", "Sin bloatware", "Ideal para Markdown"],
-    "cons": ["Sin automatizaciones avanzadas", "Diseño muy básico"],
+    "pros": [
+      "API bien documentada",
+      "Sin bloatware",
+      "Ideal para Markdown"
+    ],
+    "cons": [
+      "Sin automatizaciones avanzadas",
+      "Diseño muy básico"
+    ],
     "score": 7.4,
-    "featured": false
+    "featured": false,
+    "affiliateNetwork": "via-unverified"
   },
   {
     "slug": "zapier",
@@ -247,8 +383,15 @@
     "affiliateStatus": "pending",
     "summary": "El referente en automatización no-code con más de 6.000 integraciones; más sencillo que Make pero con menos flexibilidad en flujos complejos.",
     "bestFor": "automatizaciones simples entre apps populares sin curva de aprendizaje",
-    "pros": ["Mayor catálogo de integraciones", "Muy fácil de usar", "Soporte y comunidad amplia"],
-    "cons": ["Precio alto para volúmenes medios", "Menos flexible que Make en lógica avanzada"],
+    "pros": [
+      "Mayor catálogo de integraciones",
+      "Muy fácil de usar",
+      "Soporte y comunidad amplia"
+    ],
+    "cons": [
+      "Precio alto para volúmenes medios",
+      "Menos flexible que Make en lógica avanzada"
+    ],
     "score": 8.4,
     "featured": false
   },
@@ -257,14 +400,22 @@
     "name": "n8n",
     "category": "automatizacion",
     "price": "Self-hosted gratis / cloud desde 20 EUR/mes",
-    "affiliateUrl": "https://example.com/go/n8n",
-    "affiliateStatus": "pending",
+    "affiliateUrl": "https://n8n.io/?via=ahorrosaas",
+    "affiliateStatus": "active",
     "summary": "Automatizador open-source con opción self-hosted; máxima flexibilidad y control para quienes tienen perfil técnico.",
     "bestFor": "equipos técnicos que quieren control total sin pagar por operaciones",
-    "pros": ["Open-source y self-hosteable", "Sin límite de operaciones en self-hosted", "Muy flexible para flujos complejos"],
-    "cons": ["Requiere perfil técnico para sacarle partido", "Cloud más caro que alternativas"],
+    "pros": [
+      "Open-source y self-hosteable",
+      "Sin límite de operaciones en self-hosted",
+      "Muy flexible para flujos complejos"
+    ],
+    "cons": [
+      "Requiere perfil técnico para sacarle partido",
+      "Cloud más caro que alternativas"
+    ],
     "score": 8.6,
-    "featured": false
+    "featured": false,
+    "affiliateNetwork": "via-unverified"
   },
   {
     "slug": "pabbly-connect",
@@ -275,8 +426,15 @@
     "affiliateStatus": "pending",
     "summary": "Alternativa a Zapier con modelo de pago único; sin límite de flujos ni tareas en planes de por vida.",
     "bestFor": "quienes quieren automatización sin suscripción mensual recurrente",
-    "pros": ["Pago único, sin suscripción", "Sin límite de flujos", "Relación calidad-precio excelente a largo plazo"],
-    "cons": ["Menos integraciones que Zapier", "Interfaz menos pulida"],
+    "pros": [
+      "Pago único, sin suscripción",
+      "Sin límite de flujos",
+      "Relación calidad-precio excelente a largo plazo"
+    ],
+    "cons": [
+      "Menos integraciones que Zapier",
+      "Interfaz menos pulida"
+    ],
     "score": 7.9,
     "featured": false
   },
@@ -285,28 +443,44 @@
     "name": "Tally",
     "category": "automatizacion",
     "price": "Gratis con límites / Pro 29 USD/mes",
-    "affiliateUrl": "https://example.com/go/tally",
-    "affiliateStatus": "pending",
+    "affiliateUrl": "https://tally.so/?via=ahorrosaas",
+    "affiliateStatus": "active",
     "summary": "Formularios gratuitos y potentes con lógica condicional, pagos integrados e integraciones directas; alternativa honesta a Typeform.",
     "bestFor": "crear formularios avanzados gratis o con bajo coste",
-    "pros": ["Plan gratuito muy generoso", "Lógica condicional incluida", "Integraciones nativas con Make y Zapier"],
-    "cons": ["Menos marca visual que Typeform", "Funciones de reporte básicas"],
+    "pros": [
+      "Plan gratuito muy generoso",
+      "Lógica condicional incluida",
+      "Integraciones nativas con Make y Zapier"
+    ],
+    "cons": [
+      "Menos marca visual que Typeform",
+      "Funciones de reporte básicas"
+    ],
     "score": 8.1,
-    "featured": false
+    "featured": false,
+    "affiliateNetwork": "via-unverified"
   },
   {
     "slug": "neuronwriter",
     "name": "NeuronWriter",
     "category": "ia-contenido",
     "price": "Desde 23 EUR/mes",
-    "affiliateUrl": "https://example.com/go/neuronwriter",
-    "affiliateStatus": "pending",
+    "affiliateUrl": "https://neuronwriter.com/?via=ahorrosaas",
+    "affiliateStatus": "active",
     "summary": "Redacción de contenido optimizado para SEO con análisis de SERP y NLP; guía para superar a la competencia en posicionamiento.",
     "bestFor": "redactores y SEOs que quieren optimizar contenido con datos de SERP",
-    "pros": ["Análisis NLP integrado", "Competencia directa en SERP", "Precios razonables vs competidores"],
-    "cons": ["Curva de aprendizaje inicial", "Calidad de IA menor que GPT-4"],
-    "score": 8.0,
-    "featured": false
+    "pros": [
+      "Análisis NLP integrado",
+      "Competencia directa en SERP",
+      "Precios razonables vs competidores"
+    ],
+    "cons": [
+      "Curva de aprendizaje inicial",
+      "Calidad de IA menor que GPT-4"
+    ],
+    "score": 8,
+    "featured": false,
+    "affiliateNetwork": "via-unverified"
   },
   {
     "slug": "chatgpt",
@@ -317,8 +491,15 @@
     "affiliateStatus": "pending",
     "summary": "El referente en IA generativa; útil para borradores, ideación, resúmenes y asistencia en redacción con los mejores modelos disponibles.",
     "bestFor": "cualquier tarea de escritura, ideación o asistencia con texto",
-    "pros": ["Mejor modelo de lenguaje disponible", "Versátil para múltiples tareas", "Interfaz simple y rápida"],
-    "cons": ["No está especializado en SEO", "Requiere prompts bien elaborados para resultados buenos"],
+    "pros": [
+      "Mejor modelo de lenguaje disponible",
+      "Versátil para múltiples tareas",
+      "Interfaz simple y rápida"
+    ],
+    "cons": [
+      "No está especializado en SEO",
+      "Requiere prompts bien elaborados para resultados buenos"
+    ],
     "score": 8.9,
     "featured": false
   },
@@ -327,14 +508,22 @@
     "name": "Copy.ai",
     "category": "ia-contenido",
     "price": "Gratis / Pro 49 USD/mes",
-    "affiliateUrl": "https://example.com/go/copy-ai",
-    "affiliateStatus": "pending",
+    "affiliateUrl": "https://www.copy.ai/?via=ahorrosaas",
+    "affiliateStatus": "active",
     "summary": "IA para copywriting y contenido de marketing con plantillas específicas por caso de uso; útil para acelerar producción de textos comerciales.",
     "bestFor": "marketers que necesitan copys, emails y posts rápido",
-    "pros": ["Plantillas específicas por tipo de contenido", "Flujos de trabajo para equipos", "Workflow builder para procesos repetitivos"],
-    "cons": ["Resultados mejoran mucho con edición humana", "Precio alto en planes de equipo"],
+    "pros": [
+      "Plantillas específicas por tipo de contenido",
+      "Flujos de trabajo para equipos",
+      "Workflow builder para procesos repetitivos"
+    ],
+    "cons": [
+      "Resultados mejoran mucho con edición humana",
+      "Precio alto en planes de equipo"
+    ],
     "score": 7.7,
-    "featured": false
+    "featured": false,
+    "affiliateNetwork": "via-unverified"
   },
   {
     "slug": "notion",
@@ -345,8 +534,15 @@
     "affiliateStatus": "pending",
     "summary": "Espacio de trabajo todo en uno con IA integrada; combina notas, bases de datos, docs y proyectos en un único lugar.",
     "bestFor": "equipos que quieren centralizar conocimiento y proyectos sin múltiples apps",
-    "pros": ["Plan gratuito funcional", "IA integrada en el editor", "Muy flexible con bases de datos"],
-    "cons": ["Puede ser excesivo para usos simples", "Curva de aprendizaje para sacarle todo el partido"],
+    "pros": [
+      "Plan gratuito funcional",
+      "IA integrada en el editor",
+      "Muy flexible con bases de datos"
+    ],
+    "cons": [
+      "Puede ser excesivo para usos simples",
+      "Curva de aprendizaje para sacarle todo el partido"
+    ],
     "score": 8.4,
     "featured": false
   },
@@ -359,8 +555,15 @@
     "affiliateStatus": "pending",
     "summary": "Diseño gráfico accesible con IA integrada para generar imágenes, presentaciones y contenido visual sin conocimientos de diseño.",
     "bestFor": "negocios y creadores que producen contenido visual sin diseñador",
-    "pros": ["Sin curva de aprendizaje de diseño", "IA Magic Studio para imágenes", "Millones de plantillas"],
-    "cons": ["Diseños reconocibles si no se personalizan", "Pro caro si usas pocas funciones premium"],
+    "pros": [
+      "Sin curva de aprendizaje de diseño",
+      "IA Magic Studio para imágenes",
+      "Millones de plantillas"
+    ],
+    "cons": [
+      "Diseños reconocibles si no se personalizan",
+      "Pro caro si usas pocas funciones premium"
+    ],
     "score": 8.5,
     "featured": false
   },
@@ -373,8 +576,15 @@
     "affiliateStatus": "pending",
     "summary": "Constructor de funnels de ventas de referencia; orientado a infoproductos, webinars y ventas directas con seguimiento integrado.",
     "bestFor": "marketers que venden productos digitales o servicios con funnels de ventas",
-    "pros": ["Referente en funnels de ventas", "Comunidad y recursos muy amplios", "Checkout y pagos integrados"],
-    "cons": ["Precio muy elevado", "Interfaz algo anticuada vs alternativas modernas"],
+    "pros": [
+      "Referente en funnels de ventas",
+      "Comunidad y recursos muy amplios",
+      "Checkout y pagos integrados"
+    ],
+    "cons": [
+      "Precio muy elevado",
+      "Interfaz algo anticuada vs alternativas modernas"
+    ],
     "score": 7.6,
     "featured": false
   },
@@ -387,8 +597,15 @@
     "affiliateStatus": "pending",
     "summary": "Suite completa de CRM, marketing y ventas; el plan gratuito de CRM es referencia del sector, aunque los módulos avanzados escalan en precio.",
     "bestFor": "equipos comerciales que quieren CRM gratuito para empezar",
-    "pros": ["CRM gratuito muy completo", "Integración nativa entre módulos", "Informes y analítica sólida"],
-    "cons": ["Precio escala muy rápido con módulos avanzados", "Puede ser excesivo para equipos muy pequeños"],
+    "pros": [
+      "CRM gratuito muy completo",
+      "Integración nativa entre módulos",
+      "Informes y analítica sólida"
+    ],
+    "cons": [
+      "Precio escala muy rápido con módulos avanzados",
+      "Puede ser excesivo para equipos muy pequeños"
+    ],
     "score": 8.5,
     "featured": false
   },
@@ -401,8 +618,15 @@
     "affiliateStatus": "pending",
     "summary": "CRM orientado a ventas con pipeline visual y enfoque en seguimiento de oportunidades; más sencillo que HubSpot para equipos comerciales.",
     "bestFor": "equipos comerciales pequeños que priorizan gestión de pipeline",
-    "pros": ["Pipeline visual muy claro", "Fácil de adoptar para equipos comerciales", "Automatizaciones de ventas simples"],
-    "cons": ["Marketing limitado vs HubSpot", "Precio por usuario puede acumularse"],
+    "pros": [
+      "Pipeline visual muy claro",
+      "Fácil de adoptar para equipos comerciales",
+      "Automatizaciones de ventas simples"
+    ],
+    "cons": [
+      "Marketing limitado vs HubSpot",
+      "Precio por usuario puede acumularse"
+    ],
     "score": 8.1,
     "featured": false
   },
@@ -415,8 +639,15 @@
     "affiliateStatus": "pending",
     "summary": "Hosting cloud gestionado sobre AWS, DigitalOcean y otros; potencia de cloud sin gestionar servidores, orientado a WordPress y PHP.",
     "bestFor": "webs WordPress con tráfico medio-alto que necesitan más potencia que un hosting compartido",
-    "pros": ["Rendimiento cloud real", "Panel simplificado vs servidores raw", "Escalado flexible"],
-    "cons": ["Precio mayor que hosting compartido", "Requiere algo de conocimiento técnico"],
+    "pros": [
+      "Rendimiento cloud real",
+      "Panel simplificado vs servidores raw",
+      "Escalado flexible"
+    ],
+    "cons": [
+      "Precio mayor que hosting compartido",
+      "Requiere algo de conocimiento técnico"
+    ],
     "score": 8.3,
     "featured": false
   },
@@ -429,8 +660,15 @@
     "affiliateStatus": "pending",
     "summary": "Constructor web visual de alto nivel con CMS integrado y hosting incluido; entre el no-code y el código real.",
     "bestFor": "diseñadores y agencias que quieren control visual sin programar",
-    "pros": ["Control visual avanzado sin código", "CMS y hosting integrado", "Sitios muy rápidos"],
-    "cons": ["Curva de aprendizaje alta", "Precio elevado para proyectos simples"],
+    "pros": [
+      "Control visual avanzado sin código",
+      "CMS y hosting integrado",
+      "Sitios muy rápidos"
+    ],
+    "cons": [
+      "Curva de aprendizaje alta",
+      "Precio elevado para proyectos simples"
+    ],
     "score": 8.2,
     "featured": false
   },
@@ -443,10 +681,19 @@
     "affiliateStatus": "active",
     "summary": "Hosting compartido de bajo coste con buen rendimiento para WordPress; opción de entrada muy competitiva para proyectos nuevos.",
     "bestFor": "proyectos nuevos, blogs y pequeños negocios que priorizan coste",
-    "pros": ["Precio muy bajo", "Rendimiento decente para el coste", "Panel hPanel fácil de usar"],
-    "cons": ["Soporte variable", "Rendimiento bajo con picos de tráfico"],
+    "pros": [
+      "Precio muy bajo",
+      "Rendimiento decente para el coste",
+      "Panel hPanel fácil de usar"
+    ],
+    "cons": [
+      "Soporte variable",
+      "Rendimiento bajo con picos de tráfico"
+    ],
     "score": 7.8,
-    "featured": false
+    "featured": false,
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "affiliateNetwork": "Referral Hostinger"
   },
   {
     "slug": "nordvpn",
@@ -454,13 +701,22 @@
     "category": "vpn-seguridad",
     "price": "Desde 3 EUR/mes",
     "affiliateUrl": "https://example.com/go/nordvpn",
-    "affiliateStatus": "pending",
+    "affiliateStatus": "applied",
     "summary": "VPN premium con fuerte reputación de seguridad, servidores en 60 países y funciones extra como Meshnet y Threat Protection.",
     "bestFor": "usuarios que priorizan seguridad y privacidad con buen rendimiento",
-    "pros": ["Reputación de seguridad sólida", "Red de servidores amplia", "Funciones extra incluidas"],
-    "cons": ["Precio mayor que algunas alternativas", "Auditorías independientes a veces cuestionadas"],
+    "pros": [
+      "Reputación de seguridad sólida",
+      "Red de servidores amplia",
+      "Funciones extra incluidas"
+    ],
+    "cons": [
+      "Precio mayor que algunas alternativas",
+      "Auditorías independientes a veces cuestionadas"
+    ],
     "score": 8.6,
-    "featured": false
+    "featured": false,
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "affiliateNetwork": "Impact.com"
   },
   {
     "slug": "surfshark",
@@ -471,8 +727,15 @@
     "affiliateStatus": "pending",
     "summary": "VPN con precio competitivo, dispositivos ilimitados y funciones de privacidad sólidas; buena relación precio-prestaciones.",
     "bestFor": "familias o equipos que necesitan conectar muchos dispositivos",
-    "pros": ["Dispositivos ilimitados incluidos", "Precio bajo", "Funciones CleanWeb y Nexus"],
-    "cons": ["Velocidades algo inferiores a NordVPN", "Marca menos establecida"],
+    "pros": [
+      "Dispositivos ilimitados incluidos",
+      "Precio bajo",
+      "Funciones CleanWeb y Nexus"
+    ],
+    "cons": [
+      "Velocidades algo inferiores a NordVPN",
+      "Marca menos establecida"
+    ],
     "score": 8.2,
     "featured": false
   }

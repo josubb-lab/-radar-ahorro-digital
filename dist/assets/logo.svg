@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224 48" role="img" aria-label="AhorroSaaS">
+  <defs>
+    <linearGradient id="bm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0f8075"/>
+      <stop offset="52%"  stop-color="#0d6b62"/>
+      <stop offset="100%" stop-color="#0f1729"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Marca: cuadrado con gradiente -->
+  <rect x="0" y="4" width="40" height="40" rx="9" fill="url(#bm)"/>
+
+  <!-- A geométrica: dos patas + travesaño -->
+  <polygon points="20,10 30,34 26,34 20,19 14,34 10,34" fill="white"/>
+  <rect x="13" y="25" width="14" height="3" rx="1.5" fill="white"/>
+
+  <!-- Texto: Ahorro en oscuro -->
+  <text
+    x="52" y="32"
+    font-family="'Plus Jakarta Sans', Arial, sans-serif"
+    font-size="22" font-weight="800"
+    fill="#0f1729"
+    letter-spacing="-0.4">Ahorro</text>
+
+  <!-- Texto: SaaS en teal -->
+  <text
+    x="140" y="32"
+    font-family="'Plus Jakarta Sans', Arial, sans-serif"
+    font-size="22" font-weight="800"
+    fill="#0d6b62"
+    letter-spacing="-0.4">SaaS</text>
+</svg>
