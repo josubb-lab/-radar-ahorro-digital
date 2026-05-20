@@ -791,7 +791,7 @@ function categoryPage(category, tools, categories) {
         <p class="eyebrow">Keywords objetivo</p>
         <h2>Búsquedas relacionadas</h2>
       </div>
-      <ul class="keyword-list">${category.keywords.map((keyword) => `<li>${esc(keyword)}</li>`).join("")}</ul>
+      <ul class="keyword-list">${category.keywords.map((keyword) => `<li><a href="${abs(keywordPath(keyword))}">${esc(keyword)}</a></li>`).join("")}</ul>
     </section>
     ${faqBlock(faqItems)}
   </main>`;

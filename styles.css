@@ -748,6 +748,18 @@ h3 {
   margin-top: 10px;
 }
 
+.keyword-list a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.keyword-list a:hover {
+  border-bottom-color: var(--accent);
+}
+
 .offer-list {
   display: grid;
   gap: 12px;
