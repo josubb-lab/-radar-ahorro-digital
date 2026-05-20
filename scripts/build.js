@@ -40,7 +40,7 @@ const absoluteUrl = (pathname) => {
 const canonicalPathForFile = (relativePath) => {
   const unix = String(relativePath).replaceAll("\\", "/");
   if (unix === "index.html") return "/";
-  return `/${unix}`;
+  return `/${unix.replace(/\.html$/, "")}`;
 };
 const canonicalUrlForFile = (relativePath) => absoluteUrl(canonicalPathForFile(relativePath));
 const affiliateDataAttrs = (tool, cta) => ` data-affiliate="1" data-tool="${esc(tool.slug)}" data-cta="${esc(cta)}"`;
@@ -1212,7 +1212,7 @@ async function writeHtml(relativePath, html, paths, options = {}) {
   await writeFile(target, html, "utf8");
   if (options.indexable !== false) {
     const unix = relativePath.replaceAll("\\", "/");
-    paths.push(unix === "index.html" ? "/" : `/${unix}`);
+    paths.push(unix === "index.html" ? "/" : `/${unix.replace(/\.html$/, "")}`);
   }
 }
 
