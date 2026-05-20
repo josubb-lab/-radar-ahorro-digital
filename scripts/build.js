@@ -800,7 +800,7 @@ function categoryPage(category, tools, categories) {
     </section>
     <section class="section split">
       <div>
-        <p class="eyebrow">Keywords objetivo</p>
+        <p class="eyebrow">También buscan</p>
         <h2>Búsquedas relacionadas</h2>
       </div>
       <ul class="keyword-list">${category.keywords.map((keyword) => `<li><a href="${abs(keywordPath(keyword))}">${esc(keyword)}</a></li>`).join("")}</ul>
