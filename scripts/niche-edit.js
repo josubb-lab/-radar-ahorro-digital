@@ -13,11 +13,12 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const QUERIES_FILE = join(ROOT, 'outreach/niche-edit-queries.txt');
-const PROSPECTS_FILE = join(ROOT, 'outreach/prospects.csv');
+const PROSPECTS_FILE = join(ROOT, 'outreach/prospects_clean.csv');
 const SENT_FILE = join(ROOT, 'outreach/sent.json');
 
 const MODE_PROSPECT = process.argv.includes('--prospect');
 const MODE_SEND = process.argv.includes('--send');
+const MODE_TEST = process.argv.includes('--test');
 const DRY = process.argv.includes('--dry');
 const LIMIT_IDX = process.argv.indexOf('--limit');
 const LIMIT = LIMIT_IDX !== -1 ? parseInt(process.argv[LIMIT_IDX + 1]) : 30;
@@ -113,24 +114,21 @@ function csvEscape(v) {
 // ── Outreach email ───────────────────────────────────────────────────────────
 
 function buildEmail(prospect) {
-  const subject = `Intercambio de enlace — ${prospect.domain}`;
+  const topic = prospect.query.replace(/ recomendación| inurl.*|-site.*/gi, '').trim();
+  const subject = `Tu artículo sobre ${topic} — enlace desde AhorroSaaS`;
   const body = `Hola,
 
-He encontrado tu artículo sobre "${prospect.query.replace(/ inurl.*/, '').replace(/-site.*/, '').trim()}" y me ha parecido muy útil.
+He leído tu contenido sobre "${topic}" — buen trabajo, especialmente la parte práctica.
 
-Llevo ahorrosaas.es, un comparador independiente de herramientas SaaS para pequeños negocios en español. Tenemos análisis actualizados de herramientas de ${prospect.category} con precios reales y comparativas directas.
+Gestiono AhorroSaaS (ahorrosaas.es), un comparador de herramientas SaaS para pequeños negocios en español. Tenemos guías y análisis sobre ${topic} con precios reales y comparativas actualizadas.
 
-Te propongo un intercambio de enlace:
-- Yo añado un enlace a tu web/artículo desde uno de nuestros posts relevantes (DA en crecimiento, contenido editorial).
-- Tú añades un enlace contextual a ahorrosaas.es en tu artículo, donde tenga sentido natural.
+¿Te interesaría añadir un enlace a nuestro contenido en tu artículo donde encaje de forma natural? A cambio, yo haría lo mismo desde uno de nuestros posts relacionados.
 
-Sin coste, sin relleno — solo dos recursos que se complementan.
-
-Si te interesa, respóndeme y coordinamos los detalles en cinco minutos.
+Si no encaja, sin problema — lo entiendo perfectamente.
 
 Un saludo,
 Josue
-AhorroSaaS · ahorrosaas.es`;
+josue@benchdatalab.com | ahorrosaas.es`;
   return { subject, body };
 }
 
@@ -192,25 +190,37 @@ async function runSend() {
     process.exit(1);
   }
 
-  const GMAIL_USER = process.env.GMAIL_USER;
+  const GMAIL_USER = process.env.GMAIL_USER || 'josue@benchdatalab.com';
   const GMAIL_PASS = process.env.GMAIL_PASS;
-  if (!GMAIL_USER || !GMAIL_PASS) {
-    console.error('Necesitas: GMAIL_USER=tu@gmail.com GMAIL_PASS=app-password node scripts/niche-edit.js --send');
+  if (!GMAIL_PASS) {
+    console.error('Necesitas: GMAIL_PASS=app-password node scripts/niche-edit.js --send');
     process.exit(1);
   }
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: { user: GMAIL_USER, pass: GMAIL_PASS },
   });
+
+  const SKIP_DOMAINS_SEND = new Set([
+    'brevo.com','hostinger.com','mailerlite.com','getresponse.com','beehiiv.com',
+    'ahrefs.com','semrush.com','wpbeginner.com','hootsuite.com','mailchimp.com',
+    'convertkit.com','kit.com','activecampaign.com','hubspot.com','pipedrive.com',
+    'notion.so','zapier.com','make.com','n8n.io','systeme.io','acumbamail.com',
+    'mdirector.com','billionverify.com','seobility.net','aioseo.com','upnify.com',
+  ]);
 
   const sent = existsSync(SENT_FILE) ? JSON.parse(readFileSync(SENT_FILE, 'utf8')) : {};
   const lines = readFileSync(PROSPECTS_FILE, 'utf8').split('\n').slice(1).filter(Boolean);
 
   let count = 0;
   for (const line of lines) {
+    if (LIMIT && count >= LIMIT) { console.log(`\nLímite de ${LIMIT} emails alcanzado.`); break; }
     const [domain, email, url, query, category] = line.split(',').map(v => v.replace(/^"|"$/g, '').replace(/""/g, '"'));
     if (sent[email]) continue;
+    if (SKIP_DOMAINS_SEND.has(domain)) { console.log(`  ⚠ Saltando ${domain}`); continue; }
 
     const { subject, body } = buildEmail({ domain, email, url, query, category });
 
@@ -218,7 +228,7 @@ async function runSend() {
       console.log(`[DRY] → ${email}\nAsunto: ${subject}\n`);
     } else {
       try {
-        await transporter.sendMail({ from: GMAIL_USER, to: email, subject, text: body });
+        await transporter.sendMail({ from: '"Josue · AhorroSaaS" <josue@benchdatalab.com>', to: email, subject, text: body });
         console.log(`✓ Enviado → ${email}`);
         sent[email] = new Date().toISOString();
         writeFileSync(SENT_FILE, JSON.stringify(sent, null, 2));
@@ -234,15 +244,37 @@ async function runSend() {
 
 // ── Main ─────────────────────────────────────────────────────────────────────
 
+async function runTest() {
+  let nodemailer;
+  try { nodemailer = (await import('nodemailer')).default; } catch {
+    console.error('npm install nodemailer --save-dev'); process.exit(1);
+  }
+  const GMAIL_USER = process.env.GMAIL_USER || 'josue@benchdatalab.com';
+  const GMAIL_PASS = process.env.GMAIL_PASS;
+  if (!GMAIL_PASS) { console.error('Necesitas GMAIL_PASS=...'); process.exit(1); }
+
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com', port: 465, secure: true,
+    auth: { user: GMAIL_USER, pass: GMAIL_PASS },
+  });
+
+  const sample = { domain: 'ejemplo.es', email: GMAIL_USER, url: 'https://ejemplo.es', query: 'herramientas seo baratas', category: 'seo' };
+  const { subject, body } = buildEmail(sample);
+  await transporter.sendMail({ from: '"Josue · AhorroSaaS" <josue@benchdatalab.com>', to: GMAIL_USER, subject: `[TEST] ${subject}`, text: body });
+  console.log(`✓ Email de prueba enviado a ${GMAIL_USER} — revisa la bandeja de entrada`);
+}
+
 if (MODE_PROSPECT) {
   runProspect().catch(e => { console.error(e); process.exitCode = 1; });
+} else if (MODE_TEST) {
+  runTest().catch(e => { console.error(e.message); process.exitCode = 1; });
 } else if (MODE_SEND) {
   runSend().catch(e => { console.error(e); process.exitCode = 1; });
 } else {
   console.log(`Uso:
-  node scripts/niche-edit.js --prospect [--limit 30]   Busca prospectos
-  node scripts/niche-edit.js --send [--dry]            Envía outreach
+  node scripts/niche-edit.js --test                    Envía email de prueba a ti mismo
+  node scripts/niche-edit.js --send [--dry]            Envía outreach (76 contactos)
+  node scripts/niche-edit.js --prospect [--limit 30]   Busca más prospectos
 
-  Para --send necesitas:
-  GMAIL_USER=tu@gmail.com GMAIL_PASS=app-password node scripts/niche-edit.js --send`);
+  Requiere: GMAIL_PASS=xxxx-xxxx-xxxx-xxxx`);
 }

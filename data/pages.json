@@ -588,5 +588,155 @@
         "body": "<strong>Automatizar flujos entre apps (sin email propio):</strong> Make desde 9 USD/mes o n8n gratis.<br><br><strong>Email marketing con automatizaciones avanzadas:</strong> ActiveCampaign desde 15 USD/mes.<br><br><strong>Email + embudos + landing pages en uno:</strong> <a href=\"https://try.getresponsetoday.com/ykm0htyu1ba4\" rel=\"sponsored noopener\">GetResponse desde 19 USD/mes</a>.<br><br><strong>Todo en uno para negocio digital con presupuesto cero:</strong> systeme.io gratis.<br><br>La regla para no equivocarse: define primero qué quieres automatizar exactamente. Una herramienta de marketing automation que nadie configura vale menos que un email manual bien escrito."
       }
     ]
+  },
+  {
+    "slug": "n8n-vs-make",
+    "title": "n8n vs Make: cuál automatizador elegir en 2026 según tu perfil técnico",
+    "description": "Comparativa honesta de n8n y Make para pequeños negocios y autónomos: precios reales, curva de aprendizaje, cuándo merece la pena cada uno y qué perfil técnico necesitas.",
+    "sections": [
+      {
+        "heading": "La diferencia real: control total vs facilidad inmediata",
+        "body": "Make y n8n hacen lo mismo en esencia — conectar aplicaciones y automatizar flujos sin programar — pero con filosofías opuestas. Make es una herramienta SaaS visual con todo configurado para que funcione en minutos. n8n es open source y puede instalarse en tu propio servidor, lo que significa control total, sin límites de operaciones y sin coste de licencia si lo alojas tú. Esa diferencia lo cambia todo: Make es la opción para quien quiere resultados esta semana; n8n es la opción para quien quiere construir algo duradero sin depender de los precios de un tercero."
+      },
+      {
+        "heading": "Precios: aquí n8n gana en casi todos los escenarios",
+        "body": "Make cobra por operaciones desde 9 USD/mes (10.000 operaciones). Para flujos de alto volumen, el coste escala rápido: 29 USD/mes por 40.000 operaciones, 79 USD/mes por 150.000. n8n self-hosted es gratuito sin límite de ejecuciones — pagas solo el servidor (un VPS básico cuesta 5-10 USD/mes). n8n cloud empieza en 20 USD/mes con 2.500 ejecuciones incluidas.<br><br>Para un negocio con automatizaciones activas corriendo varias veces al día, n8n self-hosted puede ahorrar entre 50 y 200 USD/mes respecto a Make en el mismo volumen.",
+        "cta": { "text": "Probar n8n cloud", "href": "https://n8n.io/?via=ahorrosaas", "affiliate": true }
+      },
+      {
+        "heading": "Curva de aprendizaje: Make es más accesible",
+        "body": "Make tiene una interfaz visual pulida con miles de integraciones preconstruidas y flujos de ejemplo. Puedes montar tu primer escenario en menos de 30 minutos sin documentación. n8n tiene una curva más pronunciada: la interfaz es menos intuitiva al principio, algunas integraciones requieren configurar credenciales manualmente y el debug de errores es más técnico.<br><br>Si nunca has automatizado nada o el equipo no tiene perfil técnico, Make da resultado antes. Si tienes aunque sea un poco de comodidad con APIs y configuración, n8n se aprende en un fin de semana.",
+        "cta": { "text": "Empezar con Make gratis", "href": "https://www.make.com/en/register?pc=ahorrosaas", "affiliate": true }
+      },
+      {
+        "heading": "Integraciones: Make tiene más, n8n tiene las importantes",
+        "body": "Make conecta con más de 1.500 aplicaciones con módulos nativos. n8n tiene más de 400 integraciones nativas pero puede conectar cualquier app con API mediante nodos HTTP genéricos — lo que en la práctica cubre el 99% de los casos. Las herramientas más usadas por pequeños negocios (Google Workspace, Notion, Slack, Airtable, HubSpot, Stripe, WooCommerce, Mailerlite) están en las dos.<br><br>La ventaja de Make es en apps muy específicas de nicho. La ventaja de n8n es que si una integración no existe, puedes construirla tú con un nodo HTTP sin necesitar código complejo."
+      },
+      {
+        "heading": "n8n self-hosted: qué necesitas realmente",
+        "body": "La versión self-hosted de n8n requiere un servidor Linux con Node.js o Docker. La forma más sencilla es un VPS con Docker (Digital Ocean, Hetzner o Railway). El proceso de instalación con Docker toma 15-20 minutos siguiendo la documentación oficial. Una vez instalado, tienes n8n corriendo sin límites de ejecuciones y sin pagar licencia.<br><br>El mantenimiento real es mínimo: actualizaciones ocasionales y los backups del servidor. Para negocios con volumen de automatización moderado o alto, el ahorro frente a Make o Zapier cubre el coste del servidor en pocos meses."
+      },
+      {
+        "heading": "Cuándo elegir Make",
+        "body": "Make es la respuesta correcta cuando: quieres resultados inmediatos sin configurar infraestructura, el equipo no tiene perfil técnico, necesitas integraciones con apps muy específicas que n8n no tiene, o el volumen de automatizaciones es bajo (menos de 5.000 operaciones/mes). La experiencia de usuario de Make es genuinamente mejor — si el tiempo de puesta en marcha importa más que el coste a largo plazo, Make gana.",
+        "cta": { "text": "Empezar con Make gratis", "href": "https://www.make.com/en/register?pc=ahorrosaas", "affiliate": true }
+      },
+      {
+        "heading": "Cuándo elegir n8n",
+        "body": "n8n es la respuesta correcta cuando: tienes o puedes conseguir un VPS básico, el volumen de automatizaciones es alto, quieres datos y flujos alojados en tu propia infraestructura (importante para GDPR o datos sensibles), o quieres construir algo escalable sin que el coste crezca con el volumen. Para negocios con varios proyectos activos o agencias que automatizan para clientes, n8n self-hosted puede ser la diferencia entre 20 USD/mes y 200 USD/mes haciendo exactamente lo mismo.",
+        "cta": { "text": "Probar n8n cloud", "href": "https://n8n.io/?via=ahorrosaas", "affiliate": true }
+      }
+    ]
+  },
+  {
+    "slug": "brevo-vs-mailerlite",
+    "title": "Brevo vs Mailerlite en 2026: cuál elegir para email marketing sin pagar de más",
+    "description": "Comparativa directa de Brevo y Mailerlite: planes gratuitos, automatizaciones, entregabilidad y cuándo cada uno tiene más sentido para pequeños negocios.",
+    "sections": [
+      {
+        "heading": "Dos opciones sólidas con filosofías distintas",
+        "body": "Brevo (antes Sendinblue) y Mailerlite son las dos herramientas de email marketing más recomendadas para pequeños negocios que no quieren pagar los precios de Klaviyo o ActiveCampaign. Ambas tienen plan gratuito, ambas tienen buena entregabilidad y ambas incluyen automatizaciones. La diferencia está en los límites del plan gratuito, la profundidad de las automatizaciones y el modelo de precios al escalar."
+      },
+      {
+        "heading": "Plan gratuito: Brevo gana en volumen de envíos",
+        "body": "Brevo gratis permite 300 emails al día (9.000/mes) con contactos ilimitados. Mailerlite gratis permite emails ilimitados al mes pero solo hasta 1.000 suscriptores. El modelo es diferente: Brevo limita el volumen de envío, Mailerlite limita el tamaño de la lista.<br><br>Para un negocio que empieza con pocos contactos pero envía con frecuencia, Mailerlite gratis es más generoso. Para uno con lista grande pero que envía menos, Brevo gratis aguanta más tiempo. En la práctica, para listas menores de 1.000 contactos con envíos normales, los dos cubren el caso sin pagar.",
+        "cta": { "text": "Probar Brevo gratis", "href": "https://get.brevo.com/vu90diygck75", "affiliate": true }
+      },
+      {
+        "heading": "Automatizaciones: Mailerlite es más intuitivo, Brevo es más potente",
+        "body": "Mailerlite tiene un constructor de automatizaciones visual muy limpio: fácil de entender, rápido de montar y con los triggers más usados (bienvenida, abandono, cumpleaños, comportamiento). Para flujos estándar de email marketing, Mailerlite es suficiente y más fácil de usar que Brevo.<br><br>Brevo tiene automatizaciones más avanzadas con más condiciones y triggers, incluyendo SMS y WhatsApp en el mismo flujo — algo que Mailerlite no tiene. Para negocios que quieren unificar email, SMS y chat en una sola herramienta, Brevo es la única opción de las dos."
+      },
+      {
+        "heading": "Entregabilidad: las dos son sólidas",
+        "body": "Brevo tiene una de las mejores reputaciones de entregabilidad del mercado — históricamente superior a muchos competidores porque empezaron como servicio transaccional y construyeron su infraestructura con ese estándar. Mailerlite también tiene buena entregabilidad pero ha tenido periódicamente problemas con usuarios que importan listas de baja calidad arrastrando la reputación compartida.<br><br>Para newsletters propias con lista orgánica, los dos funcionan bien. Si vas a importar listas grandes o enviar volumen alto, Brevo tiene ventaja estructural."
+      },
+      {
+        "heading": "Precios al escalar: modelo diferente",
+        "body": "Mailerlite cobra por suscriptores: 9 USD/mes hasta 500, 19 USD/mes hasta 2.500, 59 USD/mes hasta 10.000. Brevo cobra por emails enviados, no por suscriptores: 25 USD/mes por 20.000 emails con contactos ilimitados, 65 USD/mes por 60.000 emails.<br><br>El modelo de Brevo es mejor para listas grandes que envían poco. El de Mailerlite es mejor para listas pequeñas que envían mucho. Para un negocio con 5.000 suscriptores enviando 2 newsletters semanales (40.000 emails/mes), Brevo cuesta 25 USD y Mailerlite 59 USD — la diferencia es significativa.",
+        "cta": { "text": "Probar Brevo gratis", "href": "https://get.brevo.com/vu90diygck75", "affiliate": true }
+      },
+      {
+        "heading": "Diseño y experiencia de uso",
+        "body": "Mailerlite tiene un editor drag-and-drop más moderno y visualmente más cuidado. Las plantillas son más atractivas y el proceso de creación de una campaña es más rápido para usuarios sin experiencia. Brevo tiene un editor funcional pero menos pulido — suficiente para la mayoría de casos pero sin la experiencia de usuario refinada de Mailerlite.<br><br>Si el diseño de los emails importa y el equipo no tiene experiencia técnica, Mailerlite produce mejores resultados con menos esfuerzo."
+      },
+      {
+        "heading": "La recomendación según tu caso",
+        "body": "<strong>Lista pequeña, empezando:</strong> Mailerlite gratis. Interfaz más limpia, automatizaciones suficientes, sin fricciones.<br><br><strong>Lista grande, envíos moderados:</strong> Brevo. El modelo por volumen de envíos sale mucho más barato con muchos contactos.<br><br><strong>Necesitas SMS o WhatsApp integrado:</strong> Brevo. Mailerlite no tiene canales alternativos.<br><br><strong>Prioridad en diseño y experiencia:</strong> Mailerlite. El editor y las plantillas son mejores.<br><br>Las dos son opciones sólidas — la diferencia es de modelo, no de calidad."
+      }
+    ]
+  },
+  {
+    "slug": "mejores-herramientas-ia-contenido",
+    "title": "Mejores herramientas de IA para crear contenido en 2026: cuáles valen la pena",
+    "description": "Análisis de las herramientas de IA para contenido con mejor relación precio-resultado para autónomos y pequeños negocios: escritura, SEO, imágenes y automatización.",
+    "sections": [
+      {
+        "heading": "El problema con las herramientas de IA para contenido",
+        "body": "Hay cientos de herramientas de IA para contenido en el mercado y la mayoría son variaciones del mismo motor (GPT-4 o Claude) con una interfaz encima. Pagar 50 USD/mes por algo que puedes hacer con ChatGPT Plus a 20 USD/mes es un error habitual. Las herramientas que realmente merecen dinero son las que añaden algo sobre el modelo base: contexto SEO, análisis de la competencia, flujos específicos de optimización o datos que el modelo solo no puede darte."
+      },
+      {
+        "heading": "NeuronWriter: la mejor opción para SEO de contenido",
+        "body": "<a href=\"https://app.neuronwriter.com/ar/89c9c7362f18c3fe34d47947c2756726\" rel=\"sponsored noopener\">NeuronWriter</a> analiza los artículos que posicionan en el top 10 para tu keyword objetivo y genera recomendaciones concretas: términos semánticos que debes incluir, longitud óptima, estructura de encabezados y puntuación de optimización en tiempo real mientras escribes. No es solo un generador de texto — es una herramienta de optimización con IA que usa datos reales de las SERPs.<br><br>El plan de entrada cuesta 19 USD/mes con 25 análisis. Para bloggers y creadores de contenido SEO que publican regularmente, NeuronWriter puede ser la diferencia entre contenido que posiciona y contenido que no, especialmente en nichos competitivos.",
+        "cta": { "text": "Probar NeuronWriter (30% descuento vitalicio)", "href": "https://app.neuronwriter.com/ar/89c9c7362f18c3fe34d47947c2756726", "affiliate": true }
+      },
+      {
+        "heading": "Copy.ai: para flujos de contenido en volumen",
+        "body": "<a href=\"https://www.copy.ai/?via=ahorrosaas\" rel=\"sponsored noopener\">Copy.ai</a> va más allá del asistente de escritura: tiene workflows automatizados para crear contenido en escala — desde briefs a artículos completos, descripciones de producto, emails o posts de redes sociales con un flujo configurable. El plan gratuito incluye 2.000 palabras al mes; los planes de pago empiezan en 36 USD/mes con palabras ilimitadas.<br><br>Dónde tiene más sentido: equipos de marketing que necesitan producir volumen de contenido consistente (emails, copies de anuncios, fichas de producto) sin que cada pieza requiera empezar desde cero.",
+        "cta": { "text": "Probar Copy.ai gratis", "href": "https://www.copy.ai/?via=ahorrosaas", "affiliate": true }
+      },
+      {
+        "heading": "ChatGPT Plus y Claude: cuándo son suficientes",
+        "body": "Para la mayoría de autónomos y negocios pequeños, ChatGPT Plus (20 USD/mes) o Claude Pro (20 USD/mes) son suficientes si sabes usarlos bien. Con buenos prompts y contexto claro, generan contenido de calidad para blogs, emails y redes sociales sin necesitar herramientas adicionales. El límite real no es la calidad del texto — es la falta de contexto SEO y de datos de la competencia que las herramientas especializadas sí tienen.<br><br>Regla práctica: si no tienes estrategia SEO activa, empieza con ChatGPT o Claude. Si publicas contenido orientado a posicionar en Google, NeuronWriter añade valor real sobre eso."
+      },
+      {
+        "heading": "Canva con IA: para contenido visual sin diseñador",
+        "body": "Canva ha integrado IA en su flujo de trabajo: generación de imágenes, redimensionado automático para distintos formatos, sugerencias de diseño y texto generado con IA directamente en el editor. Para pequeños negocios que necesitan producir contenido visual para redes sociales, presentaciones o materiales de marketing, Canva Pro con IA (15 USD/mes) cubre el 80% de los casos sin necesitar un diseñador ni Photoshop.<br><br>No es una herramienta de IA pura, pero el contexto de diseño integrado hace que el output visual sea directamente usable — algo que los generadores de imagen puros no consiguen con la misma consistencia de marca."
+      },
+      {
+        "heading": "Lo que no merece la pena pagar",
+        "body": "Herramientas que cobran 40-80 USD/mes por ser una interfaz sobre GPT-4 sin añadir datos propios ni flujos específicos. Si la única propuesta de valor es «genera texto con IA», ChatGPT Plus hace lo mismo por 20 USD/mes con mejor modelo. Tampoco merece pagar generadores de imágenes independientes cuando Canva Pro incluye generación de imagen con IA en el mismo precio que usarías para un generador específico."
+      },
+      {
+        "heading": "Cómo elegir según tu caso",
+        "body": "<strong>Contenido SEO optimizado:</strong> <a href=\"https://app.neuronwriter.com/ar/89c9c7362f18c3fe34d47947c2756726\" rel=\"sponsored noopener\">NeuronWriter desde 19 USD/mes</a>.<br><br><strong>Contenido en volumen (emails, copies, fichas):</strong> <a href=\"https://www.copy.ai/?via=ahorrosaas\" rel=\"sponsored noopener\">Copy.ai desde 36 USD/mes</a>.<br><br><strong>Asistente general de escritura:</strong> ChatGPT Plus o Claude Pro a 20 USD/mes.<br><br><strong>Contenido visual sin diseñador:</strong> Canva Pro a 15 USD/mes.<br><br>No acumules herramientas. Una bien usada supera a tres mal configuradas."
+      }
+    ]
+  },
+  {
+    "slug": "mejores-herramientas-funnels-baratas",
+    "title": "Mejores herramientas para crear funnels baratas en 2026: sin pagar ClickFunnels",
+    "description": "Las alternativas más eficientes a ClickFunnels para pequeños negocios: herramientas de funnels con plan gratuito o precio asequible para vender servicios, formación o productos digitales.",
+    "sections": [
+      {
+        "heading": "El problema con los funnels: la herramienta no es el embudo",
+        "body": "ClickFunnels cobra 97-297 USD/mes y muchos negocios lo usan para montar páginas que podrían hacer con herramientas a 0-20 USD/mes. El error es pensar que la herramienta crea el funnel — el funnel lo crea la oferta, el mensaje y el tráfico. Una buena página de captura en systeme.io convierte igual que una en ClickFunnels si la oferta es sólida. Lo que importa es tener claridad sobre qué quieres que haga el visitante en cada paso, no qué tan caro es el software."
+      },
+      {
+        "heading": "systeme.io: el todo en uno gratuito más completo",
+        "body": "<a href=\"https://systeme.io/es?sa=sa02711051552922bdf2cfb82a3e3b39a805a5d5de\" rel=\"sponsored noopener\">systeme.io</a> tiene todo lo que necesita un funnel básico en su plan gratuito hasta 2.000 contactos: páginas de captura, página de ventas, upsell/downsell, área de membresía, email marketing y checkout integrado. Para negocios digitales que venden formación, servicios o infoproductos, es el punto de entrada más completo del mercado sin coste.<br><br>Las limitaciones del plan gratuito son reales pero no críticas al principio: 1 dominio personalizado, 3 embudos activos y 10 pasos por embudo. El plan de pago más básico (27 USD/mes) elimina esas restricciones.",
+        "cta": { "text": "Empezar con systeme.io gratis", "href": "https://systeme.io/es?sa=sa02711051552922bdf2cfb82a3e3b39a805a5d5de", "affiliate": true }
+      },
+      {
+        "heading": "GetResponse: cuando el email y los funnels van juntos",
+        "body": "<a href=\"https://try.getresponsetoday.com/ykm0htyu1ba4\" rel=\"sponsored noopener\">GetResponse</a> incluye constructor de landing pages, webinars, embudos de conversión automatizados y email marketing en un solo plan desde 19 USD/mes. Para negocios que venden a través de webinars o con secuencias largas de email, GetResponse conecta captación, nurturing y conversión sin necesitar herramientas adicionales.<br><br>La diferencia con systeme.io es el email: GetResponse tiene automatizaciones de email más maduras y mejores herramientas de análisis de campañas. systeme.io tiene funnels más completos con checkout nativo. Si el email es la palanca principal, GetResponse gana.",
+        "cta": { "text": "Probar GetResponse gratis 30 días", "href": "https://try.getresponsetoday.com/ykm0htyu1ba4", "affiliate": true }
+      },
+      {
+        "heading": "Carrd: para páginas de captura simples sin complejidad",
+        "body": "Carrd (9 USD/año en el plan Pro) construye landing pages simples con formulario de captura en 20 minutos. No tiene email marketing nativo, ni checkout, ni automatizaciones — pero para negocios que solo necesitan una página de captura conectada a Mailerlite o ConvertKit, Carrd hace el trabajo por una fracción del coste. Si tu funnel es captura de email → secuencia automática externa, Carrd es la opción más eficiente en precio."
+      },
+      {
+        "heading": "Cuándo sí tiene sentido pagar una herramienta premium",
+        "body": "Una herramienta de funnels de 97 USD/mes tiene sentido cuando: ya vendes consistentemente y el coste de la herramienta es el 5-10% de tus ingresos del funnel, necesitas funciones avanzadas de A/B testing o análisis de conversión paso a paso, o tienes un equipo dedicado a optimización de funnels que va a sacar partido a cada función. Si no se cumplen esas condiciones, una herramienta de 0-30 USD/mes hace el mismo trabajo para tu volumen actual."
+      },
+      {
+        "heading": "Lo que realmente determina la conversión de un funnel",
+        "body": "En orden de impacto: 1) La oferta (qué prometes y a quién). 2) El mensaje de la página (titular, beneficios, prueba social). 3) La calidad del tráfico (de dónde viene el visitante). 4) La velocidad y diseño de la página. La herramienta que usas está en el puesto 5 o más abajo. Optimiza en ese orden antes de cambiar de herramienta."
+      },
+      {
+        "heading": "La elección según tu situación",
+        "body": "<strong>Empezando, presupuesto cero:</strong> <a href=\"https://systeme.io/es?sa=sa02711051552922bdf2cfb82a3e3b39a805a5d5de\" rel=\"sponsored noopener\">systeme.io gratis</a>. Embudos, email y checkout sin pagar.<br><br><strong>Email como canal principal + funnels:</strong> <a href=\"https://try.getresponsetoday.com/ykm0htyu1ba4\" rel=\"sponsored noopener\">GetResponse desde 19 USD/mes</a>.<br><br><strong>Solo página de captura, sin más:</strong> Carrd Pro a 9 USD/año.<br><br><strong>Escala real con volumen probado:</strong> Evalúa ClickFunnels o Kartra cuando los ingresos lo justifiquen."
+      }
+    ]
   }
 ]

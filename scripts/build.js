@@ -343,12 +343,17 @@ const ARTICLE_TOOLS = {
   "hubspot-vs-pipedrive": ["hubspot", "pipedrive", "activecampaign"],
   "mejor-crm-gratis-pymes": ["hubspot", "pipedrive", "activecampaign", "systeme-io"],
   "alternativas-hubspot-gratis": ["hubspot", "pipedrive", "activecampaign", "getresponse", "systeme-io"],
-  "herramientas-marketing-automation-baratas": ["make", "getresponse", "activecampaign", "systeme-io", "n8n"]
+  "herramientas-marketing-automation-baratas": ["make", "getresponse", "activecampaign", "systeme-io", "n8n"],
+  "n8n-vs-make": ["n8n", "make", "zapier"],
+  "brevo-vs-mailerlite": ["brevo", "mailerlite", "getresponse", "beehiiv"],
+  "mejores-herramientas-ia-contenido": ["neuronwriter", "copy-ai"],
+  "mejores-herramientas-funnels-baratas": ["systeme-io", "getresponse"]
 };
 
 const ARTICLE_MAP = {
   automatizacion: [
     { slug: "make-vs-zapier", title: "Make vs Zapier: cuál automatizador vale más para pequeños negocios" },
+    { slug: "n8n-vs-make", title: "n8n vs Make: cuál automatizador elegir según tu perfil técnico" },
     { slug: "herramientas-marketing-automation-baratas", title: "Herramientas de marketing automation baratas para pequeños negocios" }
   ],
   seo: [
@@ -359,10 +364,15 @@ const ARTICLE_MAP = {
   ],
   "email-marketing": [
     { slug: "beehiiv-vs-mailerlite", title: "Beehiiv vs Mailerlite: cuál elegir para tu newsletter" },
+    { slug: "brevo-vs-mailerlite", title: "Brevo vs Mailerlite: cuál elegir para email marketing" },
     { slug: "mejores-herramientas-email-marketing", title: "Mejores herramientas de email marketing para pequeños negocios" }
   ],
   "funnels-ventas": [
+    { slug: "mejores-herramientas-funnels-baratas", title: "Mejores herramientas para crear funnels baratas en 2026" },
     { slug: "mejores-herramientas-email-marketing", title: "Mejores herramientas de email marketing para pequeños negocios" }
+  ],
+  "ia-contenido": [
+    { slug: "mejores-herramientas-ia-contenido", title: "Mejores herramientas de IA para crear contenido en 2026" }
   ],
   "crm-ventas": [
     { slug: "hubspot-vs-pipedrive", title: "HubSpot vs Pipedrive: cuál elegir para tu equipo de ventas" },
@@ -373,8 +383,12 @@ const ARTICLE_MAP = {
 };
 
 const TOOL_ARTICLE_MAP = {
-  make: ["make-vs-zapier"],
+  make: ["make-vs-zapier", "n8n-vs-make"],
   zapier: ["make-vs-zapier"],
+  n8n: ["n8n-vs-make", "herramientas-marketing-automation-baratas"],
+  brevo: ["brevo-vs-mailerlite", "mejores-herramientas-email-marketing"],
+  neuronwriter: ["mejores-herramientas-ia-contenido"],
+  "copy-ai": ["mejores-herramientas-ia-contenido"],
   mangools: ["mangools-vs-semrush"],
   semrush: ["mangools-vs-semrush"],
   lowfruits: ["lowfruits-review", "mangools-vs-semrush"],
