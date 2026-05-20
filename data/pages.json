@@ -79,7 +79,8 @@
       },
       {
         "heading": "Cuándo elegir Make",
-        "body": "Make es la opción clara si tienes flujos con lógica compleja: condiciones múltiples, bifurcaciones, iteraciones sobre listas o transformaciones de datos. También si el coste importa y prevés volumen: el precio por operación de Make escala mucho mejor. Es especialmente útil para negocios digitales que manejan leads, ventas online o generación de contenido automatizada donde un solo escenario puede ejecutarse cientos de veces al día."
+        "body": "Make es la opción clara si tienes flujos con lógica compleja: condiciones múltiples, bifurcaciones, iteraciones sobre listas o transformaciones de datos. También si el coste importa y prevés volumen: el precio por operación de Make escala mucho mejor. Es especialmente útil para negocios digitales que manejan leads, ventas online o generación de contenido automatizada donde un solo escenario puede ejecutarse cientos de veces al día.",
+        "cta": { "text": "Empezar con Make gratis", "href": "https://www.make.com/en/register?pc=ahorrosaas", "affiliate": true }
       },
       {
         "heading": "Cuándo elegir Zapier",
@@ -91,7 +92,8 @@
       },
       {
         "heading": "Alternativas a considerar",
-        "body": "Si ni Make ni Zapier convencen del todo, vale la pena mirar n8n (self-hosted gratuito, máximo control) y Pabbly Connect (pago único sin límite de operaciones). Para flujos simples con Google Workspace, Google Apps Script puede cubrir el caso sin coste adicional. La clave es no pagar por capacidad que no vas a usar en los próximos seis meses."
+        "body": "Si ni Make ni Zapier convencen del todo, vale la pena mirar n8n (self-hosted gratuito, máximo control) y Pabbly Connect (pago único sin límite de operaciones). Para flujos simples con Google Workspace, Google Apps Script puede cubrir el caso sin coste adicional. La clave es no pagar por capacidad que no vas a usar en los próximos seis meses.",
+        "cta": { "text": "Ver n8n (self-hosted gratis)", "href": "https://n8n.io/?via=ahorrosaas", "affiliate": true }
       }
     ]
   },
@@ -167,7 +169,8 @@
       },
       {
         "heading": "Monetización: Beehiiv gana aquí",
-        "body": "Beehiiv tiene funciones de monetización integradas que Mailerlite no tiene: suscripciones de pago directo a tu newsletter, boosts (te pagan por recomendar otras newsletters) y un programa de referidos nativo. Si tu modelo de negocio es la newsletter en sí, Beehiiv te da herramientas para que tu lista genere ingresos directamente sin necesitar plataformas externas. Mailerlite no tiene nada equivalente: para monetizar necesitarías conectar con Stripe o una plataforma de membresías aparte."
+        "body": "Beehiiv tiene funciones de monetización integradas que Mailerlite no tiene: suscripciones de pago directo a tu newsletter, boosts (te pagan por recomendar otras newsletters) y un programa de referidos nativo. Si tu modelo de negocio es la newsletter en sí, Beehiiv te da herramientas para que tu lista genere ingresos directamente sin necesitar plataformas externas. Mailerlite no tiene nada equivalente: para monetizar necesitarías conectar con Stripe o una plataforma de membresías aparte.",
+        "cta": { "text": "Probar Beehiiv gratis", "href": "https://www.beehiiv.com/?via=ahorrosaas", "affiliate": true }
       },
       {
         "heading": "Analítica y crecimiento",
@@ -179,7 +182,8 @@
       },
       {
         "heading": "La opción intermedia",
-        "body": "Si tienes menos de 1.000 suscriptores y no sabes aún hacia dónde va tu newsletter, empieza con Mailerlite gratis. Tiene menos fricción para montar formularios, automatizaciones básicas y campañas. Cuando sepas si tu modelo va más hacia la publicación editorial o el marketing convencional, migrar a Beehiiv o quedarte en Mailerlite es una decisión que puedes tomar con datos reales."
+        "body": "Si tienes menos de 1.000 suscriptores y no sabes aún hacia dónde va tu newsletter, empieza con Mailerlite gratis. Tiene menos fricción para montar formularios, automatizaciones básicas y campañas. Cuando sepas si tu modelo va más hacia la publicación editorial o el marketing convencional, migrar a Beehiiv o quedarte en Mailerlite es una decisión que puedes tomar con datos reales.",
+        "cta": { "text": "Empezar con Beehiiv gratis", "href": "https://www.beehiiv.com/?via=ahorrosaas", "affiliate": true }
       }
     ]
   },
@@ -251,15 +255,18 @@
       },
       {
         "heading": "GetResponse: para quien quiere todo en uno",
-        "body": "GetResponse va un paso más allá del email puro: incluye constructor de landing pages, webinars, embudos de conversión y automatizaciones avanzadas. Es una buena opción si quieres un único proveedor para email y parte de tu estrategia de captación en lugar de pagar herramientas separadas. El precio de entrada es algo más alto que Mailerlite pero se justifica si usas las funciones adicionales. Para negocios que venden formación o servicios con ciclos de venta más largos, el ecosistema de GetResponse ahorra integraciones."
+        "body": "GetResponse va un paso más allá del email puro: incluye constructor de landing pages, webinars, embudos de conversión y automatizaciones avanzadas. Es una buena opción si quieres un único proveedor para email y parte de tu estrategia de captación en lugar de pagar herramientas separadas. El precio de entrada es algo más alto que Mailerlite pero se justifica si usas las funciones adicionales. Para negocios que venden formación o servicios con ciclos de venta más largos, el ecosistema de GetResponse ahorra integraciones.",
+        "cta": { "text": "Probar GetResponse gratis 30 días", "href": "https://try.getresponsetoday.com/ykm0htyu1ba4", "affiliate": true }
       },
       {
         "heading": "systeme.io: la opción todo en uno más barata",
-        "body": "systeme.io compite directamente con GetResponse pero con un plan gratuito más amplio que incluye embudos, email, automatizaciones, cursos y pagos. Si estás montando un negocio digital desde cero con presupuesto muy ajustado, systeme.io te permite tener todo en un solo sitio sin pagar nada durante los primeros meses. La contrapartida es que ninguna de sus funciones es tan buena como la herramienta especializada equivalente: el email es más básico que Mailerlite, los embudos más básicos que ClickFunnels. Pero para empezar, esa amplitud por ese precio es difícil de batir."
+        "body": "systeme.io compite directamente con GetResponse pero con un plan gratuito más amplio que incluye embudos, email, automatizaciones, cursos y pagos. Si estás montando un negocio digital desde cero con presupuesto muy ajustado, systeme.io te permite tener todo en un solo sitio sin pagar nada durante los primeros meses. La contrapartida es que ninguna de sus funciones es tan buena como la herramienta especializada equivalente: el email es más básico que Mailerlite, los embudos más básicos que ClickFunnels. Pero para empezar, esa amplitud por ese precio es difícil de batir.",
+        "cta": { "text": "Empezar con systeme.io gratis", "href": "https://systeme.io/es?sa=sa02711051552922bdf2cfb82a3e3b39a805a5d5de", "affiliate": true }
       },
       {
         "heading": "Beehiiv: solo si tu modelo es la newsletter",
-        "body": "Beehiiv está diseñado para creadores que quieren hacer de la newsletter su negocio: suscripciones de pago integradas, boosts para monetizar la audiencia recomendando otras newsletters y analítica orientada al crecimiento. Si tu lista es el producto y quieres cobrar por ella directamente, Beehiiv da herramientas que las demás no tienen. Si el email es un canal dentro de una estrategia más amplia, Beehiiv es demasiado específico y las automatizaciones de marketing son más limitadas que en Mailerlite o GetResponse."
+        "body": "Beehiiv está diseñado para creadores que quieren hacer de la newsletter su negocio: suscripciones de pago integradas, boosts para monetizar la audiencia recomendando otras newsletters y analítica orientada al crecimiento. Si tu lista es el producto y quieres cobrar por ella directamente, Beehiiv da herramientas que las demás no tienen. Si el email es un canal dentro de una estrategia más amplia, Beehiiv es demasiado específico y las automatizaciones de marketing son más limitadas que en Mailerlite o GetResponse.",
+        "cta": { "text": "Probar Beehiiv gratis", "href": "https://www.beehiiv.com/?via=ahorrosaas", "affiliate": true }
       },
       {
         "heading": "ActiveCampaign: cuando el email pasa a ser CRM",
@@ -267,7 +274,8 @@
       },
       {
         "heading": "ConvertKit / Kit: para creadores de contenido",
-        "body": "Kit (antes ConvertKit) se diseñó para bloggers, podcasters y creadores digitales. Tiene un sistema de etiquetado muy flexible, formularios que se integran bien en cualquier web y automatizaciones visuales intuitivas. El plan gratuito llega hasta 10.000 suscriptores con funciones básicas, lo que lo hace muy competitivo en precio para audiencias medianas. La contrapartida es que el editor de emails es más básico que Mailerlite en cuanto a diseño visual: prioriza el texto sobre el diseño."
+        "body": "Kit (antes ConvertKit) se diseñó para bloggers, podcasters y creadores digitales. Tiene un sistema de etiquetado muy flexible, formularios que se integran bien en cualquier web y automatizaciones visuales intuitivas. El plan gratuito llega hasta 10.000 suscriptores con funciones básicas, lo que lo hace muy competitivo en precio para audiencias medianas. La contrapartida es que el editor de emails es más básico que Mailerlite en cuanto a diseño visual: prioriza el texto sobre el diseño.",
+        "cta": { "text": "Empezar con Kit gratis", "href": "https://partners.kit.com/xawoue0vpu44", "affiliate": true }
       },
       {
         "heading": "Cómo elegir según tu situación",
@@ -451,7 +459,8 @@
       },
       {
         "heading": "La recomendación concreta según tu situación",
-        "body": "<strong>Empezando sin presupuesto:</strong> HubSpot gratis. Es el punto de entrada correcto siempre.<br><br><strong>Equipo de ventas de 2-10 personas en B2B o servicios:</strong> Pipedrive a 14 USD/mes. La adopción del equipo es el factor más importante y Pipedrive lo gana claramente.<br><br><strong>Marketing y ventas integrados con presupuesto:</strong> HubSpot Professional. Caro, pero el más potente si lo usas de verdad.<br><br><strong>Email y ventas como proceso único:</strong> ActiveCampaign tiene un CRM integrado que puede ser la opción más eficiente si ya pagas por el email."
+        "body": "<strong>Empezando sin presupuesto:</strong> HubSpot gratis. Es el punto de entrada correcto siempre.<br><br><strong>Equipo de ventas de 2-10 personas en B2B o servicios:</strong> Pipedrive a 14 USD/mes. La adopción del equipo es el factor más importante y Pipedrive lo gana claramente.<br><br><strong>Marketing y ventas integrados con presupuesto:</strong> HubSpot Professional. Caro, pero el más potente si lo usas de verdad.<br><br><strong>Email y ventas como proceso único:</strong> ActiveCampaign tiene un CRM integrado que puede ser la opción más eficiente si ya pagas por el email.<br><br><strong>Negocio digital que empieza:</strong> systeme.io gratis incluye pipeline básico, email y embudos — sin pagar nada hasta 2.000 contactos.",
+        "cta": { "text": "Probar systeme.io gratis", "href": "https://systeme.io/es?sa=sa02711051552922bdf2cfb82a3e3b39a805a5d5de", "affiliate": true }
       },
       {
         "heading": "Lo que nadie te dice: el CRM que no usas vale cero",
@@ -474,7 +483,8 @@
       },
       {
         "heading": "systeme.io: gratis hasta 2.000 contactos con embudos incluidos",
-        "body": "systeme.io no es un CRM puro pero su plan gratuito incluye gestión de contactos, pipeline básico, embudos de venta, email marketing y páginas de captura — todo sin pagar. Para negocios digitales que venden formación, servicios o productos online, es el punto de entrada más amplio del mercado sin coste.<br><br>El límite real es la profundidad: no tiene lead scoring, las automatizaciones son básicas y el pipeline es más simple que el de HubSpot. Pero si ya necesitas email, embudos y contactos en un solo sitio sin pagar, systeme.io es difícil de batir."
+        "body": "systeme.io no es un CRM puro pero su plan gratuito incluye gestión de contactos, pipeline básico, embudos de venta, email marketing y páginas de captura — todo sin pagar. Para negocios digitales que venden formación, servicios o productos online, es el punto de entrada más amplio del mercado sin coste.<br><br>El límite real es la profundidad: no tiene lead scoring, las automatizaciones son básicas y el pipeline es más simple que el de HubSpot. Pero si ya necesitas email, embudos y contactos en un solo sitio sin pagar, systeme.io es difícil de batir.",
+        "cta": { "text": "Empezar con systeme.io gratis", "href": "https://systeme.io/es?sa=sa02711051552922bdf2cfb82a3e3b39a805a5d5de", "affiliate": true }
       },
       {
         "heading": "Notion como CRM gratis: cuándo tiene sentido",
