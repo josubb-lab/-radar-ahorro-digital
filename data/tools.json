@@ -865,5 +865,31 @@
     ],
     "score": 8.2,
     "featured": false
+  },
+  {
+    "slug": "nordprotect",
+    "name": "NordProtect",
+    "category": "vpn-seguridad",
+    "price": "Desde 2 EUR/mes",
+    "affiliateUrl": "https://go.nordprotect.net/aff_c?offer_id=973&aff_id=147627",
+    "affiliateStatus": "active",
+    "affiliateNetwork": "NordProtect (nativo)",
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "commissionRate": "Revenue Share",
+    "commissionType": "recurring",
+    "affiliateNote": "Aprobado mayo 2026. Revenue share recurrente. Mismo grupo que NordVPN.",
+    "summary": "Protección de identidad digital y monitorización de filtraciones de datos; alerta si tus datos aparecen en la dark web o en brechas de seguridad.",
+    "bestFor": "particulares y pequeños negocios que quieren monitorizar su huella digital y proteger cuentas",
+    "pros": [
+      "Alertas de filtraciones en tiempo real",
+      "Del mismo grupo que NordVPN — marca de confianza",
+      "Precio bajo de entrada"
+    ],
+    "cons": [
+      "Producto relativamente nuevo, menos conocido",
+      "Funciones avanzadas limitadas vs soluciones enterprise"
+    ],
+    "score": 7.8,
+    "featured": false
   }
 ]
