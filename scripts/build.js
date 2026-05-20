@@ -1201,6 +1201,11 @@ function headersFile() {
 `;
 }
 
+function redirectsFile() {
+  return `https://www.ahorrosaas.es/* https://ahorrosaas.es/:splat 301
+`;
+}
+
 async function writeHtml(relativePath, html, paths, options = {}) {
   const target = path.join(dist, relativePath);
   await mkdir(path.dirname(target), { recursive: true });
@@ -1288,6 +1293,7 @@ async function main() {
   await writeFile(path.join(dist, "sitemap.xml"), sitemap(paths), "utf8");
   await writeFile(path.join(dist, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${absoluteUrl("/sitemap.xml")}\n`, "utf8");
   await writeFile(path.join(dist, "_headers"), headersFile(), "utf8");
+  await writeFile(path.join(dist, "_redirects"), redirectsFile(), "utf8");
 
   if (!existsSync(path.join(root, "dist", "index.html"))) {
     throw new Error("Build failed: dist/index.html was not created");
