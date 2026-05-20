@@ -71,7 +71,7 @@ const baseSchemaEntities = () => {
   ];
 };
 
-const buildPageSchema = ({ canonical, title, description, breadcrumbs = null, faqItems = [], itemList, softwareApp = null }) => {
+const buildPageSchema = ({ canonical, title, description, breadcrumbs = null, faqItems = [], itemList, softwareApp = null, isArticle = false }) => {
   const base = normalizeBaseUrl(site.baseUrl);
   const graph = [...baseSchemaEntities()];
   if (!canonical || !base) return graph;
@@ -120,6 +120,18 @@ const buildPageSchema = ({ canonical, title, description, breadcrumbs = null, fa
         name: it.name,
         item: it.url
       }))
+    });
+  }
+  if (isArticle) {
+    graph.push({
+      "@type": "Article",
+      "@id": `${canonical}#article`,
+      headline: title,
+      description,
+      url: canonical,
+      isPartOf: { "@id": `${canonical}#webpage` },
+      publisher: { "@id": `${base}/#organization` },
+      inLanguage: "es"
     });
   }
   if (softwareApp) {
@@ -1113,6 +1125,11 @@ function resourcePage(page) {
       ${editorialNote()}
     </section>
   </main>`;
+  const stripHtml = (html) => String(html ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const faqItems = page.sections.slice(0, 6).map((s) => ({
+    question: s.heading.endsWith("?") ? s.heading : `${s.heading}`,
+    answer: stripHtml(s.body).slice(0, 600)
+  }));
   return layout({
     title: pageTitle,
     description: page.description,
@@ -1124,7 +1141,8 @@ function resourcePage(page) {
       title: pageTitle,
       description: page.description,
       breadcrumbs: navCrumbs([{ name: page.title, path: rel }]),
-      faqItems: []
+      faqItems,
+      isArticle: true
     })
   });
 }
