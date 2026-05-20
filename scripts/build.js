@@ -528,7 +528,7 @@ function homePage(tools, categories, offers, allCats, articlePages = []) {
           const slugCat = {};
           const catNames = { automatizacion: "Automatización", seo: "SEO", "email-marketing": "Email", "funnels-ventas": "Funnels", "crm-ventas": "CRM" };
           Object.entries(ARTICLE_MAP).forEach(([catSlug, arts]) => arts.forEach(a => { slugCat[a.slug] = catNames[catSlug] ?? catSlug; }));
-          return articlePages.slice(0, 12).map(p => `<a href="/recursos/${esc(p.slug)}.html"><span>${esc(slugCat[p.slug] ?? "Guía")}</span><strong>${esc(p.title)}</strong></a>`).join("\n        ");
+          return articlePages.map(p => `<a href="/recursos/${esc(p.slug)}.html"><span>${esc(slugCat[p.slug] ?? "Guía")}</span><strong>${esc(p.title)}</strong></a>`).join("\n        ");
         })()}
       </div>
     </section>
