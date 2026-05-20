@@ -36,25 +36,51 @@ const GOOGLE_KEY = process.env.GOOGLE_CSE_KEY;
 const GOOGLE_CX  = process.env.GOOGLE_CSE_CX;
 
 async function searchGoogle(query) {
-  if (!GOOGLE_KEY || !GOOGLE_CX) return [];
+  if (!GOOGLE_KEY || !GOOGLE_CX) return null;
   const url = `https://www.googleapis.com/customsearch/v1?key=${GOOGLE_KEY}&cx=${GOOGLE_CX}&q=${encodeURIComponent(query)}&lr=lang_es&num=10`;
   try {
     const res = await fetch(url, { signal: AbortSignal.timeout(12000) });
-    if (!res.ok) { console.error(`  Google CSE error: ${res.status}`); return []; }
+    if (!res.ok) { console.error(`  Google CSE error: ${res.status} — usando DuckDuckGo`); return null; }
     const data = await res.json();
     return (data.items ?? []).map(i => i.link).filter(Boolean);
   } catch (e) {
-    console.error(`  Google CSE err: ${e.message}`);
+    console.error(`  Google CSE err: ${e.message} — usando DuckDuckGo`);
+    return null;
+  }
+}
+
+async function searchDDG(query) {
+  try {
+    const url = `https://html.duckduckgo.com/html/?q=${encodeURIComponent(query)}&kl=es-es`;
+    const res = await fetch(url, {
+      headers: { 'User-Agent': UA, 'Accept-Language': 'es-ES,es;q=0.9' },
+      signal: AbortSignal.timeout(15000),
+    });
+    if (!res.ok) return [];
+    const html = await res.text();
+    const links = [];
+    // Extract organic result URLs from result__url spans (display text like "example.com/path")
+    const re = /class="result__url"[^>]*>\s*([^\s<][^<]*?)\s*<\/a>/g;
+    let m;
+    while ((m = re.exec(html)) !== null) {
+      let raw = m[1].trim();
+      if (!raw.startsWith('http')) raw = 'https://' + raw;
+      try { new URL(raw); links.push(raw); } catch { /* invalid */ }
+    }
+    return links.slice(0, 10);
+  } catch (e) {
+    console.error(`  DDG err: ${e.message}`);
     return [];
   }
 }
 
 async function search(query) {
-  if (!GOOGLE_KEY || !GOOGLE_CX) {
-    console.error('\n⚠ Necesitas GOOGLE_CSE_KEY y GOOGLE_CSE_CX. Ver README en outreach/.\n');
-    process.exit(1);
+  if (GOOGLE_KEY && GOOGLE_CX) {
+    const results = await searchGoogle(query);
+    if (results !== null && results.length > 0) return results;
   }
-  return searchGoogle(query);
+  await sleep(1000);
+  return searchDDG(query);
 }
 
 async function extractEmails(url) {

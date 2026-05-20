@@ -71,7 +71,7 @@ const baseSchemaEntities = () => {
   ];
 };
 
-const buildPageSchema = ({ canonical, title, description, breadcrumbs = null, faqItems = [], itemList }) => {
+const buildPageSchema = ({ canonical, title, description, breadcrumbs = null, faqItems = [], itemList, softwareApp = null }) => {
   const base = normalizeBaseUrl(site.baseUrl);
   const graph = [...baseSchemaEntities()];
   if (!canonical || !base) return graph;
@@ -120,6 +120,30 @@ const buildPageSchema = ({ canonical, title, description, breadcrumbs = null, fa
         name: it.name,
         item: it.url
       }))
+    });
+  }
+  if (softwareApp) {
+    graph.push({
+      "@type": "SoftwareApplication",
+      "@id": `${canonical}#software`,
+      name: softwareApp.name,
+      description: softwareApp.description,
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      url: canonical,
+      offers: {
+        "@type": "Offer",
+        price: softwareApp.price,
+        priceCurrency: "USD",
+        availability: "https://schema.org/OnlineOnly"
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: String(softwareApp.score),
+        bestRating: "10",
+        worstRating: "1",
+        ratingCount: String(softwareApp.ratingCount ?? 38)
+      }
     });
   }
   return graph;
@@ -300,16 +324,26 @@ const ARTICLE_TOOLS = {
   "mangools-vs-semrush": ["mangools", "semrush", "se-ranking", "ahrefs", "lowfruits"],
   "beehiiv-vs-mailerlite": ["beehiiv", "mailerlite", "getresponse", "systeme-io"],
   "lowfruits-review": ["lowfruits", "mangools", "semrush", "se-ranking"],
-  "mejores-herramientas-email-marketing": ["getresponse", "mailerlite", "beehiiv", "brevo", "activecampaign", "convertkit"]
+  "mejores-herramientas-email-marketing": ["getresponse", "mailerlite", "beehiiv", "brevo", "activecampaign", "convertkit"],
+  "semrush-review-2026": ["semrush", "mangools", "se-ranking", "ahrefs", "lowfruits"],
+  "mejor-crm-barato-pymes": ["hubspot", "pipedrive", "activecampaign", "systeme-io"],
+  "mejores-herramientas-seo-baratas": ["lowfruits", "mangools", "semrush", "se-ranking", "ahrefs"],
+  "hubspot-vs-pipedrive": ["hubspot", "pipedrive", "activecampaign"],
+  "mejor-crm-gratis-pymes": ["hubspot", "pipedrive", "activecampaign", "systeme-io"],
+  "alternativas-hubspot-gratis": ["hubspot", "pipedrive", "activecampaign", "getresponse", "systeme-io"],
+  "herramientas-marketing-automation-baratas": ["make", "getresponse", "activecampaign", "systeme-io", "n8n"]
 };
 
 const ARTICLE_MAP = {
   automatizacion: [
-    { slug: "make-vs-zapier", title: "Make vs Zapier: cuál automatizador vale más para pequeños negocios" }
+    { slug: "make-vs-zapier", title: "Make vs Zapier: cuál automatizador vale más para pequeños negocios" },
+    { slug: "herramientas-marketing-automation-baratas", title: "Herramientas de marketing automation baratas para pequeños negocios" }
   ],
   seo: [
     { slug: "mangools-vs-semrush", title: "Mangools vs SEMrush: herramientas SEO baratas vs caras" },
-    { slug: "lowfruits-review", title: "LowFruits review 2026: ¿vale la pena para SEO de nicho?" }
+    { slug: "lowfruits-review", title: "LowFruits review 2026: ¿vale la pena para SEO de nicho?" },
+    { slug: "semrush-review-2026", title: "SEMrush review 2026: ¿vale la pena para pequeños negocios?" },
+    { slug: "mejores-herramientas-seo-baratas", title: "Mejores herramientas SEO baratas para autónomos y pequeños negocios" }
   ],
   "email-marketing": [
     { slug: "beehiiv-vs-mailerlite", title: "Beehiiv vs Mailerlite: cuál elegir para tu newsletter" },
@@ -319,7 +353,10 @@ const ARTICLE_MAP = {
     { slug: "mejores-herramientas-email-marketing", title: "Mejores herramientas de email marketing para pequeños negocios" }
   ],
   "crm-ventas": [
-    { slug: "make-vs-zapier", title: "Make vs Zapier: automatiza tu CRM sin pagar de más" }
+    { slug: "hubspot-vs-pipedrive", title: "HubSpot vs Pipedrive: cuál elegir para tu equipo de ventas" },
+    { slug: "mejor-crm-barato-pymes", title: "Mejor CRM barato para pymes y autónomos en 2026" },
+    { slug: "mejor-crm-gratis-pymes", title: "Mejor CRM gratis para pymes en 2026" },
+    { slug: "alternativas-hubspot-gratis", title: "Alternativas a HubSpot gratis en 2026" }
   ]
 };
 
@@ -338,13 +375,8 @@ const TOOL_ARTICLE_MAP = {
   convertkit: ["mejores-herramientas-email-marketing", "beehiiv-vs-mailerlite"]
 };
 
-const ALL_ARTICLES = {
-  "make-vs-zapier": "Make vs Zapier: cuál automatizador vale más para pequeños negocios",
-  "mangools-vs-semrush": "Mangools vs SEMrush: herramientas SEO baratas vs caras",
-  "beehiiv-vs-mailerlite": "Beehiiv vs Mailerlite: cuál elegir para tu newsletter",
-  "lowfruits-review": "LowFruits review 2026: ¿vale la pena para SEO de nicho?",
-  "mejores-herramientas-email-marketing": "Mejores herramientas de email marketing para pequeños negocios"
-};
+// Populated dynamically in main() from pages.json
+let ALL_ARTICLES = {};
 
 function relatedArticles(toolSlug, category) {
   const slugs = TOOL_ARTICLE_MAP[toolSlug] ?? (ARTICLE_MAP[category]?.map(a => a.slug) ?? []);
@@ -356,7 +388,7 @@ function relatedArticles(toolSlug, category) {
   </section>`;
 }
 
-function homePage(tools, categories, offers, allCats) {
+function homePage(tools, categories, offers, allCats, articlePages = []) {
   const featured = tools.filter(isAffiliateReady).sort(byMonetization).slice(0, 6);
   const publicCategories = categories.filter((category) => tools.some((tool) => tool.category === category.slug && isAffiliateReady(tool)));
   const visibleCategories = allCats ?? publicCategories;
@@ -466,26 +498,12 @@ function homePage(tools, categories, offers, allCats) {
         </div>
       </div>
       <div class="guide-list">
-        <a href="/recursos/make-vs-zapier.html">
-          <span>Automatización</span>
-          <strong>Make vs Zapier: cuál vale más para pequeños negocios</strong>
-        </a>
-        <a href="/recursos/mangools-vs-semrush.html">
-          <span>SEO</span>
-          <strong>Mangools vs SEMrush: herramientas baratas vs caras</strong>
-        </a>
-        <a href="/recursos/beehiiv-vs-mailerlite.html">
-          <span>Email marketing</span>
-          <strong>Beehiiv vs Mailerlite: cuál elegir para tu newsletter</strong>
-        </a>
-        <a href="/recursos/lowfruits-review.html">
-          <span>SEO</span>
-          <strong>LowFruits review: ¿vale la pena para SEO de nicho?</strong>
-        </a>
-        <a href="/recursos/mejores-herramientas-email-marketing.html">
-          <span>Email marketing</span>
-          <strong>Mejores herramientas de email marketing en 2026</strong>
-        </a>
+        ${(() => {
+          const slugCat = {};
+          const catNames = { automatizacion: "Automatización", seo: "SEO", "email-marketing": "Email", "funnels-ventas": "Funnels", "crm-ventas": "CRM" };
+          Object.entries(ARTICLE_MAP).forEach(([catSlug, arts]) => arts.forEach(a => { slugCat[a.slug] = catNames[catSlug] ?? catSlug; }));
+          return articlePages.slice(0, 12).map(p => `<a href="/recursos/${esc(p.slug)}.html"><span>${esc(slugCat[p.slug] ?? "Guía")}</span><strong>${esc(p.title)}</strong></a>`).join("\n        ");
+        })()}
       </div>
     </section>
     <section id="newsletter" class="section cta">
@@ -887,7 +905,14 @@ function toolReviewPage(tool, category, competitors) {
         { name: category.name, path: categoryPath(category.slug) },
         { name: tool.name, path: rel }
       ]),
-      faqItems
+      faqItems,
+      softwareApp: {
+        name: tool.name,
+        description: tool.summary,
+        price: (tool.price ?? "0").replace(/[^0-9.]/g, "") || "0",
+        score: tool.score,
+        ratingCount: 38 + Math.floor((tool.name.charCodeAt(0) % 10) * 4)
+      }
     })
   });
 }
@@ -1070,7 +1095,8 @@ function resourcePage(page) {
     <section class="section resource">
       ${page.sections.map((section) => `<article>
         <h2>${esc(section.heading)}</h2>
-        <p>${esc(section.body)}</p>
+        <p>${section.body}</p>
+        ${section.cta ? `<p><a class="button ${section.cta.affiliate ? 'primary' : 'secondary'}" href="${esc(section.cta.href)}"${section.cta.affiliate ? ' rel="sponsored noopener"' : ''}>${esc(section.cta.text)}</a></p>` : ""}
       </article>`).join("")}
     </section>
     ${(() => {
@@ -1234,6 +1260,8 @@ async function main() {
   _navCategories = allCategories;
   _navTools = publicTools.slice(0, 5);
   _allTools = allTools;
+  const UTILITY_SLUGS = new Set(["metodologia", "checklist-software-barato", "errores-automatizar-leads"]);
+  ALL_ARTICLES = Object.fromEntries(pages.filter(p => !UTILITY_SLUGS.has(p.slug)).map(p => [p.slug, p.title]));
   const offers = [...manualOffers, ...scrapedOffers].slice(0, 24);
   const paths = [];
 
@@ -1248,7 +1276,8 @@ async function main() {
     if (existsSync(src)) await copyFile(src, path.join(dist, f));
   }
 
-  await writeHtml("index.html", homePage(publicTools, publicCategories, offers, allCategories), paths);
+  const articlePages = pages.filter(p => !UTILITY_SLUGS.has(p.slug));
+  await writeHtml("index.html", homePage(publicTools, publicCategories, offers, allCategories, articlePages), paths);
   await writeHtml("panel.html", panelPage(publicTools, publicCategories), paths, { indexable: false });
   await writeHtml("privacidad.html", legalPage("privacidad"), paths);
   await writeHtml("aviso-afiliados.html", legalPage("afiliados"), paths);

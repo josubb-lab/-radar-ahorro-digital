@@ -642,24 +642,44 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .tool-chip {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 8px 18px;
   border-radius: 999px;
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  color: var(--text);
-  font-size: 0.9rem;
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  color: var(--ink);
+  font-size: 0.88rem;
   font-weight: 600;
   text-decoration: none;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+  box-shadow: var(--shadow-card);
 }
 .tool-chip:hover {
   border-color: var(--accent);
-  background: #f0faf4;
+  background: var(--soft);
   color: var(--accent);
+  box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+#herramientas-guia {
+  background: var(--paper-warm);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-top: 12px;
+}
+#herramientas-guia .section-head h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 4px;
 }
 
 .split {
