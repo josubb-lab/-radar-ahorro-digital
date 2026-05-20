@@ -6,6 +6,12 @@
     "price": "Desde 0 EUR",
     "affiliateUrl": "https://systeme.io/es?sa=sa02711051552922bdf2cfb82a3e3b39a805a5d5de",
     "affiliateStatus": "active",
+    "affiliateNetwork": "Nativo systeme.io",
+    "affiliateEmail": "josubb@gmail.com",
+    "commissionRate": "40% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 365,
+    "affiliateNote": "Comisión vitalicia mientras el cliente mantenga suscripción activa",
     "summary": "Todo en uno para embudos, email, automatizaciones, cursos y pagos; encaja cuando no quieres encadenar cinco herramientas.",
     "bestFor": "creadores y pequeños negocios que venden online sin equipo técnico grande",
     "pros": [
@@ -18,9 +24,7 @@
       "Puede sobrar si solo quieres una newsletter"
     ],
     "score": 8.3,
-    "featured": true,
-    "affiliateEmail": "josubb@gmail.com",
-    "affiliateNetwork": "Nativo systeme.io"
+    "featured": true
   },
   {
     "slug": "getresponse",
@@ -28,8 +32,13 @@
     "category": "email-marketing",
     "price": "Desde prueba gratis",
     "affiliateUrl": "https://try.getresponsetoday.com/ykm0htyu1ba4",
-    "affiliateNetwork": "PartnerStack",
     "affiliateStatus": "active",
+    "affiliateNetwork": "PartnerStack",
+    "affiliateEmail": "josubb@gmail.com",
+    "commissionRate": "33% recurrente o 100 USD único",
+    "commissionType": "hybrid",
+    "cookieDays": 120,
+    "affiliateNote": "Elige entre modelo recurrente o CPA fijo por conversión en dashboard PartnerStack",
     "summary": "Email, automatización, formularios y funnels ligeros en una sola cuenta; atractivo si quieres menos piezas sueltas.",
     "bestFor": "negocios que prefieren marketing y automatización sin montar cinco cuentas",
     "pros": [
@@ -42,8 +51,7 @@
       "Requiere ordenar bien los flujos"
     ],
     "score": 8.5,
-    "featured": true,
-    "affiliateEmail": "josubb@gmail.com"
+    "featured": true
   },
   {
     "slug": "make",
@@ -52,6 +60,12 @@
     "price": "Desde 0 EUR",
     "affiliateUrl": "https://www.make.com/en/register?pc=ahorrosaas",
     "affiliateStatus": "active",
+    "affiliateNetwork": "Nativo Make",
+    "affiliateEmail": "josubb@gmail.com",
+    "commissionRate": "20% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 90,
+    "affiliateNote": "Comisión aplica al primer año de suscripción del cliente",
     "summary": "Automatizador visual para unir formularios, hojas, CRM y marketing; muy potente cuando los flujos llevan lógica y bifurcaciones.",
     "bestFor": "flujos no-code con varias condiciones y sistemas conectados",
     "pros": [
@@ -64,9 +78,7 @@
       "Escenarios mal diseñados consumen operaciones"
     ],
     "score": 8.8,
-    "featured": true,
-    "affiliateEmail": "josubb@gmail.com",
-    "affiliateNetwork": "Nativo Make"
+    "featured": true
   },
   {
     "slug": "lowfruits",
@@ -75,6 +87,11 @@
     "price": "Pago por créditos",
     "affiliateUrl": "https://lowfruits.io/?via=ahorrosaas",
     "affiliateStatus": "active",
+    "affiliateNetwork": "Nativo LowFruits",
+    "affiliateEmail": "josubb@gmail.com",
+    "commissionRate": "30% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 90,
     "summary": "Enfoque long-tail: detecta consultas con señales de competencia asumible; muy útil para sitios nuevos o de nicho.",
     "bestFor": "priorizar contenido cuando no compites con medios enormes",
     "pros": [
@@ -87,9 +104,7 @@
       "Exige criterio editorial humano"
     ],
     "score": 8.5,
-    "featured": true,
-    "affiliateEmail": "josubb@gmail.com",
-    "affiliateNetwork": "Nativo LowFruits"
+    "featured": true
   },
   {
     "slug": "mangools",
@@ -98,6 +113,11 @@
     "price": "Desde bajo coste",
     "affiliateUrl": "https://mangools.com#a6a001a496aee087d83c16810",
     "affiliateStatus": "active",
+    "affiliateNetwork": "Nativo Mangools",
+    "affiliateEmail": "josubb@gmail.com",
+    "commissionRate": "30% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 30,
     "summary": "Suite SEO asequible para keyword research, SERP, backlinks básicos y seguimiento; interfaz clara para quien sale de hojas de cálculo.",
     "bestFor": "proyectos que buscan alternativa más barata y simple que suites masivas",
     "pros": [
@@ -110,9 +130,7 @@
       "Grandes agencias pueden quedarse cortas"
     ],
     "score": 8.4,
-    "featured": true,
-    "affiliateEmail": "josubb@gmail.com",
-    "affiliateNetwork": "Nativo Mangools"
+    "featured": true
   },
   {
     "slug": "semrush",
@@ -121,6 +139,13 @@
     "price": "Desde 117 USD/mes",
     "affiliateUrl": "https://example.com/go/semrush",
     "affiliateStatus": "rejected",
+    "affiliateNetwork": "Impact.com",
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "commissionRate": "200 USD/venta",
+    "commissionType": "one-time",
+    "cookieDays": 120,
+    "affiliateNote": "Rechazado por tráfico insuficiente — reintentar con >500 visitas/mes orgánicas",
+    "affiliateSignupUrl": "https://www.impact.com/marketplace/brand/semrush/",
     "summary": "Suite SEO líder con keyword research, auditorías, backlinks y seguimiento de posiciones; referencia del sector pero con precio enterprise.",
     "bestFor": "agencias y equipos con volumen de análisis SEO alto",
     "pros": [
@@ -133,9 +158,7 @@
       "Muchas funciones que no usarás en proyectos pequeños"
     ],
     "score": 9.1,
-    "featured": false,
-    "affiliateEmail": "hola@ahorrosaas.es",
-    "affiliateNetwork": "Impact.com"
+    "featured": false
   },
   {
     "slug": "ahrefs",
@@ -144,6 +167,7 @@
     "price": "Desde 129 USD/mes",
     "affiliateUrl": "https://example.com/go/ahrefs",
     "affiliateStatus": "pending",
+    "affiliateNote": "Sin programa de afiliados público actualmente",
     "summary": "Referencia en análisis de backlinks y keyword research; muy valorado por SEOs profesionales para auditorías de autoridad.",
     "bestFor": "SEOs que priorizan análisis de enlaces y competencia orgánica",
     "pros": [
@@ -164,7 +188,13 @@
     "category": "seo",
     "price": "Desde 52 USD/mes",
     "affiliateUrl": "https://example.com/go/se-ranking",
-    "affiliateStatus": "pending",
+    "affiliateStatus": "apply-now",
+    "affiliateNetwork": "PartnerStack",
+    "commissionRate": "30% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 120,
+    "affiliateNote": "Cookie de 120 días — la más larga del sector SEO. Aprobación rápida en PartnerStack.",
+    "affiliateSignupUrl": "https://seranking.com/referral-program.html",
     "summary": "Suite SEO completa con precio más asequible que Semrush o Ahrefs; buena alternativa para freelancers y agencias pequeñas.",
     "bestFor": "freelancers y agencias que necesitan suite completa sin precio enterprise",
     "pros": [
@@ -186,6 +216,7 @@
     "price": "Gratis hasta 500 URLs / 183 GBP/año",
     "affiliateUrl": "https://example.com/go/screaming-frog",
     "affiliateStatus": "pending",
+    "affiliateNote": "Sin programa de afiliados conocido",
     "summary": "Rastreador SEO técnico de referencia para auditorías on-page; imprescindible para detectar errores, redirecciones y metadatos.",
     "bestFor": "auditorías técnicas SEO en sitios medianos y grandes",
     "pros": [
@@ -207,6 +238,8 @@
     "price": "Desde 12 USD/mes o pago único",
     "affiliateUrl": "https://example.com/go/ubersuggest",
     "affiliateStatus": "pending",
+    "affiliateSignupUrl": "https://neilpatel.com/affiliates/",
+    "affiliateNote": "Programa directo via Neil Patel",
     "summary": "Herramienta SEO accesible con keyword research, auditoría y seguimiento; buena entrada para quienes empiezan con SEO.",
     "bestFor": "pequeños negocios que empiezan con SEO y quieren coste bajo",
     "pros": [
@@ -228,6 +261,7 @@
     "price": "Planes desde 15 USD/mes",
     "affiliateUrl": "https://example.com/go/alsoasked",
     "affiliateStatus": "pending",
+    "affiliateNote": "Sin programa de afiliados conocido actualmente",
     "summary": "Herramienta especializada en mapear preguntas relacionadas de 'People Also Ask'; útil para estructurar contenido con intención real.",
     "bestFor": "creadores de contenido y SEOs que quieren cubrir intención informacional",
     "pros": [
@@ -249,6 +283,7 @@
     "price": "Gratis hasta 1.000 suscriptores",
     "affiliateUrl": "https://example.com/go/mailerlite",
     "affiliateStatus": "pending",
+    "affiliateNote": "Programa de afiliados cerrado — revisar periódicamente si lo reabren",
     "summary": "Email marketing limpio y directo con automatizaciones básicas; muy popular entre newsletters y creadores por su plan gratuito generoso.",
     "bestFor": "newsletters, bloggers y creadores que empiezan a construir lista",
     "pros": [
@@ -270,6 +305,12 @@
     "price": "Gratis hasta 300 emails/día",
     "affiliateUrl": "https://example.com/go/brevo",
     "affiliateStatus": "applied",
+    "affiliateNetwork": "Nativo Brevo",
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "commissionRate": "5 EUR por lead + 100 EUR por upgrade a pago",
+    "commissionType": "hybrid",
+    "cookieDays": 90,
+    "affiliateNote": "Aprobación manual pendiente — aplicado con hola@ahorrosaas.es",
     "summary": "Email marketing y CRM ligero en un paquete; precio por emails enviados (no por contactos) lo hace competitivo con listas grandes.",
     "bestFor": "negocios con listas grandes pero envíos menos frecuentes",
     "pros": [
@@ -282,9 +323,7 @@
       "Automatizaciones algo limitadas en plan básico"
     ],
     "score": 8,
-    "featured": false,
-    "affiliateEmail": "hola@ahorrosaas.es",
-    "affiliateNetwork": "Nativo Brevo"
+    "featured": false
   },
   {
     "slug": "activecampaign",
@@ -292,7 +331,13 @@
     "category": "email-marketing",
     "price": "Desde 15 USD/mes",
     "affiliateUrl": "https://example.com/go/activecampaign",
-    "affiliateStatus": "pending",
+    "affiliateStatus": "apply-now",
+    "affiliateNetwork": "Impact.com",
+    "commissionRate": "20-30% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 90,
+    "affiliateNote": "Alta prioridad — herramienta premium con ticket medio alto. Aprobación en 2-5 días via Impact.",
+    "affiliateSignupUrl": "https://www.activecampaign.com/partner/",
     "summary": "Email marketing con automatizaciones avanzadas y CRM integrado; referencia para negocios que necesitan nurturing complejo.",
     "bestFor": "negocios que necesitan automatizaciones y segmentación avanzada",
     "pros": [
@@ -314,6 +359,11 @@
     "price": "Gratis hasta 10.000 suscriptores",
     "affiliateUrl": "https://kit.com/?via=ahorrosaas",
     "affiliateStatus": "active",
+    "affiliateNetwork": "Nativo Kit (Rewardful)",
+    "commissionRate": "30% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 90,
+    "affiliateNote": "VERIFICAR: confirmar en dashboard kit.com/affiliates que ?via=ahorrosaas registra clics",
     "summary": "Email pensado para creadores: newsletters, cursos por email y automatizaciones simples; plan gratuito muy generoso.",
     "bestFor": "creadores de contenido, escritores y podcasters",
     "pros": [
@@ -326,8 +376,7 @@
       "Menos potente para ecommerce"
     ],
     "score": 8.2,
-    "featured": false,
-    "affiliateNetwork": "via-unverified"
+    "featured": false
   },
   {
     "slug": "beehiiv",
@@ -336,6 +385,12 @@
     "price": "Gratis hasta 2.500 suscriptores",
     "affiliateUrl": "https://www.beehiiv.com/?via=ahorrosaas",
     "affiliateStatus": "active",
+    "affiliateNetwork": "Nativo Beehiiv",
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "commissionRate": "30% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 30,
+    "affiliateNote": "Comisión durante 12 meses por cada referido",
     "summary": "Plataforma de newsletter moderna con monetización integrada (suscripciones de pago, red de anunciantes) y analítica detallada.",
     "bestFor": "newsletters que quieren monetizar directamente sin herramientas extra",
     "pros": [
@@ -348,9 +403,7 @@
       "Funciones CRM inexistentes"
     ],
     "score": 8.3,
-    "featured": false,
-    "affiliateEmail": "hola@ahorrosaas.es",
-    "affiliateNetwork": "Nativo Beehiiv"
+    "featured": false
   },
   {
     "slug": "buttondown",
@@ -359,6 +412,11 @@
     "price": "Gratis hasta 100 suscriptores",
     "affiliateUrl": "https://buttondown.email/?via=ahorrosaas",
     "affiliateStatus": "active",
+    "affiliateNetwork": "Nativo Buttondown",
+    "commissionRate": "25% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 60,
+    "affiliateNote": "VERIFICAR: confirmar en dashboard buttondown.email/affiliate que ?via=ahorrosaas registra clics",
     "summary": "Newsletter minimalista para escritores técnicos; API potente, sin distracciones, orientado a quien prefiere escribir en Markdown.",
     "bestFor": "desarrolladores y escritores técnicos que priorizan simplicidad",
     "pros": [
@@ -371,8 +429,7 @@
       "Diseño muy básico"
     ],
     "score": 7.4,
-    "featured": false,
-    "affiliateNetwork": "via-unverified"
+    "featured": false
   },
   {
     "slug": "zapier",
@@ -381,6 +438,12 @@
     "price": "Gratis 5 Zaps / desde 19 USD/mes",
     "affiliateUrl": "https://example.com/go/zapier",
     "affiliateStatus": "pending",
+    "affiliateNetwork": "Impact.com",
+    "commissionRate": "25% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 90,
+    "affiliateSignupUrl": "https://zapier.com/affiliate",
+    "affiliateNote": "Aplicar en Impact.com — requiere aprobación manual",
     "summary": "El referente en automatización no-code con más de 6.000 integraciones; más sencillo que Make pero con menos flexibilidad en flujos complejos.",
     "bestFor": "automatizaciones simples entre apps populares sin curva de aprendizaje",
     "pros": [
@@ -402,6 +465,10 @@
     "price": "Self-hosted gratis / cloud desde 20 EUR/mes",
     "affiliateUrl": "https://n8n.io/?via=ahorrosaas",
     "affiliateStatus": "active",
+    "affiliateNetwork": "via-unverified",
+    "commissionRate": "desconocida",
+    "affiliateNote": "ALERTA: el programa de n8n es vía PartnerStack — ?via=ahorrosaas puede NO trackear. Verificar en n8n.io/affiliate y obtener link correcto.",
+    "affiliateSignupUrl": "https://n8n.io/affiliate/",
     "summary": "Automatizador open-source con opción self-hosted; máxima flexibilidad y control para quienes tienen perfil técnico.",
     "bestFor": "equipos técnicos que quieren control total sin pagar por operaciones",
     "pros": [
@@ -414,8 +481,7 @@
       "Cloud más caro que alternativas"
     ],
     "score": 8.6,
-    "featured": false,
-    "affiliateNetwork": "via-unverified"
+    "featured": false
   },
   {
     "slug": "pabbly-connect",
@@ -424,6 +490,10 @@
     "price": "Pago único desde 249 USD",
     "affiliateUrl": "https://example.com/go/pabbly-connect",
     "affiliateStatus": "pending",
+    "commissionRate": "30% de la venta",
+    "commissionType": "one-time",
+    "affiliateSignupUrl": "https://www.pabbly.com/affiliate/",
+    "affiliateNote": "Programa directo — comisión sobre pago único, buena por ticket alto",
     "summary": "Alternativa a Zapier con modelo de pago único; sin límite de flujos ni tareas en planes de por vida.",
     "bestFor": "quienes quieren automatización sin suscripción mensual recurrente",
     "pros": [
@@ -445,6 +515,11 @@
     "price": "Gratis con límites / Pro 29 USD/mes",
     "affiliateUrl": "https://tally.so/?via=ahorrosaas",
     "affiliateStatus": "active",
+    "affiliateNetwork": "Nativo Tally (Rewardful)",
+    "commissionRate": "20% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 30,
+    "affiliateNote": "VERIFICAR: confirmar en dashboard tally.so que ?via=ahorrosaas registra clics",
     "summary": "Formularios gratuitos y potentes con lógica condicional, pagos integrados e integraciones directas; alternativa honesta a Typeform.",
     "bestFor": "crear formularios avanzados gratis o con bajo coste",
     "pros": [
@@ -457,8 +532,7 @@
       "Funciones de reporte básicas"
     ],
     "score": 8.1,
-    "featured": false,
-    "affiliateNetwork": "via-unverified"
+    "featured": false
   },
   {
     "slug": "neuronwriter",
@@ -467,6 +541,11 @@
     "price": "Desde 23 EUR/mes",
     "affiliateUrl": "https://neuronwriter.com/?via=ahorrosaas",
     "affiliateStatus": "active",
+    "affiliateNetwork": "Nativo NeuronWriter",
+    "commissionRate": "30% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 60,
+    "affiliateNote": "VERIFICAR: confirmar en dashboard neuronwriter.com que ?via=ahorrosaas registra clics",
     "summary": "Redacción de contenido optimizado para SEO con análisis de SERP y NLP; guía para superar a la competencia en posicionamiento.",
     "bestFor": "redactores y SEOs que quieren optimizar contenido con datos de SERP",
     "pros": [
@@ -479,8 +558,7 @@
       "Calidad de IA menor que GPT-4"
     ],
     "score": 8,
-    "featured": false,
-    "affiliateNetwork": "via-unverified"
+    "featured": false
   },
   {
     "slug": "chatgpt",
@@ -489,6 +567,7 @@
     "price": "Gratis / Plus 20 USD/mes",
     "affiliateUrl": "https://example.com/go/chatgpt",
     "affiliateStatus": "pending",
+    "affiliateNote": "OpenAI no tiene programa de afiliados público actualmente",
     "summary": "El referente en IA generativa; útil para borradores, ideación, resúmenes y asistencia en redacción con los mejores modelos disponibles.",
     "bestFor": "cualquier tarea de escritura, ideación o asistencia con texto",
     "pros": [
@@ -510,6 +589,10 @@
     "price": "Gratis / Pro 49 USD/mes",
     "affiliateUrl": "https://www.copy.ai/?via=ahorrosaas",
     "affiliateStatus": "active",
+    "affiliateNetwork": "via-unverified",
+    "commissionRate": "por verificar",
+    "affiliateNote": "VERIFICAR: el programa de Copy.ai es via PartnerStack — confirmar que ?via=ahorrosaas trackea o conseguir link de PartnerStack",
+    "affiliateSignupUrl": "https://www.copy.ai/partners",
     "summary": "IA para copywriting y contenido de marketing con plantillas específicas por caso de uso; útil para acelerar producción de textos comerciales.",
     "bestFor": "marketers que necesitan copys, emails y posts rápido",
     "pros": [
@@ -522,8 +605,7 @@
       "Precio alto en planes de equipo"
     ],
     "score": 7.7,
-    "featured": false,
-    "affiliateNetwork": "via-unverified"
+    "featured": false
   },
   {
     "slug": "notion",
@@ -532,6 +614,7 @@
     "price": "Gratis / Plus 10 USD/mes",
     "affiliateUrl": "https://example.com/go/notion",
     "affiliateStatus": "pending",
+    "affiliateNote": "Solo créditos internos, sin comisión en efectivo — no priorizar",
     "summary": "Espacio de trabajo todo en uno con IA integrada; combina notas, bases de datos, docs y proyectos en un único lugar.",
     "bestFor": "equipos que quieren centralizar conocimiento y proyectos sin múltiples apps",
     "pros": [
@@ -553,6 +636,10 @@
     "price": "Gratis / Pro 14 EUR/mes",
     "affiliateUrl": "https://example.com/go/canva",
     "affiliateStatus": "pending",
+    "affiliateNetwork": "Impact.com",
+    "commissionRate": "por definir (programa activo en Impact)",
+    "affiliateSignupUrl": "https://www.canva.com/affiliates/",
+    "affiliateNote": "Aplicar en Impact.com — buena marca, alta conversión",
     "summary": "Diseño gráfico accesible con IA integrada para generar imágenes, presentaciones y contenido visual sin conocimientos de diseño.",
     "bestFor": "negocios y creadores que producen contenido visual sin diseñador",
     "pros": [
@@ -574,6 +661,11 @@
     "price": "Desde 97 USD/mes",
     "affiliateUrl": "https://example.com/go/clickfunnels",
     "affiliateStatus": "pending",
+    "commissionRate": "40% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 45,
+    "affiliateSignupUrl": "https://www.clickfunnels.com/affiliate-program",
+    "affiliateNote": "Comisión alta pero precio elevado reduce conversión — prioridad media",
     "summary": "Constructor de funnels de ventas de referencia; orientado a infoproductos, webinars y ventas directas con seguimiento integrado.",
     "bestFor": "marketers que venden productos digitales o servicios con funnels de ventas",
     "pros": [
@@ -594,7 +686,13 @@
     "category": "crm-ventas",
     "price": "CRM gratis / Marketing desde 15 USD/mes",
     "affiliateUrl": "https://example.com/go/hubspot",
-    "affiliateStatus": "pending",
+    "affiliateStatus": "apply-now",
+    "affiliateNetwork": "Impact.com",
+    "commissionRate": "30% recurrente (hasta 1.000 USD/mes por cuenta)",
+    "commissionType": "recurring",
+    "cookieDays": 90,
+    "affiliateNote": "MÁXIMA PRIORIDAD — comisión más alta del portfolio. Aprobación en 2-5 días via Impact.",
+    "affiliateSignupUrl": "https://www.hubspot.com/partners/affiliate-program",
     "summary": "Suite completa de CRM, marketing y ventas; el plan gratuito de CRM es referencia del sector, aunque los módulos avanzados escalan en precio.",
     "bestFor": "equipos comerciales que quieren CRM gratuito para empezar",
     "pros": [
@@ -616,6 +714,12 @@
     "price": "Desde 14 EUR/mes",
     "affiliateUrl": "https://example.com/go/pipedrive",
     "affiliateStatus": "pending",
+    "affiliateNetwork": "PartnerStack",
+    "commissionRate": "33% recurrente",
+    "commissionType": "recurring",
+    "cookieDays": 90,
+    "affiliateSignupUrl": "https://www.pipedrive.com/en/partners/affiliate",
+    "affiliateNote": "Buen programa, 33% recurrente — aplicar después de SE Ranking y ActiveCampaign",
     "summary": "CRM orientado a ventas con pipeline visual y enfoque en seguimiento de oportunidades; más sencillo que HubSpot para equipos comerciales.",
     "bestFor": "equipos comerciales pequeños que priorizan gestión de pipeline",
     "pros": [
@@ -637,6 +741,11 @@
     "price": "Desde 14 USD/mes",
     "affiliateUrl": "https://example.com/go/cloudways",
     "affiliateStatus": "pending",
+    "commissionRate": "30 USD/venta + 7% recurrente",
+    "commissionType": "hybrid",
+    "cookieDays": 90,
+    "affiliateSignupUrl": "https://www.cloudways.com/en/affiliates.php",
+    "affiliateNote": "Programa directo — buen complemento para Hostinger en segmento cloud",
     "summary": "Hosting cloud gestionado sobre AWS, DigitalOcean y otros; potencia de cloud sin gestionar servidores, orientado a WordPress y PHP.",
     "bestFor": "webs WordPress con tráfico medio-alto que necesitan más potencia que un hosting compartido",
     "pros": [
@@ -658,6 +767,11 @@
     "price": "Gratis / CMS desde 23 USD/mes",
     "affiliateUrl": "https://example.com/go/webflow",
     "affiliateStatus": "pending",
+    "commissionRate": "50% primer año",
+    "commissionType": "one-time",
+    "cookieDays": 90,
+    "affiliateSignupUrl": "https://webflow.com/affiliates",
+    "affiliateNote": "50% del primer año es comisión generosa — aplicar cuando haya contenido de diseño web",
     "summary": "Constructor web visual de alto nivel con CMS integrado y hosting incluido; entre el no-code y el código real.",
     "bestFor": "diseñadores y agencias que quieren control visual sin programar",
     "pros": [
@@ -679,6 +793,12 @@
     "price": "Desde 2 EUR/mes",
     "affiliateUrl": "https://www.hostinger.com?REFERRALCODE=KIRJOSUBB9WB",
     "affiliateStatus": "active",
+    "affiliateNetwork": "Referral Hostinger",
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "commissionRate": "~60% primera venta",
+    "commissionType": "one-time",
+    "cookieDays": 30,
+    "affiliateNote": "Entre 40-100 EUR por primera venta según plan contratado",
     "summary": "Hosting compartido de bajo coste con buen rendimiento para WordPress; opción de entrada muy competitiva para proyectos nuevos.",
     "bestFor": "proyectos nuevos, blogs y pequeños negocios que priorizan coste",
     "pros": [
@@ -691,9 +811,7 @@
       "Rendimiento bajo con picos de tráfico"
     ],
     "score": 7.8,
-    "featured": false,
-    "affiliateEmail": "hola@ahorrosaas.es",
-    "affiliateNetwork": "Referral Hostinger"
+    "featured": false
   },
   {
     "slug": "nordvpn",
@@ -702,6 +820,12 @@
     "price": "Desde 3 EUR/mes",
     "affiliateUrl": "https://example.com/go/nordvpn",
     "affiliateStatus": "applied",
+    "affiliateNetwork": "Impact.com",
+    "affiliateEmail": "hola@ahorrosaas.es",
+    "commissionRate": "40% primera compra + 30% renovaciones",
+    "commissionType": "hybrid",
+    "cookieDays": 30,
+    "affiliateNote": "Aprobación pendiente en Impact.com — comisión muy buena si se aprueba",
     "summary": "VPN premium con fuerte reputación de seguridad, servidores en 60 países y funciones extra como Meshnet y Threat Protection.",
     "bestFor": "usuarios que priorizan seguridad y privacidad con buen rendimiento",
     "pros": [
@@ -714,9 +838,7 @@
       "Auditorías independientes a veces cuestionadas"
     ],
     "score": 8.6,
-    "featured": false,
-    "affiliateEmail": "hola@ahorrosaas.es",
-    "affiliateNetwork": "Impact.com"
+    "featured": false
   },
   {
     "slug": "surfshark",
@@ -725,6 +847,12 @@
     "price": "Desde 2 EUR/mes",
     "affiliateUrl": "https://example.com/go/surfshark",
     "affiliateStatus": "pending",
+    "affiliateNetwork": "Impact.com",
+    "commissionRate": "40% primera compra + 30% renovaciones",
+    "commissionType": "hybrid",
+    "cookieDays": 30,
+    "affiliateSignupUrl": "https://surfshark.com/affiliates",
+    "affiliateNote": "Mismo nivel de comisión que NordVPN — aplicar en paralelo",
     "summary": "VPN con precio competitivo, dispositivos ilimitados y funciones de privacidad sólidas; buena relación precio-prestaciones.",
     "bestFor": "familias o equipos que necesitan conectar muchos dispositivos",
     "pros": [
