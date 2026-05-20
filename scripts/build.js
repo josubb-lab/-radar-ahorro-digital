@@ -410,10 +410,10 @@ function homePage(tools, categories, offers, allCats, articlePages = []) {
       </div>
     </section>
     <section class="trust-strip" aria-label="Métricas del comparador">
-      <span>33 herramientas comparadas</span>
-      <span>8 categorías de software</span>
-      <span>5 programas de afiliación verificados</span>
-      <span>Actualizado mayo 2026</span>
+      <span>${_allTools.length} herramientas comparadas</span>
+      <span>${(allCats ?? categories).length} categorías de software</span>
+      <span>${tools.filter(isAffiliateReady).length} programas de afiliación verificados</span>
+      <span>Actualizado ${new Intl.DateTimeFormat("es-ES", { month: "long", year: "numeric" }).format(new Date())}</span>
     </section>
     <section id="comparador" class="section">
       <div class="section-head">
