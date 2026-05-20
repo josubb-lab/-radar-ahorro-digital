@@ -10,6 +10,9 @@
     "deploy:cloudflare": "npm run build && npx wrangler pages deploy dist --project-name ahorrosaas --branch master",
     "parasite": "node scripts/parasite-seo.js",
     "parasite:dry": "node scripts/parasite-seo.js --dry",
-    "indexnow": "node scripts/indexnow.js"
+    "indexnow": "node scripts/indexnow.js",
+    "tier2": "node scripts/tier2.js",
+    "niche-edit": "node scripts/niche-edit.js --prospect",
+    "niche-edit:send": "GMAIL_USER=josubb@gmail.com GMAIL_PASS=$GMAIL_PASS node scripts/niche-edit.js --send"
   }
 }

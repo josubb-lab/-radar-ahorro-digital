@@ -9,6 +9,7 @@ const ROOT = join(__dirname, '..');
 
 const tools = JSON.parse(readFileSync(join(ROOT, 'data/tools.json'), 'utf8'));
 const categories = JSON.parse(readFileSync(join(ROOT, 'data/categories.json'), 'utf8'));
+const pages = JSON.parse(readFileSync(join(ROOT, 'data/pages.json'), 'utf8'));
 const site = JSON.parse(readFileSync(join(ROOT, 'data/site.json'), 'utf8'));
 
 const BASE = site.baseUrl;
@@ -102,6 +103,22 @@ Filtramos por precio, funciones y casos de uso para que no tengas que hacer el t
 *[AhorroSaaS.es](${BASE}) — software asequible para pequeños negocios. Actualizado mayo 2026.*`;
 
   return { title, body };
+}
+
+function articleParasite(page) {
+  const sectionsText = page.sections.map(s => `## ${s.heading}\n\n${s.body}`).join('\n\n');
+  const body = `# ${page.title}
+
+${page.description}
+
+${sectionsText}
+
+---
+*Artículo completo con herramientas recomendadas: [${BASE}/recursos/${page.slug}/](${BASE}/recursos/${page.slug}/)*
+
+*[AhorroSaaS.es](${BASE}) — comparativas de software asequible para pequeños negocios. Actualizado mayo 2026.*`;
+
+  return { title: page.title, body };
 }
 
 // ── Markdown → Telegraph nodes ───────────────────────────────────────
@@ -252,6 +269,16 @@ async function main() {
     console.log(`\nCategory: ${cat.slug}`);
     const { title, body } = categoryArticle(cat);
     await publish(`cat:${cat.slug}`, title, body);
+    await delay(2000);
+  }
+
+  const articleSlugs = ['make-vs-zapier', 'mangools-vs-semrush', 'beehiiv-vs-mailerlite', 'lowfruits-review', 'mejores-herramientas-email-marketing'];
+  for (const slug of articleSlugs) {
+    const page = pages.find(p => p.slug === slug);
+    if (!page) continue;
+    console.log(`\nArticle: ${slug}`);
+    const { title, body } = articleParasite(page);
+    await publish(`article:${slug}`, title, body);
     await delay(2000);
   }
 
