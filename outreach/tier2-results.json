@@ -1398,5 +1398,75 @@
       "blogsnow.com": "err",
       "blogdigger.com": "http:404"
     }
+  },
+  "https://herramientas-seo-baratas.pages.dev": {
+    "ts": "2026-05-20T20:10:03.067Z",
+    "wayback": "err",
+    "pings": {
+      "rpc.pingomatic.com": "ok",
+      "blogsearch.google.com": "http:429",
+      "ping.blogs.yam.com": "http:404",
+      "ping.feedburner.com": "http:400",
+      "rpc.weblogs.com": "err",
+      "ping.syndic8.com": "err",
+      "blogsnow.com": "err",
+      "blogdigger.com": "http:404"
+    }
+  },
+  "https://email-marketing-espanol.pages.dev": {
+    "ts": "2026-05-20T20:10:52.345Z",
+    "wayback": "err",
+    "pings": {
+      "rpc.pingomatic.com": "ok",
+      "blogsearch.google.com": "http:429",
+      "ping.blogs.yam.com": "http:404",
+      "ping.feedburner.com": "http:400",
+      "rpc.weblogs.com": "err",
+      "ping.syndic8.com": "err",
+      "blogsnow.com": "err",
+      "blogdigger.com": "http:404"
+    }
+  },
+  "https://automatizacion-no-code.pages.dev": {
+    "ts": "2026-05-20T20:11:40.469Z",
+    "wayback": "err",
+    "pings": {
+      "rpc.pingomatic.com": "ok",
+      "blogsearch.google.com": "http:429",
+      "ping.blogs.yam.com": "http:404",
+      "ping.feedburner.com": "http:400",
+      "rpc.weblogs.com": "err",
+      "ping.syndic8.com": "err",
+      "blogsnow.com": "err",
+      "blogdigger.com": "http:404"
+    }
+  },
+  "https://software-ia-contenido.pages.dev": {
+    "ts": "2026-05-20T20:12:29.258Z",
+    "wayback": "err",
+    "pings": {
+      "rpc.pingomatic.com": "ok",
+      "blogsearch.google.com": "http:429",
+      "ping.blogs.yam.com": "http:404",
+      "ping.feedburner.com": "http:400",
+      "rpc.weblogs.com": "err",
+      "ping.syndic8.com": "err",
+      "blogsnow.com": "err",
+      "blogdigger.com": "http:404"
+    }
+  },
+  "https://crm-barato-pymes.pages.dev": {
+    "ts": "2026-05-20T20:13:17.682Z",
+    "wayback": "err",
+    "pings": {
+      "rpc.pingomatic.com": "ok",
+      "blogsearch.google.com": "http:429",
+      "ping.blogs.yam.com": "http:404",
+      "ping.feedburner.com": "http:400",
+      "rpc.weblogs.com": "err",
+      "ping.syndic8.com": "err",
+      "blogsnow.com": "err",
+      "blogdigger.com": "http:404"
+    }
   }
 }
