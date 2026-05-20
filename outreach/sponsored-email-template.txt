@@ -1,0 +1,42 @@
+ASUNTO: Colaboración editorial — [NombreHerramienta] en AhorroSaaS.es
+
+---
+
+Hola [nombre o equipo de marketing],
+
+Gestiono AhorroSaaS.es, un comparador independiente de herramientas SaaS enfocado en pequeños negocios y autónomos en España y Latinoamérica.
+
+Tenemos ya publicado un análisis de [NombreHerramienta] en [URL de la página]. Estoy preparando una versión ampliada con casos de uso reales, comparativa de precios y una sección de primeros pasos — contenido que suele posicionar bien para búsquedas de compra.
+
+¿Os interesaría patrocinar ese contenido por [PRECIO]€? Incluiría:
+- Análisis en profundidad (1.500+ palabras)
+- Enlace dofollow permanente
+- CTA destacado en la página de categoría
+- Mención en el newsletter cuando lo publiquemos
+
+El nicho hispanohablante está poco cubierto en comparativas honestas — es una oportunidad de visibilidad antes de que llegue la competencia.
+
+Si queréis ver el sitio: ahorrosaas.es
+
+Un saludo,
+Josue
+josue@benchdatalab.com | ahorrosaas.es
+
+---
+
+VARIANTE CORTA (si tienen formulario de contacto o LinkedIn):
+
+Hola, gestiono AhorroSaaS.es — comparador de SaaS para el mercado español.
+
+Ya tenemos publicada una página sobre [NombreHerramienta]. Ofrezco patrocinio editorial (análisis completo + enlace permanente) por [PRECIO]€. ¿Es algo que os interesa explorar?
+
+josue@benchdatalab.com
+
+---
+
+NOTAS DE USO:
+- Prioridad 1 primero (LowFruits, NeuronWriter, Pabbly, Mangools, SE Ranking, Tally)
+- Personalizar siempre: mencionar la URL exacta de su página en el sitio
+- Si no responden en 5 días, un follow-up corto: "¿llegó mi email anterior?"
+- Registrar respuestas en sponsored-targets.csv añadiendo columna "estado"
+- Precio negociable: si piden rebaja, ofrecer 2 artículos por 1.5x el precio unitario

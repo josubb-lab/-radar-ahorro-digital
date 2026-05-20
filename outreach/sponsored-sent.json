@@ -1,0 +1,26 @@
+{
+  "hello@lowfruits.io": {
+    "company": "LowFruits",
+    "sent_at": "2026-05-20T20:39:04.714Z"
+  },
+  "contact@neuronwriter.com": {
+    "company": "NeuronWriter",
+    "sent_at": "2026-05-20T20:39:17.997Z"
+  },
+  "support@pabbly.com": {
+    "company": "Pabbly Connect",
+    "sent_at": "2026-05-20T20:39:30.196Z"
+  },
+  "hello@mangools.com": {
+    "company": "Mangools",
+    "sent_at": "2026-05-20T20:39:44.530Z"
+  },
+  "marketing@seranking.com": {
+    "company": "SE Ranking",
+    "sent_at": "2026-05-20T20:39:57.777Z"
+  },
+  "hello@tally.so": {
+    "company": "Tally",
+    "sent_at": "2026-05-20T20:40:12.180Z"
+  }
+}

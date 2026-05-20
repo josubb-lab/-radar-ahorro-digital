@@ -1,60 +1,112 @@
-# Outreach — setup
+# Outreach — AhorroSaaS
 
-## Niche edit prospector
+Dos estrategias activas: **niche edits** (link exchange gratuito) y **contenido patrocinado** (ingresos directos).
 
-Necesita Google Custom Search API (gratis, 100 búsquedas/día).
+---
 
-### 1. Activar la API
+## 1. Contenido patrocinado
 
-1. Ve a https://console.cloud.google.com
-2. Crea un proyecto o usa uno existente
-3. Busca "Custom Search API" → Habilitar
-4. Ve a Credenciales → Crear credencial → Clave de API
-5. Copia la clave → es tu `GOOGLE_CSE_KEY`
+Ofrecer artículos en profundidad sobre una herramienta a cambio de pago. Más rápido que esperar tráfico orgánico.
 
-### 2. Crear el buscador
+### Archivos
+- `sponsored-targets.csv` — 15 empresas objetivo con precio, email y página del sitio
+- `sponsored-sent.json` — tracking de envíos (evita duplicados)
+- `sponsored-email-template.txt` — plantilla base y variante corta
 
-1. Ve a https://cse.google.com
-2. Crear buscador → en "Sitios a buscar" pon `*` (toda la web)
-3. Copiar el ID del buscador → es tu `GOOGLE_CSE_CX`
+### Estado actual
+| Prioridad | Empresa | Email | Precio | Estado |
+|-----------|---------|-------|--------|--------|
+| 1 | LowFruits | hello@lowfruits.io | 150€ | Enviado 2026-05-20 |
+| 1 | NeuronWriter | contact@neuronwriter.com | 150€ | Enviado 2026-05-20 |
+| 1 | Pabbly Connect | support@pabbly.com | 120€ | Enviado 2026-05-20 |
+| 1 | Mangools | hello@mangools.com | 180€ | Enviado 2026-05-20 |
+| 1 | SE Ranking | marketing@seranking.com | 200€ | Enviado 2026-05-20 |
+| 1 | Tally | hello@tally.so | 100€ | Enviado 2026-05-20 |
+| 1.5 | Beehiiv | hello@beehiiv.com | 180€ | Pendiente próxima ronda |
+| 1.5 | AlsoAsked | formulario web | 100€ | Pendiente próxima ronda |
+| 2 | Brevo | partnerships@brevo.com | 200€ | En cola |
+| 2 | GetResponse | partnerships@getresponse.com | 200€ | En cola |
+| 2 | MailerLite | partnerships@mailerlite.com | 150€ | En cola |
 
-### 3. Ejecutar
-
+### Comandos
 ```bash
-GOOGLE_CSE_KEY=AIza... GOOGLE_CSE_CX=a1b2c3... node scripts/niche-edit.js --prospect --limit 100
+# Simular antes de enviar
+GMAIL_PASS=xxxx node scripts/sponsored-outreach.js --dry --priority 1
+
+# Enviar prioridad 1
+GMAIL_PASS=xxxx node scripts/sponsored-outreach.js --priority 1
+
+# Enviar siguiente ronda (1.5 no existe como filtro — cambiar priority a 1 en CSV)
+GMAIL_PASS=xxxx node scripts/sponsored-outreach.js --priority 2
+
+# Follow-up (5 días sin respuesta) — editar plantilla en sponsored-email-template.txt
 ```
 
-O añade al .env (no commitear):
-```
-GOOGLE_CSE_KEY=AIza...
-GOOGLE_CSE_CX=a1b2c3...
-```
+### Protocolo de respuesta
+- **Interesado**: enviar propuesta con detalle de la página existente + precio firme
+- **Pide rebaja**: ofrecer 2 artículos por 1.5x el precio unitario
+- **No responde en 5 días**: follow-up de una línea: *"¿llegó mi email del [fecha]?"*
+- **Rechaza**: agradecer y preguntar si prefieren otro formato (review corta, mención, etc.)
 
-Luego:
+---
+
+## 2. Niche edits (link exchange)
+
+Solicitar que webmasters añadan un enlace a ahorrosaas.es en artículos existentes, a cambio de reciprocidad.
+
+### Archivos
+- `niche-edit-queries.txt` — 242 queries para prospectar en Google/DuckDuckGo
+- `prospects_clean.csv` — 69 prospectos con email extraído
+- `sent.json` — 60 emails enviados (tracking)
+
+### Comandos
 ```bash
-node scripts/niche-edit.js --prospect           # encuentra prospectos → outreach/prospects.csv
-node scripts/niche-edit.js --prospect --limit 50  # solo 50 queries (50 de 100 cuota diaria)
+# Buscar nuevos prospectos (requiere GOOGLE_CSE_KEY y GOOGLE_CSE_CX opcionales)
+node scripts/niche-edit.js --prospect --limit 30
+
+# Simular envío
+GMAIL_PASS=xxxx node scripts/niche-edit.js --send --dry
+
+# Enviar (con límite de seguridad)
+GMAIL_PASS=xxxx node scripts/niche-edit.js --send --limit 20
+
+# Test de email a ti mismo
+GMAIL_PASS=xxxx node scripts/niche-edit.js --test
 ```
 
-## Envío de emails (link exchange)
+### Setup Google Custom Search (opcional, mejora resultados)
+1. https://console.cloud.google.com → habilitar Custom Search API → crear clave
+2. https://cse.google.com → crear buscador `*` (toda la web) → copiar CX
+3. Usar: `GOOGLE_CSE_KEY=AIza... GOOGLE_CSE_CX=... node scripts/niche-edit.js --prospect`
 
-Necesita App Password de Gmail:
-1. Google Account → Seguridad → Verificación en 2 pasos → Contraseñas de aplicación
-2. Crear una para "Mail" → copiar las 16 letras
+---
 
+## 3. Tier-2
+
+Pingar URLs parásitas (Telegraph, Write.as, Rentry) a Wayback Machine y servicios XML-RPC para acelerar indexación.
+
+### Archivos
+- `tier2-urls.txt` — 105 URLs (100 parásitas + 5 satélites)
+- `tier2-results.json` — resultados por URL (resumable)
+
+### Comandos
 ```bash
-GMAIL_USER=josubb@gmail.com GMAIL_PASS=xxxx-xxxx-xxxx-xxxx node scripts/niche-edit.js --send --dry
-# quita --dry para enviar de verdad
+node scripts/tier2.js    # Procesa solo las pendientes, guarda progreso
 ```
 
-## Tier-2
+### Estado
+- 105/105 procesadas
+- Wayback Machine: 12 guardadas (rate limit en nuevas)
+- Pingomatic: 105 OK
 
-```bash
-node scripts/tier2.js   # pinga las 100 URLs parásitas (resumable)
-```
+---
 
-## Archivos generados
+## Gmail App Password
 
-- `prospects.csv` — prospectos con email, dominio, query y categoría
-- `sent.json` — emails ya enviados (evita duplicados)
-- `tier2-results.json` — resultados de pings
+Cuenta: `josue@benchdatalab.com`  
+Password de aplicación: ver en Google Account → Seguridad → Contraseñas de aplicación  
+(No commitear en el repo)
+
+Para crear una nueva:
+1. myaccount.google.com → Seguridad → Verificación en 2 pasos → Contraseñas de aplicación
+2. Crear para "Correo" → copiar las 16 letras sin espacios
